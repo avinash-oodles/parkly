@@ -1,5 +1,5 @@
 import Typography from "@/components/Typography/Typograpghy";
-import Container from "@/components/Containers/Container";
+import Container from "@/components/Container/Container";
 
 export default function Home() {
   return (
