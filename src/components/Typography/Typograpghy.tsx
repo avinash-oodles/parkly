@@ -33,6 +33,12 @@ export interface TypographyProps {
   /** Text decoration */
   textDecoration?: React.CSSProperties['textDecoration'];
   
+  /** Line height in pixels */
+  lineHeight?: number;
+  
+  /** Letter spacing in rem */
+  letterSpacing?: number;
+
   /** For anchor tags */
   href?: string;
   
@@ -60,6 +66,8 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps>(
       align,
       maxLines,
       textDecoration,
+      lineHeight,        // Add this
+      letterSpacing,     // Add this
       href,
       title,
       onClick,
@@ -103,6 +111,8 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps>(
       color,
       textAlign: align,
       textDecoration,
+      lineHeight: lineHeight ? `${lineHeight}px` : undefined,           
+      letterSpacing: letterSpacing ? `${letterSpacing}rem` : undefined, 
       cursor: onClick || href ? 'pointer' : undefined,
       ...(maxLines && {
         display: '-webkit-box',

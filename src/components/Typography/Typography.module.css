@@ -1,7 +1,6 @@
 
 /* H1 */
 .h1-txt {
-  font-weight: 700;
   font-size: 48px;
   line-height: 56px;
   letter-spacing: 0;
@@ -10,34 +9,30 @@
 
 /* H2 */
 .h2-txt {
-  font-weight: 600;
   font-size: 40px;
   line-height: 44px;
-  letter-spacing: -0.25px;
+  letter-spacing: 0;
   font-family: var(--font-poppins);
 }
 
 /* H3 */
 .h3-txt {
-  font-weight: 600;
   font-size: 24px;
   line-height: 32px;
-  letter-spacing: -0.25px;
+  letter-spacing: 0;
   font-family: var(--font-poppins);
 }
 
 /* Body */
 .body-txt {
-  font-weight: 400;
   font-size: 20px;
   line-height: 28px;
-  letter-spacing: -0.25px;
+  letter-spacing: 0;
   font-family: var(--font-inter);
 }
 
 /* Paragraph */
 .para-txt {
-  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0;
@@ -46,14 +41,32 @@
 
 /* Chip */
 .chip-txt {
-  font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 1%;
-  letter-spacing: -0.25px;
+  letter-spacing: 0;
   font-family: var(--font-inter);
 }
 
+.font-300 {
+  font-weight: 300;
+}
+
+.font-400 {
+  font-weight: 400;
+}
+
+.font-500 {
+  font-weight: 500;
+}
+
+.font-600 {
+  font-weight: 600;
+}
+
+.font-700 {
+  font-weight: 700;
+}
 
 /* ----------------------
    ≤ 1440px (Large Desktop)

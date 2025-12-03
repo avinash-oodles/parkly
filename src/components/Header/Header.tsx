@@ -63,7 +63,7 @@ const Header: FC = () => {
                                                 priority
                                             />
                                         </div>
-                                        <Typography variant="para" className="text-black-700 font-medium!">
+                                        <Typography variant="para" weight={500} className="text-black-700">
                                             EN
                                         </Typography>
                                     </div>
@@ -163,7 +163,7 @@ const Header: FC = () => {
                                     <div className="flex items-center gap-2 relative w-4 h-4">
                                         <Image src={world} alt="world" fill className="object-contain" sizes="100%" priority />
                                     </div>
-                                    <Typography variant="para" className="font-medium! text-black-700">
+                                    <Typography variant="para" weight={500} className=" text-black-700">
                                         EN
                                     </Typography>
                                 </div>
