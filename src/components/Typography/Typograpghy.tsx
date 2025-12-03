@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-const */
 import React, { MouseEventHandler, ReactNode } from 'react';
 import styles from "./Typography.module.css";
