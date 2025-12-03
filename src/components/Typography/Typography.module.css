@@ -1,0 +1,146 @@
+/* ----------------------
+   Base (Desktop 1920px)
+-----------------------*/
+
+/* H1 */
+.h1-txt {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.5px;
+  font-family: var(--font-poppins);
+}
+
+/* H2 */
+.h2-txt {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -0.25px;
+  font-family: var(--font-poppins);
+}
+
+/* H3 */
+.h3-txt {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.25px;
+  font-family: var(--font-poppins);
+}
+
+/* Body */
+.body-txt {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.25px;
+  font-family: var(--font-inter);
+}
+
+/* Paragraph */
+.para-txt {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.25px;
+  font-family: var(--font-inter);
+}
+
+/* Chip */
+.chip-txt {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 1%;
+  letter-spacing: -0.25px;
+  font-family: var(--font-inter);
+}
+
+
+/* ----------------------
+   ≤ 1440px (Large Desktop)
+-----------------------*/
+@media (max-width: 1440px) {
+  .h1-txt {
+    font-size: 40px;
+  }
+
+  .h2-txt {
+    font-size: 36px;
+  }
+
+  .h3-txt {
+    font-size: 24px;
+  }
+
+  .body-txt {
+    font-size: 18px;
+  }
+
+  .para-txt {
+    font-size: 16px;
+  }
+
+  .chip-txt {
+    font-size: 14px;
+  }
+}
+
+/* ----------------------
+   ≤ 768px (Tablet)
+-----------------------*/
+@media (max-width: 768px) {
+  .h1-txt {
+    font-size: 32px;
+  }
+
+  .h2-txt {
+    font-size: 24px;
+  }
+
+  .h3-txt {
+    font-size: 20px;
+  }
+
+  .body-txt {
+    font-size: 16px;
+  }
+
+  .para-txt {
+    font-size: 14px;
+  }
+
+  .chip-txt {
+    font-size: 12px;
+  }
+}
+
+/* ----------------------
+   ≤ 392px (Mobile)
+-----------------------*/
+@media (max-width: 392px) {
+  .h1-txt {
+    font-size: 30px;
+  }
+
+  .h2-txt {
+    font-size: 24px;
+  }
+
+  .h3-txt {
+    font-size: 18px;
+  }
+
+  .body-txt {
+    font-size: 14px;
+  }
+
+  .para-txt {
+    font-size: 14px;
+  }
+
+  .chip-txt {
+    font-size: 12px;
+  }
+}
