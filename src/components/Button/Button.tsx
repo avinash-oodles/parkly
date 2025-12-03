@@ -8,6 +8,7 @@ interface ButtonProps {
     bg: string;             // background color
     color: string;          // text color
     onClick?: () => void;
+    className?: string; 
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,6 +17,7 @@ const Button: React.FC<ButtonProps> = ({
     bg,
     color,
     onClick,
+    className = "",
 }) => {
     // padding based on variant
     const padding =
@@ -36,6 +38,7 @@ const Button: React.FC<ButtonProps> = ({
                 borderRadius: "8px",
                 cursor: "pointer",
             }}
+            className={`font-medium text-base leading-6 rounded-lg cursor-pointer  ${className}`}
         >
             {text}
         </button>
