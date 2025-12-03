@@ -9,16 +9,16 @@ const Container: React.FC<ContainerProps> = ({ children, className = "" }) => {
   return (
     <div
       className={`
-        mx-auto w-full px-4
+        mx-auto w-full px-6
         sm:max-w-xl
         md:max-w-3xl
         lg:max-w-[992px]
         xl:max-w-[1200px]
-        2xl:max-w-[1192px]
+        2xl:max-w-[1208px]
         ${className}
       `}
       style={{
-        maxWidth: "1192px",
+        maxWidth: "1208px",
         marginLeft: "auto",
         marginRight: "auto",
       }}
