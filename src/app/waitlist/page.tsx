@@ -30,6 +30,7 @@ const WaitlistPage: FC = () => {
                                         variant="lg"
                                         bg="#2C7FFF"
                                         color="#FFFFFF"
+                                        hoverBg="#101010"
                                         boxShadow="1px 2px 24px 0px #13245733"
                                     />
                                 </Link>

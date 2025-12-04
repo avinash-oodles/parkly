@@ -7,6 +7,7 @@ interface ButtonProps {
     variant?: "sm" | "lg"; // default: sm
     bg: string;             // background color
     color: string;          // text color
+    hoverBg?: string;
     boxShadow?: string;
     onClick?: () => void;
     className?: string; 
@@ -17,6 +18,7 @@ const Button: React.FC<ButtonProps> = ({
     variant = "sm",
     bg,
     color,
+    hoverBg,
     boxShadow,
     onClick,
     className = "",
@@ -40,8 +42,11 @@ const Button: React.FC<ButtonProps> = ({
                 borderRadius: "8px",
                 cursor: "pointer",
                 boxShadow: boxShadow,
+                transition: "background-color 0.3s",
             }}
-            className={`font-medium text-base leading-6 rounded-lg cursor-pointer  ${className}`}
+            onMouseEnter={(e) => hoverBg && (e.currentTarget.style.backgroundColor = hoverBg)}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = bg)}
+            className={`font-medium text-base leading-6 rounded-lg cursor-pointer ${className}`}
         >
             {text}
         </button>
