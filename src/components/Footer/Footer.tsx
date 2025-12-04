@@ -13,10 +13,10 @@ const Footer: FC = () => {
     return (
         <footer className="w-full">
             <div className="flex flex-col">
-                <div className="bg-[#EEF6FF] py-[50px] ">
+                <div className="bg-[#EEF6FF] py-8 lg:py-[50px] ">
                     <Container>
-                        <div className="flex justify-between">
-                            <div className="flex flex-col gap-3 max-w-[320px]">
+                        <div className="flex flex-col gap-8 lg:flex-row lg:justify-between">
+                            <div className="flex flex-col gap-3 max-w-full lg:max-w-[320px]">
                                 <div className="flex items-center relative w-[136px] h-10">
                                     <Image
                                         src={logo}
@@ -36,7 +36,7 @@ const Footer: FC = () => {
                                     </Typography>
                                 </div>
                             </div>
-                            <div className="flex gap-[124px]">
+                            <div className="flex justify-between lg:justify-start lg:gap-[124px]">
                                 <div className="flex flex-col gap-5">
                                     <div className="">
                                         <Typography variant="para" weight={600} className="text-[#132457]">
@@ -94,10 +94,10 @@ const Footer: FC = () => {
                         </div>
                     </Container>
                 </div>
-                <div className="py-5">
+                <div className="py-4 lg:py-5">
                     <Container>
-                        <div className="flex justify-between">
-                            <div className="flex gap-10">
+                        <div className="flex flex-col gap-4 lg:flex-row lg:justify-between">
+                            <div className="flex gap-8 lg:gap-10">
                                 <Typography variant="para" weight={600} className="text-[#132457]">
                                     © 2025 Parkly
                                 </Typography>
@@ -114,9 +114,9 @@ const Footer: FC = () => {
                                     </Typography>
                                 </Link>
                             </div>
-                            <div className="flex gap-10">
+                            <div className="flex gap-8 lg:gap-10 justify-center">
                                 <div className="flex gap-3 items-center">
-                                    <div className="flex items-center relative w-5 h-5">
+                                    <div className="flex items-center relative w-4 lg:w-5 h-4 lg:h-5">
                                         <Image
                                             src={globe}
                                             alt="world"
@@ -131,9 +131,9 @@ const Footer: FC = () => {
                                     </Typography>
                                 </div>
 
-                                <div className="flex gap-8 items-center">
+                                <div className="flex gap-6 lg:gap-8 items-center">
                                     <Link href="https://twitter.com" target="_blank">
-                                        <div className="flex items-center gap-2 relative w-6 h-6 cursor-pointer">
+                                        <div className="flex items-center gap-2 relative w-5 h-5 lg:w-6 lg:h-6 cursor-pointer">
                                             <Image
                                                 src={twitter}
                                                 alt="twitter"
@@ -146,7 +146,7 @@ const Footer: FC = () => {
                                     </Link>
 
                                     <Link href="https://facebook.com" target="_blank">
-                                        <div className="flex items-center gap-2 relative w-6 h-6 cursor-pointer">
+                                        <div className="flex items-center gap-2 relative w-5 h-5 lg:w-6 lg:h-6 cursor-pointer">
                                             <Image
                                                 src={fb}
                                                 alt="facebook"
@@ -159,7 +159,7 @@ const Footer: FC = () => {
                                     </Link>
 
                                     <Link href="https://instagram.com" target="_blank">
-                                        <div className="flex items-center gap-2 relative w-6 h-6 cursor-pointer">
+                                        <div className="flex items-center gap-2 relative w-5 h-5 lg:w-6 lg:h-6 cursor-pointer">
                                             <Image
                                                 src={insta}
                                                 alt="instagram"
