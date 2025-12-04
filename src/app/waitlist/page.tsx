@@ -17,6 +17,7 @@ import calender from "@/assets/svgs/calender.svg"
 import dots from "@/assets/svgs/dots.svg"
 import star from "@/assets/svgs/star.svg"
 import EffortCard from "@/components/molecules/EffortCard";
+import FeatureCard from "@/components/molecules/FeatureCards"
 
 
 const WaitlistPage: FC = () => {
@@ -128,139 +129,49 @@ const WaitlistPage: FC = () => {
                         <div className="flex gap-8">
                             <div className="flex gap-8">
                                 <div className="flex flex-col gap-9">
-                                    <div className=" feature-card bg-white px-6 py-[30px] shadow-[0px_2px_12px_0px_#8888881F] rounded-2xl flex flex-col gap-5  lg:min-w-[360px] ">
-                                        <div className="p-2.5 bg-[#59A6FF] rounded-xl flex items-center relative w-4 lg:w-[46px] h-4 lg:h-[46px] ">
-                                            <Image
-                                                src={realtime}
-                                                alt="world"
-                                                width={26}
-                                                height={26}
-                                                className="object-contain"
-                                                priority
-                                            />
-                                        </div>
-                                        <div className="flex flex-col gap-3">
-                                            <Typography variant="body" weight={600} className="text-black-900">
-                                                Real-Time Smart Map
-                                            </Typography>
-                                            <Typography variant="para" weight={400} className="text-black-600">
-                                                Reserve spots instantly with our live, dynamic map interface.
-                                            </Typography>
-                                        </div>
-                                        <div className="flex gap-2 items-center">
-                                            <div className="bg-[#59A6FF] rounded-xl flex items-center p-1.5 "></div>
-                                            <Typography variant="chip" weight={600} lineHeight={21} className="text-blue-900">
-                                                Live Updates
-                                            </Typography>
-                                        </div>
-                                    </div>
-                                    <div className=" feature-card bg-white px-6 py-[30px] shadow-[0px_2px_12px_0px_#8888881F] rounded-2xl flex flex-col gap-5 lg:min-w-[360px]">
-                                        <div className="p-2.5 bg-[#59A6FF] rounded-xl flex items-center relative w-4 lg:w-[46px] h-4 lg:h-[46px] ">
-                                            <Image
-                                                src={arrow}
-                                                alt="arrow"
-                                                width={26}
-                                                height={26}
-                                                className="object-contain"
-                                                priority
-                                            />
-                                        </div>
-                                        <div className="flex flex-col gap-3">
-                                            <Typography variant="body" weight={600} className="text-black-900">
-                                               Effortless Booking & Management
-                                            </Typography>
-                                            <Typography variant="para" weight={400} className="text-black-600">
-                                                Book, manage, or cancel easily — everything happens in a few taps.
-                                            </Typography>
-                                        </div>
-                                        <div className="flex gap-2 items-center">
-                                            <div className="rounded-xl flex items-center p-1.5 relative">
-                                                <Image
-                                                src={dots}
-                                                alt="world"
-                                                width={12}
-                                                height={12}
-                                                className="object-contain"
-                                                priority
-                                            />
-                                            </div>
-                                            <Typography variant="chip" weight={600} lineHeight={21} className="text-blue-900">
-                                                3 Simple Steps
-                                            </Typography>
-                                        </div>
-                                    </div>
+                                    <FeatureCard
+                                        mainIcon={realtime}
+                                        mainIconAlt="realtime map"
+                                        title="Real-Time Smart Map"
+                                        subtitle="Reserve spots instantly with our live, dynamic map interface."
+                                        chipText="Live Updates"
+                                        chipIcon={undefined}
+                                        chipIconBg={true}
+                                    />
+                                    <FeatureCard
+                                        mainIcon={arrow}
+                                        mainIconAlt="arrow"
+                                        title="Effortless Booking & Management"
+                                        subtitle="Book, manage, or cancel easily — everything happens in a few taps."
+                                        chipText="3 Simple Steps"
+                                        chipIcon={dots}
+                                        chipIconAlt="dots"
+                                        chipIconBg={false}     // no blue background
+                                    />
                                 </div>
                                 <div className="flex flex-col gap-9">
-                                    <div className=" feature-card bg-white px-6 py-[30px] shadow-[0px_2px_12px_0px_#8888881F] rounded-2xl flex flex-col gap-5 lg:min-w-[360px]">
-                                        <div className="p-2.5 bg-[#59A6FF] rounded-xl flex items-center relative w-4 lg:w-[46px] h-4 lg:h-[46px] ">
-                                            <Image
-                                                src={verified}
-                                                alt="world"
-                                                width={26}
-                                                height={26}
-                                                className="object-contain"
-                                                priority
-                                            />
-                                        </div>
-                                        <div className="flex flex-col gap-3">
-                                            <Typography variant="body" weight={600} className="text-black-900">
-                                                Verified & Secure Parking
-                                            </Typography>
-                                            <Typography variant="para" weight={400} className="text-black-600">
-                                                All listings are verified, ensuring your car is safely parked with trusted hosts.
-                                            </Typography>
-                                        </div>
-                                        <div className="flex gap-2 items-center">
-                                            <div className="bg-[#59A6FF] rounded-xl flex items-center p-1.5 relative">
-                                                <Image
-                                                src={tick}
-                                                alt="world"
-                                                width={12}
-                                                height={12}
-                                                className="object-contain"
-                                                priority
-                                            />
-                                            </div>
-                                            <Typography variant="chip" weight={600} lineHeight={21} className="text-blue-900">
-                                                100% Verified Hosts
-                                            </Typography>
-                                        </div>
-                                    </div>
-                                    <div className=" feature-card bg-white px-6 py-[30px] shadow-[0px_2px_12px_0px_#8888881F] rounded-2xl flex flex-col gap-5 lg:min-w-[360px]">
-                                        <div className="p-2.5 bg-[#59A6FF] rounded-xl flex items-center relative w-4 lg:w-[46px] h-4 lg:h-[46px] ">
-                                            <Image
-                                                src={calender}
-                                                alt="calender"
-                                                width={26}
-                                                height={26}
-                                                className="object-contain"
-                                                priority
-                                            />
-                                        </div>
-                                        <div className="flex flex-col gap-3">
-                                            <Typography variant="body" weight={600} className="text-black-900">
-                                                Event-Ready Parking Discovery
-                                            </Typography>
-                                            <Typography variant="para" weight={400} className="text-black-600">
-                                                Find parking near events — compare distances, reviews, and prices.
-                                            </Typography>
-                                        </div>
-                                        <div className="flex gap-2 items-center">
-                                            <div className="bg-[#59A6FF] rounded-xl flex items-center p-1.5 relative">
-                                                <Image
-                                                src={star}
-                                                alt="world"
-                                                width={12}
-                                                height={12}
-                                                className="object-contain"
-                                                priority
-                                            />
-                                            </div>
-                                            <Typography variant="chip" weight={600} lineHeight={21} className="text-blue-900">
-                                                Event Optimized
-                                            </Typography>
-                                        </div>
-                                    </div>
+                                    <FeatureCard
+                                        mainIcon={verified}
+                                        mainIconAlt="verified"
+                                        title="Verified & Secure Parking"
+                                        subtitle="All listings are verified, ensuring your car is safely parked with trusted hosts."
+                                        chipText="100% Verified Hosts"
+                                        chipIcon={tick}
+                                        chipIconAlt="tick"
+                                        chipIconBg={true}
+                                    />
+
+                                    <FeatureCard
+                                        mainIcon={calender}
+                                        mainIconAlt="calendar"
+                                        title="Event-Ready Parking Discovery"
+                                        subtitle="Find parking near events — compare distances, reviews, and prices."
+                                        chipText="Event Optimized"
+                                        chipIcon={star}
+                                        chipIconAlt="star"
+                                        chipIconBg={true}
+                                    />
+
                                 </div>
                             </div>
                             <div className="w-full max-w-[400px]">
