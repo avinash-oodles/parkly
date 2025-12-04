@@ -7,6 +7,7 @@ interface ButtonProps {
     variant?: "sm" | "lg"; // default: sm
     bg: string;             // background color
     color: string;          // text color
+    boxShadow?: string;
     onClick?: () => void;
     className?: string; 
 }
@@ -16,6 +17,7 @@ const Button: React.FC<ButtonProps> = ({
     variant = "sm",
     bg,
     color,
+    boxShadow,
     onClick,
     className = "",
 }) => {
@@ -37,6 +39,7 @@ const Button: React.FC<ButtonProps> = ({
                 border: "none",
                 borderRadius: "8px",
                 cursor: "pointer",
+                boxShadow: boxShadow,
             }}
             className={`font-medium text-base leading-6 rounded-lg cursor-pointer  ${className}`}
         >
