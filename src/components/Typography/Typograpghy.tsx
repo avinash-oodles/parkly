@@ -3,8 +3,8 @@
 import React, { MouseEventHandler, ReactNode } from 'react';
 import styles from "./Typography.module.css";
 
-const allowedElements = ['h1', 'h2', 'h3', 'p', 'span', 'div', 'a'] as const;
-const variants = ['h1', 'h2', 'h3', 'body', 'para', 'chip'] as const;
+const allowedElements = ['h1', 'h2', 'h3','h4', 'p', 'span', 'div', 'a'] as const;
+const variants = ['h1', 'h2', 'h3', 'h4', 'body', 'para', 'chip'] as const;
 
 type El = typeof allowedElements[number];
 export type TypographyVariant = typeof variants[number];
@@ -83,6 +83,7 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps>(
         case 'h1': return 'h1';
         case 'h2': return 'h2';
         case 'h3': return 'h3';
+        case 'h4': return 'h4';
         case 'body': return 'p';
         case 'para': return 'p';
         case 'chip': return 'span';
