@@ -14,7 +14,7 @@ const Header: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="w-full bg-[#EEF6FFB2] ">
+        <header className="w-full bg-[#EEF6FFB2] fixed top-0 z-1000 backdrop-blur-[20px]">
             <Container>
                 <nav className="">
                     {/* Desktop Header */}

@@ -26,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className="antialiased">
         <Header />
+        <div className=" h-[72px] lg:h-22 w-full"></div>
         {children}
         <Footer />
       </body>
