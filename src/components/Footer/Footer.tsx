@@ -7,6 +7,7 @@ import globe from "./footer-img/globe.svg"
 import twitter from "./footer-img/twitter.svg"
 import fb from "./footer-img/fb.svg"
 import insta from "./footer-img/insta.svg"
+import logo from "./footer-img/footer-logo.svg"
 
 const Footer: FC = () => {
     return (
@@ -15,8 +16,81 @@ const Footer: FC = () => {
                 <div className="bg-[#EEF6FF] py-[50px] ">
                     <Container>
                         <div className="flex justify-between">
-                            <div className=""></div>
-                            <div className=""></div>
+                            <div className="flex flex-col gap-3 max-w-[320px]">
+                                <div className="flex items-center relative w-[136px] h-10">
+                                    <Image
+                                        src={logo}
+                                        alt="world"
+                                        fill
+                                        className="object-contain"
+                                        sizes="100%"
+                                        priority
+                                    />
+                                </div>
+                                <div className="flex flex-col">
+                                    <Typography variant="body" weight={600} lineHeight={34} letterSpacing={0.01} className="text-[#132457]">
+                                        Find your spot before the chaos.
+                                    </Typography>
+                                    <Typography variant="para" weight={500} className="text-[#434343]">
+                                        Smart, verified parking from locals hear stadiums and events
+                                    </Typography>
+                                </div>
+                            </div>
+                            <div className="flex gap-[124px]">
+                                <div className="flex flex-col gap-5">
+                                    <div className="">
+                                        <Typography variant="para" weight={600} className="text-[#132457]">
+                                            Company
+                                        </Typography>
+                                    </div>
+                                    <div className="flex flex-col gap-3">
+                                        <Link href="">
+                                            <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
+                                                About Us
+                                            </Typography>
+                                        </Link>
+                                        <Link href="">
+                                            <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
+                                                How it Works
+                                            </Typography>
+                                        </Link>
+                                        <Link href="">
+                                            <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
+                                                Features
+                                            </Typography>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col gap-5">
+                                    <div className="">
+                                        <Typography variant="para" weight={600} className="text-[#132457]">
+                                            Support
+                                        </Typography>
+                                    </div>
+                                    <div className="flex flex-col gap-3">
+                                        <Link href="">
+                                            <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
+                                                Help Center
+                                            </Typography>
+                                        </Link>
+                                        <Link href="">
+                                            <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
+                                                Safety Issues
+                                            </Typography>
+                                        </Link>
+                                        <Link href="">
+                                            <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
+                                                Cancellation Option
+                                            </Typography>
+                                        </Link>
+                                        <Link href="">
+                                            <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
+                                                Report Concern
+                                            </Typography>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </Container>
                 </div>
