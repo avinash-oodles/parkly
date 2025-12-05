@@ -44,7 +44,7 @@ const WaitlistPage: FC = () => {
                         <div className=" w-full flex flex-col justify-center gap-8">
                             <div className="flex flex-col gap-4">
                                 <Typography variant="h1" weight={700} letterSpacing={0.01} className="text-black-900">
-                                    Find Smart, Secure Parking — Anytime, <span className="text-blue-500"> Anywhere.	</span>
+                                    Find Smart, Secure Parking — Anytime, <span className="text-blue-500"> Anywhere.</span>
                                 </Typography>
                                 <Typography variant="body" weight={400} lineHeight={28} className="text-black-900">
                                     Parkly connects <b> Drivers, Hosts, and Event-Goers</b> with verified, private parking spaces nearby. Stop circling. Save time and money.
