@@ -1,6 +1,7 @@
+"use client";
 import Container from "@/components/Container/Container";
 import Typography from "@/components/Typography/Typograpghy";
-import { FC } from "react";
+import { FC, useState } from "react";
 import device from "@/assets/images/device.png"
 import Image from "next/image";
 import Link from "next/link";
@@ -16,11 +17,24 @@ import arrow from "@/assets/svgs/arrow.svg"
 import calender from "@/assets/svgs/calender.svg"
 import dots from "@/assets/svgs/dots.svg"
 import star from "@/assets/svgs/star.svg"
+import BackgroundWave from "@/assets/svgs/BackgroundWave";
+import FaqCar from "@/assets/svgs/FaqCar";
 import EffortCard from "@/components/molecules/EffortCard";
 import FeatureCard from "@/components/molecules/FeatureCards"
+import FaqList from "@/components/molecules/Faq/FaqList";
 
 
 const WaitlistPage: FC = () => {
+    const [showAll, setShowAll] = useState(false);
+
+    // Number of FAQs to show initially
+    const initialCount = 5;
+
+    // Toggle function
+    const handleToggleFaqs = () => {
+        setShowAll(prev => !prev);
+    };
+
     return (
         <>
             {/* herosection */}
@@ -126,65 +140,122 @@ const WaitlistPage: FC = () => {
                                 A platform built to make parking safer, simpler, and smarter for everyone.
                             </Typography>
                         </div>
-                        <div className="flex gap-8">
+                        <div className="flex flex-col gap-[50px] ">
                             <div className="flex gap-8">
-                                <div className="flex flex-col gap-9">
-                                    <FeatureCard
-                                        mainIcon={realtime}
-                                        mainIconAlt="realtime map"
-                                        title="Real-Time Smart Map"
-                                        subtitle="Reserve spots instantly with our live, dynamic map interface."
-                                        chipText="Live Updates"
-                                        chipIcon={undefined}
-                                        chipIconBg={true}
-                                    />
-                                    <FeatureCard
-                                        mainIcon={arrow}
-                                        mainIconAlt="arrow"
-                                        title="Effortless Booking & Management"
-                                        subtitle="Book, manage, or cancel easily — everything happens in a few taps."
-                                        chipText="3 Simple Steps"
-                                        chipIcon={dots}
-                                        chipIconAlt="dots"
-                                        chipIconBg={false}     // no blue background
-                                    />
+                                <div className="flex gap-8">
+                                    <div className="flex flex-col gap-9">
+                                        <FeatureCard
+                                            mainIcon={realtime}
+                                            mainIconAlt="realtime map"
+                                            title="Real-Time Smart Map"
+                                            subtitle="Reserve spots instantly with our live, dynamic map interface."
+                                            chipText="Live Updates"
+                                            chipIcon={undefined}
+                                            chipIconBg={true}
+                                        />
+                                        <FeatureCard
+                                            mainIcon={arrow}
+                                            mainIconAlt="arrow"
+                                            title="Effortless Booking & Management"
+                                            subtitle="Book, manage, or cancel easily — everything happens in a few taps."
+                                            chipText="3 Simple Steps"
+                                            chipIcon={dots}
+                                            chipIconAlt="dots"
+                                            chipIconBg={false}     // no blue background
+                                        />
+                                    </div>
+                                    <div className="flex flex-col gap-9">
+                                        <FeatureCard
+                                            mainIcon={verified}
+                                            mainIconAlt="verified"
+                                            title="Verified & Secure Parking"
+                                            subtitle="All listings are verified, ensuring your car is safely parked with trusted hosts."
+                                            chipText="100% Verified Hosts"
+                                            chipIcon={tick}
+                                            chipIconAlt="tick"
+                                            chipIconBg={true}
+                                        />
+
+                                        <FeatureCard
+                                            mainIcon={calender}
+                                            mainIconAlt="calendar"
+                                            title="Event-Ready Parking Discovery"
+                                            subtitle="Find parking near events — compare distances, reviews, and prices."
+                                            chipText="Event Optimized"
+                                            chipIcon={star}
+                                            chipIconAlt="star"
+                                            chipIconBg={true}
+                                        />
+
+                                    </div>
                                 </div>
-                                <div className="flex flex-col gap-9">
-                                    <FeatureCard
-                                        mainIcon={verified}
-                                        mainIconAlt="verified"
-                                        title="Verified & Secure Parking"
-                                        subtitle="All listings are verified, ensuring your car is safely parked with trusted hosts."
-                                        chipText="100% Verified Hosts"
-                                        chipIcon={tick}
-                                        chipIconAlt="tick"
-                                        chipIconBg={true}
-                                    />
-
-                                    <FeatureCard
-                                        mainIcon={calender}
-                                        mainIconAlt="calendar"
-                                        title="Event-Ready Parking Discovery"
-                                        subtitle="Find parking near events — compare distances, reviews, and prices."
-                                        chipText="Event Optimized"
-                                        chipIcon={star}
-                                        chipIconAlt="star"
-                                        chipIconBg={true}
-                                    />
-
+                                <div className="w-full max-w-[400px]">
+                                    <div className="flex justify-center relative w-full h-full min-h-[450px] ">
+                                        <Image
+                                            src={car}
+                                            alt="car"
+                                            fill
+                                            className="object-cover"
+                                            sizes="100%"
+                                            priority
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                            <div className="w-full max-w-[400px]">
-                                <div className="flex justify-center relative w-full h-full min-h-[450px] ">
-                                    <Image
-                                        src={car}
-                                        alt="car"
-                                        fill
-                                        className="object-cover"
-                                        sizes="100%"
-                                        priority
+                            <div className="flex flex-col gap-5 items-center justify-center">
+                                <h4 className="font-semibold text-[30px] leading-[37.5px] tracking-[0.01rem] text-center text-black-900">
+                                    Find your next parking spot the smarter way.
+                                </h4>
+                                <Link href="" className="d-flex ">
+                                    <Button
+                                        text="Joint Waitlist"
+                                        variant="lg"
+                                        bg="#2C7FFF"
+                                        color="#FFFFFF"
+                                        hoverBg="#101010"
+                                        boxShadow="1px 2px 24px 0px #13245733"
+                                    />
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+            </section>
+
+            {/* design */}
+            <div className="overflow-hidden">
+                <BackgroundWave />
+            </div>
+
+            {/* Frequently Asked Questions */}
+            <section>
+                <Container>
+                    <div className="flex flex-col gap-[50px] items-center py-[70px] ">
+                        <div className="flex flex-col gap-2 items-center">
+                            <Typography variant="h2" weight={600} className="text-black-900">
+                                Frequently Asked Questions
+                            </Typography>
+                            <Typography variant="body" lineHeight={32} letterSpacing={0.01} weight={400} className="text-black-700">
+                                For questions, contact our support team via email. We will respond quickly.
+                            </Typography>
+                        </div>
+                        <div className="flex gap-[90px] h-full ">
+                            <div className="flex flex-col gap-6">
+                                <FaqCar />
+                                <div className="">
+                                    <Button
+                                        text={showAll ? "View Less" : "View More Questions"}
+                                        variant="lg"
+                                        bg="#2C7FFF"
+                                        color="#FFFFFF"
+                                        hoverBg="#101010"
+                                        boxShadow="1px 2px 24px 0px #13245733"
+                                        onClick={handleToggleFaqs}
                                     />
                                 </div>
+                            </div>
+                            <div className="">
+                                <FaqList showCount={showAll ? undefined : initialCount} />
                             </div>
                         </div>
                     </div>

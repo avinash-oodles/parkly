@@ -52,9 +52,8 @@ export default function FeatureCard({
             {/* Chip Row */}
             <div className="flex gap-2 items-center">
                 <div
-                    className={`rounded-xl flex items-center p-1.5 relative ${
-                        chipIconBg ? "bg-[#59A6FF]" : ""
-                    }`}
+                    className={`rounded-xl flex items-center p-1.5 relative ${chipIconBg ? "bg-[#59A6FF]" : ""
+                        }`}
                 >
                     {/* Only show the icon when passed */}
                     {chipIcon && (
