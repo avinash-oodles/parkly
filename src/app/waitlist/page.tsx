@@ -25,6 +25,7 @@ import FeatureCard from "@/components/molecules/FeatureCards"
 import FaqList from "@/components/molecules/Faq/FaqList";
 import InputGroup from "@/components/InputGroup/InputGroup";
 import EmailIcon from "@/assets/svgs/EmailIcon";
+import AnimatedCarSection from "@/components/molecules/AnimatedCarSection";
 
 
 const WaitlistPage: FC = () => {
@@ -289,8 +290,8 @@ const WaitlistPage: FC = () => {
                             <div className="w-full">
                                 <div className="flex flex-col gap-5">
                                     <div className="flex flex-col gap-4">
-                                         <InputGroup placeholder="Your name" type="text" Icon={ProfileIcon} />
-                                         <InputGroup placeholder="Your email" type="email" Icon={EmailIcon} />
+                                        <InputGroup placeholder="Your name" type="text" Icon={ProfileIcon} />
+                                        <InputGroup placeholder="Your email" type="email" Icon={EmailIcon} />
                                     </div>
                                     <div className="">
                                         <Button
@@ -306,6 +307,13 @@ const WaitlistPage: FC = () => {
                             </div>
                         </div>
                     </div>
+                </Container>
+            </section>
+
+            {/* car design */}
+            <section className="overflow-hidden ">
+                <Container>
+                    <AnimatedCarSection />
                 </Container>
             </section>
         </>
