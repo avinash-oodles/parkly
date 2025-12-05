@@ -111,6 +111,7 @@
 @media (max-width: 768px) {
   .h1-txt {
     font-size: 32px;
+    line-height: 37.5px;
   }
 
   .h2-txt {

@@ -26,9 +26,11 @@ import FaqList from "@/components/molecules/Faq/FaqList";
 import InputGroup from "@/components/InputGroup/InputGroup";
 import EmailIcon from "@/assets/svgs/EmailIcon";
 import AnimatedCarSection from "@/components/molecules/AnimatedCarSection";
-
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const WaitlistPage: FC = () => {
+    const isMd = useMediaQuery('(min-width: 768px)');
+
     const [showAll, setShowAll] = useState(false);
 
     // Number of FAQs to show initially
@@ -44,18 +46,18 @@ const WaitlistPage: FC = () => {
             {/* herosection */}
             <section className="relative bg-[url('/find-bg.svg')] bg-cover bg-center bg-no-repeat">
                 <Container>
-                    <div className="find-container flex gap-8 pt-[70px] ">
-                        <div className=" w-full flex flex-col justify-center gap-8">
+                    <div className="find-container flex gap-8 py-8 md:pt-[70px] md:pb-0 ">
+                        <div className=" w-full flex flex-col justify-center gap-6 md:gap-8">
                             <div className="flex flex-col gap-4">
-                                <Typography variant="h1" weight={700} letterSpacing={0.01} className="text-black-900">
+                                <Typography variant="h1" weight={700} letterSpacing={0.01} className="text-black-900 text-center md:text-left">
                                     Find Smart, Secure Parking — Anytime, <span className="text-blue-500"> Anywhere.</span>
                                 </Typography>
-                                <Typography variant="body" weight={400} lineHeight={28} className="text-black-900">
+                                <Typography variant="body" weight={400} lineHeight={isMd ? 28 :24} className="text-black-900 text-center md:text-left">
                                     Parkly connects <b> Drivers, Hosts, and Event-Goers</b> with verified, private parking spaces nearby. Stop circling. Save time and money.
                                 </Typography>
                             </div>
                             <div className="flex flex-col gap-3">
-                                <Link href="" className="d-flex ">
+                                <Link href="" className="d-flex w-full">
                                     <Button
                                         text="Join the Waitlist"
                                         variant="lg"
@@ -63,14 +65,15 @@ const WaitlistPage: FC = () => {
                                         color="#FFFFFF"
                                         hoverBg="#101010"
                                         boxShadow="1px 2px 24px 0px #13245733"
+                                        className="w-full md:w-auto"
                                     />
                                 </Link>
-                                <Typography variant="para" weight={500} className="text-black-900">
+                                <Typography variant="para" weight={500} lineHeight={isMd ? 24 :20} className="text-black-900 italic">
                                     Launching across the U.S. soon
                                 </Typography>
                             </div>
                         </div>
-                        <div className=" w-full max-w-[524px]">
+                        <div className="hidden md:block w-full max-w-[524px]">
                             <div className="flex justify-center relative w-full h-full min-h-[450px] ">
                                 <Image
                                     src={device}
@@ -87,7 +90,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* Parkly Makes Parking Effortless */}
-            <section>
+            <section className="hidden">
                 <Container>
                     <div className="flex flex-col gap-15 py-[70px] ">
                         <div className="flex flex-col gap-2">
@@ -126,7 +129,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* KEY FEATURES */}
-            <section className="bg-[#D9EBFF] ">
+            <section className="bg-[#D9EBFF] hidden">
                 <Container>
                     <div className="feature-content pt-[70px] flex flex-col gap-15 ">
                         <div className="flex flex-col gap-3 items-center">
@@ -227,12 +230,12 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* design */}
-            <div className="overflow-hidden">
+            <div className="overflow-hidden hidden">
                 <BackgroundWave />
             </div>
 
             {/* Frequently Asked Questions */}
-            <section>
+            <section className="hidden">
                 <Container>
                     <div className="flex flex-col gap-[50px] items-center py-[70px] ">
                         <div className="flex flex-col gap-2 items-center">
@@ -268,7 +271,7 @@ const WaitlistPage: FC = () => {
 
 
             {/* form section */}
-            <section>
+            <section hidden>
                 <Container>
                     <div className="pb-[70px]">
                         <div className="form-content rounded-3xl border-2 border-[#2C7FFF] py-[70px] px-[100px] relative bg-[url('/form-bg.svg')] bg-cover bg-center bg-no-repeat flex gap-[50px] ">
@@ -311,7 +314,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* car design */}
-            <section className="overflow-hidden ">
+            <section className="overflow-hidden hidden">
                 <Container>
                     <AnimatedCarSection />
                 </Container>
