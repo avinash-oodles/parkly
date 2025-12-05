@@ -19,6 +19,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Parkly",
   description: "Parkly app",
+  icons: {
+    icon: "/favicon.svg", 
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

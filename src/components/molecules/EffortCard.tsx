@@ -15,7 +15,7 @@ interface EffortCardProps {
 const EffortCard: React.FC<EffortCardProps> = ({ number, bgColor, icon, title, subtitle }) => {
   return (
     <div
-      className="effort-card relative flex flex-col items-center gap-[30px] w-full"
+      className="effort-card relative flex flex-col items-center gap-[30px] w-full bg-[url('/bg-net.svg')] bg-cover bg-center"
       style={{
         
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

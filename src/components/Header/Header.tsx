@@ -51,7 +51,7 @@ const Header: FC = () => {
                                 </Link>
                             </div>
                             <div className="flex gap-3 items-center">
-                                <Link href="" className="px-5 py-4">
+                                <Link href="" className="px-[19px] py-[9px] border border-[#2C7FFF33] rounded-lg">
                                     <div className="flex gap-2 items-center">
                                         <div className="flex items-center gap-2 relative w-4 h-4">
                                             <Image
@@ -113,7 +113,7 @@ const Header: FC = () => {
 
                     {/* Offcanvas */}
                     <div
-                        className={`fixed top-0 right-0 h-full w-full bg-white shadow-lg z-50 transform transition-transform duration-500 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
+                        className={`fixed top-0 right-0 h-screen w-full bg-white shadow-lg z-50 transform transition-transform duration-500 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
                             }`}
                     >
                         <div className="flex justify-between p-4 bg-[#EEF6FFB2] backdrop-blur-[20px]">
@@ -140,7 +140,7 @@ const Header: FC = () => {
                                 </div>
                             </button>
                         </div>
-                        <nav className="flex flex-col gap-4 mt-8 px-6">
+                        <nav className="flex flex-col gap-4 mt-8 px-6 bg-white">
                             <div className="flex flex-col gap-3">
                                 <Link href="/how-it-works" onClick={() => setIsOpen(false)}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5 ">
@@ -159,11 +159,11 @@ const Header: FC = () => {
                                 </Link>
                             </div>
                             <div className="flex justify-between gap-4">
-                                <div className="flex items-center gap-3 w-full justify-center">
+                                <div className="flex items-center gap-3 w-full justify-center border border-[#2C7FFF33] rounded-lg">
                                     <div className="flex items-center gap-2 relative w-4 h-4">
                                         <Image src={world} alt="world" fill className="object-contain" sizes="100%" priority />
                                     </div>
-                                    <Typography variant="para" weight={500} className=" text-black-700">
+                                    <Typography variant="body" weight={500} className="text-black-900">
                                         EN
                                     </Typography>
                                 </div>
