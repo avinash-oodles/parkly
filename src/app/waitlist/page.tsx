@@ -19,9 +19,12 @@ import dots from "@/assets/svgs/dots.svg"
 import star from "@/assets/svgs/star.svg"
 import BackgroundWave from "@/assets/svgs/BackgroundWave";
 import FaqCar from "@/assets/svgs/FaqCar";
+import ProfileIcon from "@/assets/svgs/ProfileIcon";
 import EffortCard from "@/components/molecules/EffortCard";
 import FeatureCard from "@/components/molecules/FeatureCards"
 import FaqList from "@/components/molecules/Faq/FaqList";
+import InputGroup from "@/components/InputGroup/InputGroup";
+import EmailIcon from "@/assets/svgs/EmailIcon";
 
 
 const WaitlistPage: FC = () => {
@@ -256,6 +259,50 @@ const WaitlistPage: FC = () => {
                             </div>
                             <div className="">
                                 <FaqList showCount={showAll ? undefined : initialCount} />
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+            </section>
+
+
+            {/* form section */}
+            <section>
+                <Container>
+                    <div className="pb-[70px]">
+                        <div className="form-content rounded-3xl border-2 border-[#2C7FFF] py-[70px] px-[100px] relative bg-[url('/form-bg.svg')] bg-cover bg-center bg-no-repeat flex gap-[50px] ">
+                            <div className="flex flex-col gap-2 w-full max-w-[426px] ">
+                                <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
+                                    <Typography variant="chip" weight={600} className="text-blue-500">
+                                        EASY PARKING, EVERY TIME
+                                    </Typography>
+                                </div>
+                                <div className="flex flex-col gap-3">
+                                    <Typography variant="h2" weight={600} className="text-black-900">
+                                        Reserve Your Spot on the Waitlist
+                                    </Typography>
+                                    <Typography variant="body" lineHeight={32} letterSpacing={0.01} weight={400} className="text-black-700">
+                                        Connect with nearby hosts and discover hassle-free parking before anyone else.
+                                    </Typography>
+                                </div>
+                            </div>
+                            <div className="w-full">
+                                <div className="flex flex-col gap-5">
+                                    <div className="flex flex-col gap-4">
+                                         <InputGroup placeholder="Your name" type="text" Icon={ProfileIcon} />
+                                         <InputGroup placeholder="Your email" type="email" Icon={EmailIcon} />
+                                    </div>
+                                    <div className="">
+                                        <Button
+                                            text="Submit"
+                                            variant="lg"
+                                            bg="#2C7FFF"
+                                            color="#FFFFFF"
+                                            hoverBg="#101010"
+                                            boxShadow="1px 2px 24px 0px #13245733"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
