@@ -44,7 +44,7 @@ const WaitlistPage: FC = () => {
     return (
         <>
             {/* herosection */}
-            <section className="relative bg-[url('/find-bg.svg')] bg-cover bg-center bg-no-repeat">
+            <section className="relative bg-[url('/find-bg.svg')] bg-cover bg-center bg-no-repeat hidden">
                 <Container>
                     <div className="find-container flex gap-8 py-8 md:pt-[70px] md:pb-0 ">
                         <div className=" w-full flex flex-col justify-center gap-6 md:gap-8">
@@ -90,20 +90,20 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* Parkly Makes Parking Effortless */}
-            <section className="hidden">
+            <section>
                 <Container>
-                    <div className="flex flex-col gap-15 py-[70px] ">
-                        <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-8 md:gap-15 pt-8 pb-5 md:py-[70px] ">
+                        <div className="flex flex-col  gap-1 md:gap-2">
                             <div className="w-max py-1.5 px-3 bg-[#D9EBFF] backdrop-blur-sm rounded-3xl">
-                                <Typography variant="chip" weight={600} className="text-blue-500">
+                                <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
                                     HOW IT WORKS?
                                 </Typography>
                             </div>
-                            <Typography variant="h2" weight={600} className="text-[#0A0A0A] ">
+                            <Typography variant="h2" weight={600} lineHeight={isMd ? 45 : 36} className="text-[#0A0A0A] ">
                                 Parkly Makes Parking Effortless
                             </Typography>
                         </div>
-                        <div className="flex justify-around gap-8">
+                        <div className="flex flex-col md:flex-row md:justify-between lg:justify-around  gap-7 md:gap-0 lg:gap-8">
                             <EffortCard
                                 number="01"
                                 bgColor="#173EB6"
