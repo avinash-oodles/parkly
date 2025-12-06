@@ -90,7 +90,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* Parkly Makes Parking Effortless */}
-            <section>
+            <section className="hidden">
                 <Container>
                     <div className="flex flex-col gap-8 md:gap-15 pt-8 pb-5 md:py-[70px] ">
                         <div className="flex flex-col  gap-1 md:gap-2">
@@ -129,27 +129,27 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* KEY FEATURES */}
-            <section className="bg-[#D9EBFF] hidden">
+            <section className="bg-[#D9EBFF]">
                 <Container>
-                    <div className="feature-content pt-[70px] flex flex-col gap-15 ">
-                        <div className="flex flex-col gap-3 items-center">
-                            <div className="flex flex-col gap-2  items-center ">
+                    <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-15 ">
+                        <div className="flex flex-col gap-2 lg:gap-3 items-center">
+                            <div className="flex flex-col gap-1 lg:gap-2  items-center ">
                                 <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
-                                    <Typography variant="chip" weight={600} className="text-blue-500">
+                                    <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
                                         KEY FEATURES
                                     </Typography>
                                 </div>
-                                <Typography variant="h2" weight={600} className="text-black-900">
+                                <Typography variant="h2" weight={600} lineHeight={isMd ? 45 : 36} className="text-black-900 text-center">
                                     Smart. Verified. Effortless.
                                 </Typography>
                             </div>
-                            <Typography variant="body" lineHeight={32} letterSpacing={0.01} weight={400} className="text-black-700">
+                            <Typography variant="body" lineHeight={isMd ? 32 : 20} letterSpacing={0.01} weight={400} className="text-black-700 text-center">
                                 A platform built to make parking safer, simpler, and smarter for everyone.
                             </Typography>
                         </div>
-                        <div className="flex flex-col gap-[50px] ">
-                            <div className="flex gap-8">
-                                <div className="flex gap-8">
+                        <div className="flex flex-col gap-10 lg:gap-[50px] ">
+                            <div className="flex flex-col gap-8 lg:flex-row ">
+                                <div className="hidden lg:flex gap-8">
                                     <div className="flex flex-col gap-9">
                                         <FeatureCard
                                             mainIcon={realtime}
@@ -209,18 +209,19 @@ const WaitlistPage: FC = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-5 items-center justify-center">
-                                <h4 className="font-semibold text-[30px] leading-[37.5px] tracking-[0.01rem] text-center text-black-900">
+                            <div className="flex flex-col gap-4 lg:gap-5 items-center justify-center">
+                                <h4 className="font-semibold text-[20px] leading-8 md:text-[30px] md:leading-[37.5px] tracking-[1%] text-center text-black-900">
                                     Find your next parking spot the smarter way.
                                 </h4>
-                                <Link href="" className="d-flex ">
+                                <Link href="" className="d-flex w-full lg:w-auto">
                                     <Button
-                                        text="Joint Waitlist"
+                                        text="Join the Waitlist"
                                         variant="lg"
                                         bg="#2C7FFF"
                                         color="#FFFFFF"
                                         hoverBg="#101010"
                                         boxShadow="1px 2px 24px 0px #13245733"
+                                        className="w-full"
                                     />
                                 </Link>
                             </div>
