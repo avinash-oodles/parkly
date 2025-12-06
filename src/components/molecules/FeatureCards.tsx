@@ -68,7 +68,7 @@ export default function FeatureCard({
                     )}
                 </div>
 
-                <Typography variant="chip" weight={600} lineHeight={21} className="text-blue-900">
+                <Typography variant="chip" weight={600} className="text-blue-900 leading-4! md:leading-[21px]!">
                     {chipText}
                 </Typography>
             </div>

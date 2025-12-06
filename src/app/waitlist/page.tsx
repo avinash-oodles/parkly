@@ -298,7 +298,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* design */}
-            <div className="overflow-hidden hidden">
+            <div className="overflow-hidden ">
                 <BackgroundWave />
             </div>
 
