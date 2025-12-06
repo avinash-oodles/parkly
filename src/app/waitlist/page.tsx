@@ -2,6 +2,10 @@
 import Container from "@/components/Container/Container";
 import Typography from "@/components/Typography/Typograpghy";
 import { FC, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import device from "@/assets/images/device.png"
 import Image from "next/image";
 import Link from "next/link";
@@ -33,6 +37,46 @@ const WaitlistPage: FC = () => {
 
     const [showAll, setShowAll] = useState(false);
 
+    const slides = [
+        {
+            mainIcon: realtime,
+            mainIconAlt: "realtime map",
+            title: "Real-Time Smart Map",
+            subtitle: "Reserve spots instantly with our live, dynamic map interface.",
+            chipText: "Live Updates",
+            chipIcon: undefined,
+            chipIconBg: true,
+        },
+        {
+            mainIcon: arrow,
+            mainIconAlt: "arrow",
+            title: "Effortless Booking & Management",
+            subtitle: "Book, manage, or cancel easily — everything happens in a few taps.",
+            chipText: "3 Simple Steps",
+            chipIcon: dots,
+            chipIconBg: false,
+        },
+        {
+            mainIcon: verified,
+            mainIconAlt: "verified",
+            title: "Verified & Secure Parking",
+            subtitle: "All listings are verified, ensuring your car is safely parked with trusted hosts.",
+            chipText: "100% Verified Hosts",
+            chipIcon: tick,
+            chipIconBg: true,
+        },
+        {
+            mainIcon: calender,
+            mainIconAlt: "calendar",
+            title: "Event-Ready Parking Discovery",
+            subtitle: "Find parking near events — compare distances, reviews, and prices.",
+            chipText: "Event Optimized",
+            chipIcon: star,
+            chipIconBg: true,
+        },
+    ];
+
+
     // Number of FAQs to show initially
     const initialCount = 5;
 
@@ -52,7 +96,7 @@ const WaitlistPage: FC = () => {
                                 <Typography variant="h1" weight={700} letterSpacing={0.01} className="text-black-900 text-center md:text-left">
                                     Find Smart, Secure Parking — Anytime, <span className="text-blue-500"> Anywhere.</span>
                                 </Typography>
-                                <Typography variant="body" weight={400} lineHeight={isMd ? 28 :24} className="text-black-900 text-center md:text-left">
+                                <Typography variant="body" weight={400} lineHeight={isMd ? 28 : 24} className="text-black-900 text-center md:text-left">
                                     Parkly connects <b> Drivers, Hosts, and Event-Goers</b> with verified, private parking spaces nearby. Stop circling. Save time and money.
                                 </Typography>
                             </div>
@@ -68,7 +112,7 @@ const WaitlistPage: FC = () => {
                                         className="w-full md:w-auto"
                                     />
                                 </Link>
-                                <Typography variant="para" weight={500} lineHeight={isMd ? 24 :20} className="text-black-900 italic">
+                                <Typography variant="para" weight={500} lineHeight={isMd ? 24 : 20} className="text-black-900 italic">
                                     Launching across the U.S. soon
                                 </Typography>
                             </div>
@@ -131,7 +175,7 @@ const WaitlistPage: FC = () => {
             {/* KEY FEATURES */}
             <section className="bg-[#D9EBFF]">
                 <Container>
-                    <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-15 ">
+                    <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-8 md:gap-15 ">
                         <div className="flex flex-col gap-2 lg:gap-3 items-center">
                             <div className="flex flex-col gap-1 lg:gap-2  items-center ">
                                 <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
@@ -149,7 +193,7 @@ const WaitlistPage: FC = () => {
                         </div>
                         <div className="flex flex-col gap-10 lg:gap-[50px] ">
                             <div className="flex flex-col gap-8 lg:flex-row ">
-                                <div className="hidden lg:flex gap-8">
+                                <div className="hidden xl:flex gap-8">
                                     <div className="flex flex-col gap-9">
                                         <FeatureCard
                                             mainIcon={realtime}
@@ -196,8 +240,31 @@ const WaitlistPage: FC = () => {
 
                                     </div>
                                 </div>
+                                <div className="flex flex-col gap-4 xl:hidden">
+                                    <Swiper
+                                        modules={[Pagination]}
+                                        spaceBetween={16}
+                                        slidesPerView={1}
+                                        loop={true}
+                                        pagination={{
+                                            clickable: true,
+                                            el: '.custom-pagination',
+                                        }}
+                                        className="w-full"
+                                    >
+                                        {slides.map((slide, idx) => (
+                                            <SwiperSlide key={idx}>
+                                                <div className="max-w-[320px] mx-auto flex">  {/* Changed to flex */}
+                                                    <FeatureCard {...slide} />
+                                                </div>
+                                            </SwiperSlide>
+                                        ))}
+                                    </Swiper>
+
+                                    <div className="custom-pagination flex justify-center gap-2"></div>
+                                </div>
                                 <div className="w-full max-w-[400px]">
-                                    <div className="flex justify-center relative w-full h-full min-h-[450px] ">
+                                    <div className="flex justify-center relative w-full h-full min-h-[506px] md:min-h-[450px] ">
                                         <Image
                                             src={car}
                                             alt="car"

@@ -25,10 +25,10 @@ export default function FeatureCard({
     chipIconBg = true,
 }: FeatureCardProps) {
     return (
-        <div className="feature-card bg-white px-6 py-[30px] shadow-[0px_2px_12px_0px_#8888881F] rounded-2xl flex flex-col gap-5 lg:min-w-[340px]">
+        <div className="feature-card bg-white px-5 md:px-6 py-6 md:py-[30px] shadow-[0px_2px_12px_0px_#8888881F] rounded-2xl flex flex-col gap-4 md:gap-5 lg:min-w-[340px] h-full min-h-[245px]">
 
             {/* Main Blue Icon */}
-            <div className="p-2.5 bg-[#59A6FF] rounded-xl flex items-center relative w-4 lg:w-[46px] h-4 lg:h-[46px]">
+            <div className="p-2.5 bg-[#59A6FF] rounded-xl flex items-center relative w-9 lg:w-[46px] h-9 lg:h-[46px]">
                 <Image
                     src={mainIcon}
                     alt={mainIconAlt}
@@ -40,11 +40,11 @@ export default function FeatureCard({
             </div>
 
             {/* Title + Subtitle */}
-            <div className="flex flex-col gap-3">
-                <Typography variant="h3" weight={600} className="text-black-900">
+            <div className="flex flex-col gap-2 md:gap-3">
+                <Typography variant="h3" weight={600} className="text-black-900 leading-7! md:leading-8!">
                     {title}
                 </Typography>
-                <Typography variant="para" weight={400} className="text-black-600">
+                <Typography variant="para" weight={400} className="text-black-600 leading-[22px]! md:leading-6!">
                     {subtitle}
                 </Typography>
             </div>
