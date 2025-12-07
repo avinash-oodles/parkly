@@ -24,6 +24,7 @@ import star from "@/assets/svgs/star.svg"
 import BackgroundWave from "@/assets/svgs/BackgroundWave";
 import FaqCar from "@/assets/svgs/FaqCar";
 import ProfileIcon from "@/assets/svgs/ProfileIcon";
+import parkedCar from "@/assets/svgs/parked-car.svg"
 import EffortCard from "@/components/molecules/EffortCard";
 import FeatureCard from "@/components/molecules/FeatureCards"
 import FaqList from "@/components/molecules/Faq/FaqList";
@@ -350,7 +351,7 @@ const WaitlistPage: FC = () => {
 
 
             {/* form section */}
-            <section >
+            <section className="hidden">
                 <Container>
                     <div className="pb-0 md:pb-[70px]">
                         <div className="form-content rounded-3xl border-2 border-[#2C7FFF] py-8 px-6 md:px-[50px] lg:py-[70px] lg:px-[100px] relative bg-[url('/form-bg.svg')] bg-cover bg-center bg-no-repeat flex flex-col gap-8 md:flex-row md:gap-[50px] ">
@@ -387,7 +388,7 @@ const WaitlistPage: FC = () => {
                                             hoverBg="#101010"
                                             boxShadow="1px 2px 24px 0px #13245733"
                                             className="w-full"
-                                            type="submit"  
+                                            type="submit"
                                         />
                                     </div>
                                 </form>
@@ -398,10 +399,26 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* car design */}
-            <section className="overflow-hidden hidden">
-                <Container>
-                    <AnimatedCarSection />
-                </Container>
+            <section className="overflow-hidden ">
+                <div className="hidden xl:flex">
+                    <Container>
+                        <AnimatedCarSection />
+                    </Container>
+                </div>
+                <div className="flex xl:hidden">
+                    <Container>
+                        <div className="flex relative w-full h-full min-h-[122px] ">
+                            <Image
+                                src={parkedCar}
+                                alt="parkedCar"
+                                fill
+                                className="object-contain"
+                                sizes="100%"
+                                priority
+                            />
+                        </div>
+                    </Container>
+                </div>
             </section>
         </>
     )
