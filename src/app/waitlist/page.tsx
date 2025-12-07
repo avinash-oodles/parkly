@@ -89,7 +89,7 @@ const WaitlistPage: FC = () => {
     return (
         <>
             {/* herosection */}
-            <section className="relative bg-[url('/find-bg.svg')] bg-cover bg-center bg-no-repeat hidden">
+            <section className="relative bg-[url('/find-bg.svg')] bg-cover bg-center bg-no-repeat">
                 <Container>
                     <div className="find-container flex gap-8 py-8 md:pt-[70px] md:pb-0 ">
                         <div className=" w-full flex flex-col justify-center gap-6 md:gap-8">
@@ -135,7 +135,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* Parkly Makes Parking Effortless */}
-            <section className="hidden">
+            <section className="">
                 <Container>
                     <div className="flex flex-col gap-8 md:gap-15 pt-8 pb-5 md:py-[70px] ">
                         <div className="flex flex-col  gap-1 md:gap-2">
@@ -174,7 +174,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* KEY FEATURES */}
-            <section className="bg-[#D9EBFF] hidden">
+            <section className="bg-[#D9EBFF]">
                 <Container>
                     <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-8 md:gap-15 ">
                         <div className="flex flex-col gap-2 lg:gap-3 items-center">
@@ -299,12 +299,12 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* design */}
-            <div className="overflow-hidden hidden">
+            <div className="overflow-hidden ">
                 <BackgroundWave />
             </div>
 
             {/* Frequently Asked Questions */}
-            <section className="hidden">
+            <section className="">
                 <Container>
                     <div className="flex flex-col gap-8 md:gap-[50px] items-center py-8 md:py-[70px] ">
                         <div className="flex flex-col gap-1 md:gap-2 items-center">
@@ -351,9 +351,9 @@ const WaitlistPage: FC = () => {
 
 
             {/* form section */}
-            <section className="hidden">
+            <section className="">
                 <Container>
-                    <div className="pb-0 md:pb-[70px]">
+                    <div className="pb-8 md:pb-[70px]">
                         <div className="form-content rounded-3xl border-2 border-[#2C7FFF] py-8 px-6 md:px-[50px] lg:py-[70px] lg:px-[100px] relative bg-[url('/form-bg.svg')] bg-cover bg-center bg-no-repeat flex flex-col gap-8 md:flex-row md:gap-[50px] ">
                             <div className="flex flex-col gap-1 md:gap-2 w-full max-w-[426px] ">
                                 <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
