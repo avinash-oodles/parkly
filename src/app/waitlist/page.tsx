@@ -32,6 +32,10 @@ import InputGroup from "@/components/InputGroup/InputGroup";
 import EmailIcon from "@/assets/svgs/EmailIcon";
 import AnimatedCarSection from "@/components/molecules/AnimatedCarSection";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { contactSchema, ContactFormValues } from "@/schemas/contactSchema";
 
 const WaitlistPage: FC = () => {
     const isMd = useMediaQuery('(min-width: 768px)');
@@ -77,6 +81,17 @@ const WaitlistPage: FC = () => {
         },
     ];
 
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<ContactFormValues>({
+        resolver: zodResolver(contactSchema),
+    });
+
+    const onSubmit = (data: ContactFormValues) => {
+        console.log("VALID FORM:", data);
+    };
 
     // Number of FAQs to show initially
     const initialCount = 5;
@@ -371,13 +386,23 @@ const WaitlistPage: FC = () => {
                                 </div>
                             </div>
                             <div className="w-full">
-                                <form
-                                    // onSubmit={handleSubmit} // optional handler
-                                    className="flex flex-col gap-4 md:gap-5"
-                                >
+                                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 md:gap-5">
                                     <div className="flex flex-col gap-4">
-                                        <InputGroup placeholder="Your name" type="text" Icon={ProfileIcon} />
-                                        <InputGroup placeholder="Your email" type="email" Icon={EmailIcon} />
+                                        <InputGroup
+                                            placeholder="Your name"
+                                            type="text"
+                                            Icon={ProfileIcon}
+                                            error={errors.name?.message}
+                                            register={register("name")}
+                                        />
+
+                                        <InputGroup
+                                            placeholder="Your email"
+                                            type="email"
+                                            Icon={EmailIcon}
+                                            error={errors.email?.message}
+                                            register={register("email")}
+                                        />
                                     </div>
                                     <div className="max-w-[180px]">
                                         <Button
