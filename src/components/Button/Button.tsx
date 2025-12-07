@@ -11,6 +11,7 @@ interface ButtonProps {
   boxShadow?: string;
   onClick?: () => void;
   className?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -22,6 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   boxShadow,
   onClick,
   className = "",
+  type = "button",
 }) => {
  
   const paddingClasses = variant === "sm"
@@ -32,6 +34,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       onClick={onClick}
+      type={type}
       style={{
         backgroundColor: bg,
         color: color,

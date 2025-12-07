@@ -52,8 +52,10 @@ const InputGroup: React.FC<InputGroupProps> = ({ placeholder = "Your name", type
   const strokeColor = isFocused || value ? "#19398F" : "#727272";
 
   return (
-    <div className="input-wrapper p-[18px] border-[1.5px] border-[#BCDCFF] rounded-xl flex gap-2.5 items-center">
-      <Icon stroke={strokeColor} />
+    <div className="input-wrapper py-[15px] px-[18px] md:p-[18px] border-[1.5px] border-[#BCDCFF] rounded-xl flex gap-2.5 items-center">
+      <div className="">
+        <Icon stroke={strokeColor} />
+      </div>
       <input
         type={type}
         placeholder={placeholder}

@@ -303,7 +303,7 @@ const WaitlistPage: FC = () => {
             </div>
 
             {/* Frequently Asked Questions */}
-            <section className="">
+            <section className="hidden">
                 <Container>
                     <div className="flex flex-col gap-8 md:gap-[50px] items-center py-8 md:py-[70px] ">
                         <div className="flex flex-col gap-1 md:gap-2 items-center">
@@ -350,32 +350,35 @@ const WaitlistPage: FC = () => {
 
 
             {/* form section */}
-            <section hidden>
+            <section >
                 <Container>
-                    <div className="pb-[70px]">
-                        <div className="form-content rounded-3xl border-2 border-[#2C7FFF] py-[70px] px-[100px] relative bg-[url('/form-bg.svg')] bg-cover bg-center bg-no-repeat flex gap-[50px] ">
-                            <div className="flex flex-col gap-2 w-full max-w-[426px] ">
+                    <div className="pb-0 md:pb-[70px]">
+                        <div className="form-content rounded-3xl border-2 border-[#2C7FFF] py-8 px-6 md:px-[50px] lg:py-[70px] lg:px-[100px] relative bg-[url('/form-bg.svg')] bg-cover bg-center bg-no-repeat flex flex-col gap-8 md:flex-row md:gap-[50px] ">
+                            <div className="flex flex-col gap-1 md:gap-2 w-full max-w-[426px] ">
                                 <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
-                                    <Typography variant="chip" weight={600} className="text-blue-500">
+                                    <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
                                         EASY PARKING, EVERY TIME
                                     </Typography>
                                 </div>
-                                <div className="flex flex-col gap-3">
-                                    <Typography variant="h2" weight={600} className="text-black-900">
+                                <div className="flex flex-col gap-2 md:gap-3">
+                                    <Typography variant="h2" weight={600} lineHeight={isMd ? 45 : 36} className="text-black-900">
                                         Reserve Your Spot on the Waitlist
                                     </Typography>
-                                    <Typography variant="body" lineHeight={32} letterSpacing={0.01} weight={400} className="text-black-700">
+                                    <Typography variant="body" lineHeight={isMd ? 32 : 22} letterSpacing={0.01} weight={400} className="text-black-700">
                                         Connect with nearby hosts and discover hassle-free parking before anyone else.
                                     </Typography>
                                 </div>
                             </div>
                             <div className="w-full">
-                                <div className="flex flex-col gap-5">
+                                <form
+                                    // onSubmit={handleSubmit} // optional handler
+                                    className="flex flex-col gap-4 md:gap-5"
+                                >
                                     <div className="flex flex-col gap-4">
                                         <InputGroup placeholder="Your name" type="text" Icon={ProfileIcon} />
                                         <InputGroup placeholder="Your email" type="email" Icon={EmailIcon} />
                                     </div>
-                                    <div className="">
+                                    <div className="max-w-[180px]">
                                         <Button
                                             text="Submit"
                                             variant="lg"
@@ -383,9 +386,11 @@ const WaitlistPage: FC = () => {
                                             color="#FFFFFF"
                                             hoverBg="#101010"
                                             boxShadow="1px 2px 24px 0px #13245733"
+                                            className="w-full"
+                                            type="submit"  
                                         />
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
