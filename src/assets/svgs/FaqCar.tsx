@@ -2,7 +2,7 @@
 
 const FaqCar = () => {
     return (
-        <svg width="507" height="507" viewBox="0 0 507 507" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" height="100%" viewBox="0 0 507 507" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_1165_5897)">
                 <g opacity="0.8">
                     <rect x="440.491" y="289.101" width="5.7259" height="9.16144" fill="#BADCFF" />

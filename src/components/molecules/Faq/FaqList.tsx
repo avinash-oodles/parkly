@@ -54,7 +54,7 @@ export default function FaqList({ showCount }: FaqListProps) {
     const faqsToShow = showCount ? faqData.slice(0, showCount) : faqData;
 
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-4 md:gap-5">
             {faqsToShow.map((faq, index) => (
                 <FaqCard
                     key={index}

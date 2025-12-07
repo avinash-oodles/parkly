@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import ChevronDown from "@/assets/svgs/ChevronDown";
 import Typography from "@/components/Typography/Typograpghy";
 
@@ -15,7 +14,7 @@ export default function FaqCard({ question, answer, isActive, onToggle }: FaqCar
     return (
         <div
             className={`single-faq flex flex-col transition-all duration-300
-                border-[1.2px] p-6 rounded-2xl w-full cursor-pointer
+                border-[1.2px] py-[18px] px-5 md:p-6 rounded-2xl w-full cursor-pointer
                 ${isActive ? "border-[#8EC7FF]" : "border-[#D0D0D0]"}
             `}
             onClick={onToggle}
@@ -23,17 +22,16 @@ export default function FaqCard({ question, answer, isActive, onToggle }: FaqCar
             {/* Question Row */}
             <div className="question flex justify-between items-center">
                 <Typography
-                    variant="body"
-                    lineHeight={28}
+                    variant="h4"
                     weight={500}
-                    className={`${isActive ? "text-blue-700" : "text-black-700"}`}
+                    className={`${isActive ? "text-blue-700" : "text-black-700"} leading-6 md:leading-7!`}
                 >
                     {question}
                 </Typography>
 
                 <div
                     className={`transition-all duration-300 
-                        ${isActive ? "rotate-180 text-[#144DE1]" : "rotate-0 text-black-700"}
+                        ${isActive ? "rotate-180 text-[#144DE1]" : "rotate-0 text-black-700"} h-4 md:h-6 w-4 md:w-6 flex items-center 
                     `}
                 >
                     <ChevronDown />
@@ -48,9 +46,8 @@ export default function FaqCard({ question, answer, isActive, onToggle }: FaqCar
             >
                 <Typography
                     variant="para"
-                    lineHeight={26}
                     weight={400}
-                    className="text-black-500"
+                    className="text-black-500 leading-[22px]! md:leading-[26px]!"
                 >
                     {answer}
                 </Typography>

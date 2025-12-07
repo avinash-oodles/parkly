@@ -173,7 +173,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* KEY FEATURES */}
-            <section className="bg-[#D9EBFF]">
+            <section className="bg-[#D9EBFF] hidden">
                 <Container>
                     <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-8 md:gap-15 ">
                         <div className="flex flex-col gap-2 lg:gap-3 items-center">
@@ -298,24 +298,24 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* design */}
-            <div className="overflow-hidden ">
+            <div className="overflow-hidden hidden">
                 <BackgroundWave />
             </div>
 
             {/* Frequently Asked Questions */}
-            <section className="hidden">
+            <section className="">
                 <Container>
-                    <div className="flex flex-col gap-[50px] items-center py-[70px] ">
-                        <div className="flex flex-col gap-2 items-center">
-                            <Typography variant="h2" weight={600} className="text-black-900">
+                    <div className="flex flex-col gap-8 md:gap-[50px] items-center py-8 md:py-[70px] ">
+                        <div className="flex flex-col gap-1 md:gap-2 items-center">
+                            <Typography variant="h2" weight={600} lineHeight={isMd ? 45 : 36} className="text-black-900">
                                 Frequently Asked Questions
                             </Typography>
-                            <Typography variant="body" lineHeight={32} letterSpacing={0.01} weight={400} className="text-black-700">
+                            <Typography variant="body" lineHeight={isMd ? 32 : 22} letterSpacing={0.01} weight={400} className="text-black-700 text-center">
                                 For questions, contact our support team via email. We will respond quickly.
                             </Typography>
                         </div>
-                        <div className="flex gap-[90px] h-full ">
-                            <div className="flex flex-col gap-6">
+                        <div className="flex gap-5 xl:gap-[90px] h-full ">
+                            <div className="hidden md:flex flex-col gap-6 w-[80%]">
                                 <FaqCar />
                                 <div className="">
                                     <Button
@@ -329,8 +329,19 @@ const WaitlistPage: FC = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="">
+                            <div className="flex flex-col gap-6">
                                 <FaqList showCount={showAll ? undefined : initialCount} />
+                                <div className="flex justify-center md:hidden">
+                                    <Button
+                                        text={showAll ? "View Less" : "View More Questions"}
+                                        variant="lg"
+                                        bg="#2C7FFF"
+                                        color="#FFFFFF"
+                                        hoverBg="#101010"
+                                        boxShadow="1px 2px 24px 0px #13245733"
+                                        onClick={handleToggleFaqs}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
