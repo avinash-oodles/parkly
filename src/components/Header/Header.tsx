@@ -34,19 +34,19 @@ const Header: FC = () => {
 
                         <div className="flex gap-10">
                             <div className="flex gap-3 items-center">
-                                <div className="d-flex px-2.5 py-4" onClick={() => scrollTo("how-it-works", 120)}>
+                                <div className="d-flex px-2.5 py-4" onClick={() => scrollTo("how-it-works", 80)}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
                                         How it Works
                                     </Typography>
                                 </div>
 
-                                <div className="d-flex px-2.5 py-4" onClick={() => scrollTo("features-view", 120)}>
+                                <div className="d-flex px-2.5 py-4" onClick={() => scrollTo("features-view", 80)}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
                                         Features
                                     </Typography>
                                 </div>
 
-                                <div className="d-flex px-2.5 py-4" onClick={() => scrollTo("faq-view", 120)}>
+                                <div className="d-flex px-2.5 py-4" onClick={() => scrollTo("faq-view", 80)}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
                                         FAQ
                                     </Typography>
@@ -145,7 +145,7 @@ const Header: FC = () => {
                         <nav className="flex flex-col gap-4 mt-8 px-6 bg-white">
                             <div className="flex flex-col gap-3">
                                 <div onClick={() => {
-                                    scrollTo("how-it-works", 120);
+                                    scrollTo("how-it-works", 80);
                                     setIsOpen(false);
                                 }}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5 ">
@@ -153,7 +153,7 @@ const Header: FC = () => {
                                     </Typography>
                                 </div>
                                 <div onClick={() => {
-                                    scrollTo("features-view", 120);
+                                    scrollTo("features-view", 80);
                                     setIsOpen(false);
                                 }}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5 ">
@@ -161,7 +161,7 @@ const Header: FC = () => {
                                     </Typography>
                                 </div>
                                 <div onClick={() => {
-                                    scrollTo("faq-view", 120);
+                                    scrollTo("faq-view", 80);
                                     setIsOpen(false);
                                 }}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5 ">
