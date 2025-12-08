@@ -34,12 +34,13 @@ import AnimatedCarSection from "@/components/molecules/AnimatedCarSection";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import useScrollTo from "@/hooks/useScrollTo";
 
 import { contactSchema, ContactFormValues } from "@/schemas/contactSchema";
 
 const WaitlistPage: FC = () => {
     const isMd = useMediaQuery('(min-width: 768px)');
-
+        const scrollTo = useScrollTo();
     const [showAll, setShowAll] = useState(false);
 
     const slides = [
@@ -117,7 +118,7 @@ const WaitlistPage: FC = () => {
                                 </Typography>
                             </div>
                             <div className="flex flex-col gap-3">
-                                <Link href="" className="d-flex w-full">
+                                <div className="d-flex w-full cursor-pointer" onClick={() => scrollTo("waitlist-form")}>
                                     <Button
                                         text="Join the Waitlist"
                                         variant="lg"
@@ -127,7 +128,7 @@ const WaitlistPage: FC = () => {
                                         boxShadow="1px 2px 24px 0px #13245733"
                                         className="w-full md:w-auto"
                                     />
-                                </Link>
+                                </div>
                                 <Typography variant="para" weight={500} lineHeight={isMd ? 24 : 20} className="text-black-900 italic">
                                     Launching across the U.S. soon
                                 </Typography>
@@ -296,7 +297,7 @@ const WaitlistPage: FC = () => {
                                 <h4 className="font-semibold text-[20px] leading-8 md:text-[30px] md:leading-[37.5px] tracking-[1%] text-center text-black-900">
                                     Find your next parking spot the smarter way.
                                 </h4>
-                                <Link href="" className="d-flex w-full lg:w-auto">
+                                <div onClick={() => scrollTo("waitlist-form")} className="d-flex w-full lg:w-auto cursor-pointer">
                                     <Button
                                         text="Join the Waitlist"
                                         variant="lg"
@@ -306,7 +307,7 @@ const WaitlistPage: FC = () => {
                                         boxShadow="1px 2px 24px 0px #13245733"
                                         className="w-full"
                                     />
-                                </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -366,7 +367,7 @@ const WaitlistPage: FC = () => {
 
 
             {/* form section */}
-            <section className="">
+            <section id="waitlist-form" className="">
                 <Container>
                     <div className="pb-8 md:pb-[70px]">
                         <div className="form-content rounded-3xl border-2 border-[#2C7FFF] py-8 px-6 md:px-[50px] lg:py-[70px] lg:px-[100px] relative bg-[url('/form-bg.svg')] bg-cover bg-center bg-no-repeat flex flex-col gap-8 md:flex-row md:gap-[50px] ">
