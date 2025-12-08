@@ -7,7 +7,7 @@ const BackgroundWave = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       width="100%"
-      height="auto"
+      height="100%"
       preserveAspectRatio="none" // stretches to fill width
       style={{ display: "block" }} // removes unwanted whitespace below svg
     >

@@ -5,14 +5,14 @@ import { useState } from "react";
 interface InputGroupProps {
   placeholder?: string;
   type?: string;
-  Icon: React.FC<{ stroke: string }>; 
-  error?: string;          
+  Icon: React.FC<{ stroke: string }>;
+  error?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: any;
 }
 
-const InputGroup: React.FC<InputGroupProps> = ({ placeholder = "Your name", type = "text", Icon , error,
-  register,}) => {
+const InputGroup: React.FC<InputGroupProps> = ({ placeholder = "Your name", type = "text", Icon, error,
+  register, }) => {
   const [value, setValue] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
@@ -22,12 +22,12 @@ const InputGroup: React.FC<InputGroupProps> = ({ placeholder = "Your name", type
     <div className="flex flex-col gap-1">
       {/* Wrapper */}
       <div
-        className={`py-[15px] px-[18px] md:p-[18px] border-[1.5px] rounded-xl flex gap-2.5 items-center ${
-          error ? "border-red-500" : "border-[#BCDCFF]"
-        }`}
+        className={`py-[15px] px-[18px] md:p-[18px] border-[1.5px] rounded-xl flex gap-2.5 items-center ${error ? "border-red-500" : "border-[#BCDCFF]"
+          }`}
       >
-        <Icon stroke={strokeColor} />
-
+        <div className="min-w-5">
+          <Icon stroke={strokeColor} />
+        </div>
         <input
           type={type}
           placeholder={placeholder}

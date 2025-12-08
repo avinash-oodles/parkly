@@ -40,7 +40,7 @@ import { contactSchema, ContactFormValues } from "@/schemas/contactSchema";
 
 const WaitlistPage: FC = () => {
     const isMd = useMediaQuery('(min-width: 768px)');
-        const scrollTo = useScrollTo();
+    const scrollTo = useScrollTo();
     const [showAll, setShowAll] = useState(false);
 
     const slides = [
@@ -209,7 +209,7 @@ const WaitlistPage: FC = () => {
                             </Typography>
                         </div>
                         <div className="flex flex-col gap-10 lg:gap-[50px] ">
-                            <div className="flex flex-col gap-8 lg:flex-row ">
+                            <div className="flex flex-col gap-8 lg:flex-row justify-center ">
                                 <div className="hidden xl:flex gap-8">
                                     <div className="flex flex-col gap-9">
                                         <FeatureCard
@@ -257,7 +257,7 @@ const WaitlistPage: FC = () => {
 
                                     </div>
                                 </div>
-                                <div className="flex flex-col gap-4 xl:hidden">
+                                {/* <div className="flex flex-col gap-4 xl:hidden">
                                     <Swiper
                                         modules={[Pagination]}
                                         spaceBetween={16}
@@ -271,7 +271,55 @@ const WaitlistPage: FC = () => {
                                     >
                                         {slides.map((slide, idx) => (
                                             <SwiperSlide key={idx}>
-                                                <div className="max-w-[320px] mx-auto flex">  {/* Changed to flex */}
+                                                <div className="max-w-[340px] mx-auto flex">
+                                                    <FeatureCard {...slide} />
+                                                </div>
+                                            </SwiperSlide>
+                                        ))}
+                                    </Swiper>
+
+                                    <div className="custom-pagination flex justify-center gap-2"></div>
+                                </div> */}
+                                <div className="flex flex-col gap-4 xl:hidden overflow-hidden justify-end">
+                                    <Swiper
+                                        modules={[Pagination]}
+                                        spaceBetween={16}
+                                        slidesPerView={1}
+                                        loop={true}
+                                        pagination={{
+                                            clickable: true,
+                                            el: '.custom-pagination',
+                                        }}
+                                        className="w-full"
+                                        breakpoints={{
+                                            // Mobile (default)
+                                            0: {
+                                                slidesPerView: 1,
+                                                spaceBetween: 16,
+                                            },
+                                            // Small tablets
+                                            640: {
+                                                slidesPerView: 1.2,
+                                                spaceBetween: 16,
+                                                centeredSlides: true,
+                                            },
+                                            // Medium tablets
+                                            768: {
+                                                slidesPerView: 1.5,
+                                                spaceBetween: 20,
+                                                centeredSlides: true,
+                                            },
+                                            // Large tablets/small laptops
+                                            1024: {
+                                                slidesPerView: 2,
+                                                spaceBetween: 24,
+                                                centeredSlides: false,
+                                            },
+                                        }}
+                                    >
+                                        {slides.map((slide, idx) => (
+                                            <SwiperSlide key={idx}>
+                                                <div className="max-w-[340px] mx-auto flex">
                                                     <FeatureCard {...slide} />
                                                 </div>
                                             </SwiperSlide>

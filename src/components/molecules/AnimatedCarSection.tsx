@@ -61,30 +61,38 @@ const AnimatedCarSection = () => {
     const [carPosition, setCarPosition] = useState(0);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (!sectionRef.current) return;
+    const handleScroll = () => {
+        if (!sectionRef.current) return;
 
-            const rect = sectionRef.current.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+        const rect = sectionRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-            if (rect.top <= windowHeight && rect.bottom >= 0) {
-                const progress = Math.min(
-                    Math.max((windowHeight - rect.top) / windowHeight, 0),
-                    1
-                );
+        if (rect.top <= windowHeight && rect.bottom >= 0) {
+            const progress = Math.min(
+                Math.max((windowHeight - rect.top) / windowHeight, 0),
+                1
+            );
 
-                // Stop 90% across the viewport
-                const targetPosition = window.innerWidth * 1.35;
+            // Start at 10vw from left, end at 20vw from right
+            const startVw = 10;
+            const endVw = 100 - 1; // 80vw (which is 20vw from right)
+            const travelDistance = endVw - startVw; // 70vw total travel
 
-                setCarPosition(progress * targetPosition);
-            }
-        };
+            // Calculate current position in vw
+            const currentVw = startVw + (progress * travelDistance);
+            
+            // Convert vw to pixels for the transform
+            const currentPosition = (currentVw * window.innerWidth) / 100;
 
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
+            setCarPosition(currentPosition);
+        }
+    };
 
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
     return (
         <div ref={sectionRef} className="flex justify-between items-end relative">

@@ -168,15 +168,16 @@ body {
   /* visible on hover */
 }
 
-/* .swiper-pagination-bullet {
+.swiper-pagination-bullet {
   background: #000;
   opacity: 0.5;
+  margin: 0 !important;
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
   background: #000 !important;
-} */
+}
 
 @media (max-width: 1440px) {}
 
