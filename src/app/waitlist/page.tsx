@@ -119,34 +119,34 @@ const WaitlistPage: FC = () => {
 
     // Number of FAQs to show initially
     const onSubmit = async (data: ContactFormValues) => {
-    const loadingToast = toast.loading('Submitting...');
-    
-    try {
-        const res = await fetch("/api/send-mail", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-        });
+        const loadingToast = toast.loading('Submitting...');
 
-        const result = await res.json();
+        try {
+            const res = await fetch("/api/send-mail", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
 
-        if (result.success) {
-            toast.success('Thank you! You\'re on the waitlist.', {
+            const result = await res.json();
+
+            if (result.success) {
+                toast.success('Thank you! You\'re on the waitlist.', {
+                    id: loadingToast,
+                });
+                // reset(); // This will now work - clears the form fields
+            } else {
+                toast.error(result.error || 'Failed to submit form', {
+                    id: loadingToast,
+                });
+            }
+        } catch (err) {
+            toast.error('An error occurred. Please try again.', {
                 id: loadingToast,
             });
-            // reset(); // This will now work - clears the form fields
-        } else {
-            toast.error(result.error || 'Failed to submit form', {
-                id: loadingToast,
-            });
+            console.error(err);
         }
-    } catch (err) {
-        toast.error('An error occurred. Please try again.', {
-            id: loadingToast,
-        });
-        console.error(err);
-    }
-};
+    };
 
 
     const initialCount = 5;
@@ -245,7 +245,7 @@ const WaitlistPage: FC = () => {
 
             {/* KEY FEATURES */}
             <section id="features-view" className="bg-[#D9EBFF]">
-                <Container>
+                <Container  pl="pl-6" pr="pr-0">
                     <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-8 md:gap-15 ">
                         <div className="flex flex-col gap-2 lg:gap-3 items-center">
                             <div className="flex flex-col gap-1 lg:gap-2  items-center ">
@@ -337,8 +337,8 @@ const WaitlistPage: FC = () => {
                                 <div className="flex flex-col gap-4 xl:hidden overflow-hidden justify-end">
                                     <Swiper
                                         modules={[Pagination]}
-                                        spaceBetween={16}
-                                        slidesPerView={1}
+                                        spaceBetween={12}
+                                        slidesPerView={1.1} // This will show 1.1 cards
                                         loop={true}
                                         pagination={{
                                             clickable: true,
@@ -346,34 +346,31 @@ const WaitlistPage: FC = () => {
                                         }}
                                         className="w-full"
                                         breakpoints={{
-                                            // Mobile (default)
+                                            // Mobile - shows 1.1 cards
                                             0: {
-                                                slidesPerView: 1,
-                                                spaceBetween: 16,
+                                                slidesPerView: 1.1,
+                                                spaceBetween: 12,
                                             },
-                                            // Small tablets
+                                            // Small tablets - shows 1.5 cards
                                             640: {
-                                                slidesPerView: 1.2,
-                                                spaceBetween: 16,
-                                                centeredSlides: true,
-                                            },
-                                            // Medium tablets
-                                            768: {
                                                 slidesPerView: 1.5,
-                                                spaceBetween: 20,
-                                                centeredSlides: true,
+                                                spaceBetween: 16,
                                             },
-                                            // Large tablets/small laptops
-                                            1024: {
+                                            // Medium tablets - shows 2 cards
+                                            768: {
                                                 slidesPerView: 2,
+                                                spaceBetween: 20,
+                                            },
+                                            // Large tablets/laptops - shows 3 cards
+                                            1024: {
+                                                slidesPerView: 3,
                                                 spaceBetween: 24,
-                                                centeredSlides: false,
                                             },
                                         }}
                                     >
                                         {slides.map((slide, idx) => (
-                                            <SwiperSlide key={idx}>
-                                                <div className="max-w-[340px] mx-auto flex">
+                                            <SwiperSlide key={idx} style={{ listStyle: "none" }}>
+                                                <div className="w-full">
                                                     <FeatureCard {...slide} />
                                                 </div>
                                             </SwiperSlide>

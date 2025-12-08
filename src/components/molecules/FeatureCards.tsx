@@ -25,7 +25,7 @@ export default function FeatureCard({
     chipIconBg = true,
 }: FeatureCardProps) {
     return (
-        <div className="feature-card bg-white px-5 md:px-6 py-6 md:py-[30px] shadow-[0px_2px_12px_0px_#8888881F] rounded-2xl flex flex-col gap-4 md:gap-5 lg:min-w-[340px] h-full min-h-[245px]">
+        <div className="feature-card bg-white px-5 md:px-6 py-6 md:py-[30px] shadow-[0px_2px_12px_0px_#8888881F] rounded-2xl flex flex-col gap-4 md:gap-5 lg:min-w-[340px] h-full min-h-[284px]">
 
             {/* Main Blue Icon */}
             <div className="p-2.5 bg-[#59A6FF] rounded-xl flex items-center relative w-9 lg:w-[46px] h-9 lg:h-[46px]">
