@@ -35,6 +35,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import useScrollTo from "@/hooks/useScrollTo";
+import toast from 'react-hot-toast';
 
 import { contactSchema, ContactFormValues } from "@/schemas/contactSchema";
 
@@ -90,33 +91,64 @@ const WaitlistPage: FC = () => {
         resolver: zodResolver(contactSchema),
     });
 
-    const onSubmit = async (data: ContactFormValues) => {
-        try {
-            const res = await fetch("/api/send-mail", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-            });
+    // const onSubmit = async (data: ContactFormValues) => {
+    //     try {
+    //         const res = await fetch("/api/send-mail", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify(data),
+    //         });
 
-            const result = await res.json();
+    //         const result = await res.json();
 
-            if (result.success) {
-                console.log("Email sent successfully");
-                alert("Form submitted successfully!");
-            } else {
-                console.error(result.error);
-                alert("Failed to send email");
-            }
-        } catch (err) {
-            console.error(err);
-            alert("An error occurred");
-        }
-    };
+    //         if (result.success) {
+    //             console.log("Email sent successfully");
+    //             alert("Form submitted successfully!");
+    //         } else {
+    //             console.error(result.error);
+    //             alert("Failed to send email");
+    //         }
+    //     } catch (err) {
+    //         console.error(err);
+    //         alert("An error occurred");
+    //     }
+    // };
 
 
 
-    
+
     // Number of FAQs to show initially
+    const onSubmit = async (data: ContactFormValues) => {
+    const loadingToast = toast.loading('Submitting...');
+    
+    try {
+        const res = await fetch("/api/send-mail", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+            toast.success('Thank you! You\'re on the waitlist.', {
+                id: loadingToast,
+            });
+            // reset(); // This will now work - clears the form fields
+        } else {
+            toast.error(result.error || 'Failed to submit form', {
+                id: loadingToast,
+            });
+        }
+    } catch (err) {
+        toast.error('An error occurred. Please try again.', {
+            id: loadingToast,
+        });
+        console.error(err);
+    }
+};
+
+
     const initialCount = 5;
 
     // Toggle function
