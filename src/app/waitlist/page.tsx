@@ -218,7 +218,7 @@ const WaitlistPage: FC = () => {
                                 Parkly Makes Parking Effortless
                             </Typography>
                         </div>
-                        <div className="flex flex-col md:flex-row md:justify-between lg:justify-around  gap-7 md:gap-0 lg:gap-8">
+                        <div className="flex flex-col lg:flex-row  lg:justify-around  gap-7 md:gap-0 lg:gap-8">
                             <EffortCard
                                 number="01"
                                 bgColor="#173EB6"
