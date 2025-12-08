@@ -247,7 +247,7 @@ const WaitlistPage: FC = () => {
             <section id="features-view" className="bg-[#D9EBFF]">
                 <Container  pl="pl-6" pr="pr-0">
                     <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-8 md:gap-15 ">
-                        <div className="flex flex-col gap-2 lg:gap-3 items-center">
+                        <div className="flex flex-col gap-2 lg:gap-3 items-center pr-6 md:pr-0">
                             <div className="flex flex-col gap-1 lg:gap-2  items-center ">
                                 <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
                                     <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
@@ -379,7 +379,7 @@ const WaitlistPage: FC = () => {
 
                                     <div className="custom-pagination flex justify-center gap-2"></div>
                                 </div>
-                                <div className="w-full max-w-[400px] mx-auto ">
+                                <div className="w-full max-w-[400px] mx-auto pr-6">
                                     <div className="flex justify-center relative w-full h-full min-h-[506px] md:min-h-[450px] ">
                                         <Image
                                             src={car}
@@ -392,7 +392,7 @@ const WaitlistPage: FC = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-4 lg:gap-5 items-center justify-center">
+                            <div className="flex flex-col gap-4 lg:gap-5 items-center justify-center pr-6">
                                 <h4 className="font-semibold text-[20px] leading-8 md:text-[30px] md:leading-[37.5px] tracking-[1%] text-center text-black-900">
                                     Find your next parking spot the smarter way.
                                 </h4>
