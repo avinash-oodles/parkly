@@ -90,10 +90,32 @@ const WaitlistPage: FC = () => {
         resolver: zodResolver(contactSchema),
     });
 
-    const onSubmit = (data: ContactFormValues) => {
-        console.log("VALID FORM:", data);
+    const onSubmit = async (data: ContactFormValues) => {
+        try {
+            const res = await fetch("/api/send-mail", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            const result = await res.json();
+
+            if (result.success) {
+                console.log("Email sent successfully");
+                alert("Form submitted successfully!");
+            } else {
+                console.error(result.error);
+                alert("Failed to send email");
+            }
+        } catch (err) {
+            console.error(err);
+            alert("An error occurred");
+        }
     };
 
+
+
+    
     // Number of FAQs to show initially
     const initialCount = 5;
 
@@ -118,7 +140,7 @@ const WaitlistPage: FC = () => {
                                 </Typography>
                             </div>
                             <div className="flex flex-col gap-3">
-                                <div className="d-flex w-full cursor-pointer" onClick={() => scrollTo("waitlist-form")}>
+                                <div className="d-flex w-full cursor-pointer" onClick={() => scrollTo("waitlist-form", 130)}>
                                     <Button
                                         text="Join the Waitlist"
                                         variant="lg"
@@ -151,11 +173,11 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* Parkly Makes Parking Effortless */}
-            <section className="">
+            <section id="how-it-works" className="">
                 <Container>
                     <div className="flex flex-col gap-8 md:gap-15 pt-8 pb-5 md:py-[70px] ">
                         <div className="flex flex-col  gap-1 md:gap-2">
-                            <div className="w-max py-1.5 px-3 bg-[#D9EBFF] backdrop-blur-sm rounded-3xl">
+                            <div className="w-max py-1.5 px-3 bg-[#D9EBFF] backdrop-blur-sm rounded-3xl" >
                                 <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
                                     HOW IT WORKS?
                                 </Typography>
@@ -190,7 +212,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* KEY FEATURES */}
-            <section className="bg-[#D9EBFF]">
+            <section id="features-view" className="bg-[#D9EBFF]">
                 <Container>
                     <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-8 md:gap-15 ">
                         <div className="flex flex-col gap-2 lg:gap-3 items-center">
@@ -328,7 +350,7 @@ const WaitlistPage: FC = () => {
 
                                     <div className="custom-pagination flex justify-center gap-2"></div>
                                 </div>
-                                <div className="w-full max-w-[400px]">
+                                <div className="w-full max-w-[400px] mx-auto ">
                                     <div className="flex justify-center relative w-full h-full min-h-[506px] md:min-h-[450px] ">
                                         <Image
                                             src={car}
@@ -345,7 +367,7 @@ const WaitlistPage: FC = () => {
                                 <h4 className="font-semibold text-[20px] leading-8 md:text-[30px] md:leading-[37.5px] tracking-[1%] text-center text-black-900">
                                     Find your next parking spot the smarter way.
                                 </h4>
-                                <div onClick={() => scrollTo("waitlist-form")} className="d-flex w-full lg:w-auto cursor-pointer">
+                                <div onClick={() => scrollTo("waitlist-form", 130)} className="d-flex w-full lg:w-auto cursor-pointer">
                                     <Button
                                         text="Join the Waitlist"
                                         variant="lg"
@@ -368,7 +390,7 @@ const WaitlistPage: FC = () => {
             </div>
 
             {/* Frequently Asked Questions */}
-            <section className="">
+            <section id="faq-view" className="">
                 <Container>
                     <div className="flex flex-col gap-8 md:gap-[50px] items-center py-8 md:py-[70px] ">
                         <div className="flex flex-col gap-1 md:gap-2 items-center">

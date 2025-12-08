@@ -9,9 +9,11 @@ import cross from "./header-img/cross.svg"
 import Container from "@/components/Container/Container";
 import Typography from "@/components/Typography/Typograpghy";
 import Button from "../Button/Button";
+import useScrollTo from "@/hooks/useScrollTo";
 
 const Header: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const scrollTo = useScrollTo();
 
     return (
         <header className="w-full bg-[#EEF6FFB2] fixed top-0 z-1000 backdrop-blur-[20px]">
@@ -32,23 +34,23 @@ const Header: FC = () => {
 
                         <div className="flex gap-10">
                             <div className="flex gap-3 items-center">
-                                <Link href="/how-it-works" className="d-flex px-2.5 py-4">
+                                <div className="d-flex px-2.5 py-4" onClick={() => scrollTo("how-it-works", 120)}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
                                         How it Works
                                     </Typography>
-                                </Link>
+                                </div>
 
-                                <Link href="/features" className="d-flex px-2.5 py-4">
+                                <div className="d-flex px-2.5 py-4" onClick={() => scrollTo("features-view", 120)}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
                                         Features
                                     </Typography>
-                                </Link>
+                                </div>
 
-                                <Link href="/faq" className="d-flex px-2.5 py-4">
+                                <div className="d-flex px-2.5 py-4" onClick={() => scrollTo("faq-view", 120)}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
                                         FAQ
                                     </Typography>
-                                </Link>
+                                </div>
                             </div>
                             <div className="flex gap-3 items-center">
                                 <Link href="" className="px-[19px] py-[9px] border border-[#2C7FFF33] rounded-lg">
@@ -142,21 +144,30 @@ const Header: FC = () => {
                         </div>
                         <nav className="flex flex-col gap-4 mt-8 px-6 bg-white">
                             <div className="flex flex-col gap-3">
-                                <Link href="/how-it-works" onClick={() => setIsOpen(false)}>
+                                <div onClick={() => {
+                                    scrollTo("how-it-works", 120);
+                                    setIsOpen(false);
+                                }}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5 ">
                                         How it Works
                                     </Typography>
-                                </Link>
-                                <Link href="/features" onClick={() => setIsOpen(false)}>
+                                </div>
+                                <div onClick={() => {
+                                    scrollTo("features-view", 120);
+                                    setIsOpen(false);
+                                }}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5 ">
                                         Features
                                     </Typography>
-                                </Link>
-                                <Link href="/faq" onClick={() => setIsOpen(false)}>
+                                </div>
+                                <div onClick={() => {
+                                    scrollTo("faq-view", 120);
+                                    setIsOpen(false);
+                                }}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5 ">
                                         FAQ
                                     </Typography>
-                                </Link>
+                                </div>
                             </div>
                             <div className="flex justify-between gap-4">
                                 <div className="flex items-center gap-3 w-full justify-center border border-[#2C7FFF33] rounded-lg">
