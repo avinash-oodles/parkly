@@ -6,17 +6,15 @@ import parkedCar from "@/assets/svgs/parked-car.svg"
 import Typography from "@/components/Typography/Typograpghy";
 import Link from "next/link";
 import Button from "@/components/Button/Button";
-// import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export const ThankYouPage: FC = () => {
-    // const isMd = useMediaQuery('(min-width: 768px)');
     return (
         <>
             {/* herosection */}
             <section className="relative bg-[url('/find-bg.svg')] md:bg-[url('/find-bg-desk.svg')]  bg-cover bg-center bg-no-repeat">
                 <Container>
-                    <div className="flex flex-col items-center pt-8 pb-[70px] gap-8 max-w-[620px] mx-auto ">
-                        <div className="relative w-[126px] h-[126px] ">
+                    <div className="flex flex-col items-center pt-8 pb-[70px] gap-4 md:gap-8 max-w-[620px] mx-auto ">
+                        <div className="relative w-15 h-15 md:w-[126px] md:h-[126px] ">
                             <Image
                                 src="/ok.gif"
                                 alt="My GIF"

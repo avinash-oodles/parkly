@@ -35,6 +35,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import useScrollTo from "@/hooks/useScrollTo";
 import toast from 'react-hot-toast';
+import { useRouter } from "next/navigation";
 
 import { contactSchema, ContactFormValues } from "@/schemas/contactSchema";
 
@@ -82,6 +83,7 @@ const WaitlistPage: FC = () => {
         },
     ];
 
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -91,38 +93,34 @@ const WaitlistPage: FC = () => {
         resolver: zodResolver(contactSchema),
     });
 
-    // Number of FAQs to show initially
     const onSubmit = async (data: ContactFormValues) => {
-        const loadingToast = toast.loading('Submitting...');
+    const loadingToast = toast.loading("Submitting...");
 
-        try {
-            const res = await fetch("/api/send-mail", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-            });
+    try {
+        const res = await fetch("/api/send-mail", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        });
 
-            const result = await res.json();
+        const result = await res.json();
 
-            if (result.success) {
-                toast.success('Thank you! You\'re on the waitlist.', {
-                    id: loadingToast,
-                });
-                reset();
-            } else {
-                toast.error(result.error || 'Failed to submit form', {
-                    id: loadingToast,
-                });
-            }
-        } catch (err) {
-            toast.error('An error occurred. Please try again.', {
+        if (result.success) {
+            toast.dismiss(loadingToast); // ✅ just remove loading toast (no success toast)
+            reset();                    // ✅ clear form fields
+            router.push("/thankyou");   // ✅ redirect
+        } else {
+            toast.error(result.error || "Failed to submit form", {
                 id: loadingToast,
             });
-            console.error(err);
         }
-    };
-
-
+    } catch (err) {
+        toast.error("An error occurred. Please try again.", {
+            id: loadingToast,
+        });
+        console.error(err);
+    }
+};
     const initialCount = 5;
 
     // Toggle function
@@ -219,7 +217,7 @@ const WaitlistPage: FC = () => {
 
             {/* KEY FEATURES */}
             <section id="features-view" className="bg-[#D9EBFF]">
-                <Container  pl="pl-6" pr="pr-0">
+                <Container pl="pl-6" pr="pr-0">
                     <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-8 md:gap-15 ">
                         <div className="flex flex-col gap-2 lg:gap-3 items-center pr-6 md:pr-0">
                             <div className="flex flex-col gap-1 lg:gap-2  items-center ">
