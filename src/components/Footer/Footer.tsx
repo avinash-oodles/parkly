@@ -44,11 +44,11 @@ const Footer: FC = () => {
                                         </Typography>
                                     </div>
                                     <div className="flex flex-col gap-3">
-                                        <Link href="">
+                                        {/* <Link href="">
                                             <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
                                                 About Us
                                             </Typography>
-                                        </Link>
+                                        </Link> */}
                                         <Link href="">
                                             <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
                                                 How it Works

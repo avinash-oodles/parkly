@@ -8,7 +8,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import device from "@/assets/images/device.png"
 import Image from "next/image";
-import Link from "next/link";
 import Button from "@/components/Button/Button";
 import glass from "@/assets/svgs/glass.svg"
 import book from "@/assets/svgs/book.svg"
@@ -87,35 +86,10 @@ const WaitlistPage: FC = () => {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm<ContactFormValues>({
         resolver: zodResolver(contactSchema),
     });
-
-    // const onSubmit = async (data: ContactFormValues) => {
-    //     try {
-    //         const res = await fetch("/api/send-mail", {
-    //             method: "POST",
-    //             headers: { "Content-Type": "application/json" },
-    //             body: JSON.stringify(data),
-    //         });
-
-    //         const result = await res.json();
-
-    //         if (result.success) {
-    //             console.log("Email sent successfully");
-    //             alert("Form submitted successfully!");
-    //         } else {
-    //             console.error(result.error);
-    //             alert("Failed to send email");
-    //         }
-    //     } catch (err) {
-    //         console.error(err);
-    //         alert("An error occurred");
-    //     }
-    // };
-
-
-
 
     // Number of FAQs to show initially
     const onSubmit = async (data: ContactFormValues) => {
@@ -134,7 +108,7 @@ const WaitlistPage: FC = () => {
                 toast.success('Thank you! You\'re on the waitlist.', {
                     id: loadingToast,
                 });
-                // reset(); // This will now work - clears the form fields
+                reset();
             } else {
                 toast.error(result.error || 'Failed to submit form', {
                     id: loadingToast,
@@ -357,7 +331,7 @@ const WaitlistPage: FC = () => {
 
                                     <div className="custom-pagination flex justify-center gap-2"></div>
                                 </div>
-                                <div className="w-full max-w-[400px] mx-auto mr-6">
+                                <div className="w-full max-w-[400px] mr-6">
                                     <div className="flex justify-center relative w-full h-full min-h-[506px] md:min-h-[450px] ">
                                         <Image
                                             src={car}
@@ -408,7 +382,7 @@ const WaitlistPage: FC = () => {
                                 For questions, contact our support team via email. We will respond quickly.
                             </Typography>
                         </div>
-                        <div className="flex gap-5 xl:gap-[90px] h-full ">
+                        <div className="flex gap-5 xl:gap-[90px] items-start h-full ">
                             <div className="hidden md:flex flex-col gap-6 w-[80%]">
                                 <FaqCar />
                                 <div className="">
