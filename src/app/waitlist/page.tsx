@@ -133,7 +133,7 @@ const WaitlistPage: FC = () => {
     return (
         <>
             {/* herosection */}
-            <section className="relative bg-[url('/find-bg.svg')] bg-cover bg-center bg-no-repeat">
+            <section className="relative bg-[url('/find-bg.svg')] md:bg-[url('/find-bg-desk.svg')]  bg-cover bg-center bg-no-repeat">
                 <Container>
                     <div className="find-container flex gap-8 py-8 md:pt-[70px] md:pb-0 ">
                         <div className=" w-full flex flex-col justify-center gap-6 md:gap-8">
@@ -192,7 +192,7 @@ const WaitlistPage: FC = () => {
                                 Parkly Makes Parking Effortless
                             </Typography>
                         </div>
-                        <div className="flex flex-col lg:flex-row  lg:justify-around  gap-7 md:gap-0 lg:gap-8">
+                        <div className="flex flex-col lg:flex-row  lg:justify-around  gap-7 md:gap-0 lg:gap-8 bg-[url('/bg-net.svg')] bg-contain md:bg-cover bg-center bg-no-repeat">
                             <EffortCard
                                 number="01"
                                 bgColor="#173EB6"
