@@ -106,9 +106,9 @@ const WaitlistPage: FC = () => {
         const result = await res.json();
 
         if (result.success) {
-            toast.dismiss(loadingToast); // ✅ just remove loading toast (no success toast)
-            reset();                    // ✅ clear form fields
-            router.push("/thankyou");   // ✅ redirect
+            toast.dismiss(loadingToast);
+            reset();                   
+            router.push("/thankyou");   
         } else {
             toast.error(result.error || "Failed to submit form", {
                 id: loadingToast,
@@ -283,7 +283,7 @@ const WaitlistPage: FC = () => {
 
                                     </div>
                                 </div>
-                                
+
                                 <div className="flex flex-col gap-4 xl:hidden overflow-hidden justify-end">
                                     <Swiper
                                         modules={[Pagination]}
