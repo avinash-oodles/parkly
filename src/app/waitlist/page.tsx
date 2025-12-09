@@ -382,7 +382,7 @@ const WaitlistPage: FC = () => {
                                 For questions, contact our support team via email. We will respond quickly.
                             </Typography>
                         </div>
-                        <div className="flex gap-5 xl:gap-[90px] items-start h-full ">
+                        <div className="flex gap-5 xl:gap-[90px] items-start h-full w-full ">
                             <div className="hidden md:flex flex-col gap-6 w-[80%]">
                                 <FaqCar />
                                 <div className="">
@@ -397,7 +397,7 @@ const WaitlistPage: FC = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-6 max-w-[564px] ">
                                 <FaqList showCount={showAll ? undefined : initialCount} />
                                 <div className="flex justify-center md:hidden">
                                     <Button

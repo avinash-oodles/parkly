@@ -6,11 +6,12 @@ import Typography from "@/components/Typography/Typograpghy";
 interface FaqCardProps {
     question: string;
     answer: string;
+    points?: string[];
     isActive: boolean;
     onToggle: () => void;
 }
 
-export default function FaqCard({ question, answer, isActive, onToggle }: FaqCardProps) {
+export default function FaqCard({ question, answer, points, isActive, onToggle }: FaqCardProps) {
     return (
         <div
             className={`single-faq flex flex-col transition-all duration-300
@@ -31,7 +32,8 @@ export default function FaqCard({ question, answer, isActive, onToggle }: FaqCar
 
                 <div
                     className={`transition-all duration-300 
-                        ${isActive ? "rotate-180 text-[#144DE1]" : "rotate-0 text-black-700"} h-4 md:h-6 w-4 md:w-6 flex items-center 
+                        ${isActive ? "rotate-180 text-[#144DE1]" : "rotate-0 text-black-700"} 
+                        h-4 md:h-6 w-4 md:w-6 flex items-center 
                     `}
                 >
                     <ChevronDown />
@@ -51,6 +53,20 @@ export default function FaqCard({ question, answer, isActive, onToggle }: FaqCar
                 >
                     {answer}
                 </Typography>
+
+                {/* Bullet Points */}
+                {points && points.length > 0 && (
+                    <ul className="mt-3 list-disc list-inside space-y-1 text-black-500">
+                        {points.map((item, idx) => (
+                            <li
+                                key={idx}
+                                className="text-sm md:text-base leading-[22px] md:leading-[26px]"
+                            >
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         </div>
     );
