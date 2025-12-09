@@ -13,7 +13,7 @@ export const ThankYouPage: FC = () => {
             {/* herosection */}
             <section className="relative bg-[url('/find-bg.svg')] md:bg-[url('/find-bg-desk.svg')]  bg-cover bg-center bg-no-repeat">
                 <Container>
-                    <div className="flex flex-col items-center pt-8 pb-[70px] gap-4 md:gap-8 max-w-[620px] mx-auto ">
+                    <div className="flex flex-col items-center pt-8 pb-8 md:pb-[70px] gap-4 md:gap-8 max-w-[620px] mx-auto ">
                         <div className="relative w-15 h-15 md:w-[126px] md:h-[126px] ">
                             <Image
                                 src="/ok.gif"
