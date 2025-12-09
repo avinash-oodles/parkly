@@ -311,29 +311,7 @@ const WaitlistPage: FC = () => {
 
                                     </div>
                                 </div>
-                                {/* <div className="flex flex-col gap-4 xl:hidden">
-                                    <Swiper
-                                        modules={[Pagination]}
-                                        spaceBetween={16}
-                                        slidesPerView={1}
-                                        loop={true}
-                                        pagination={{
-                                            clickable: true,
-                                            el: '.custom-pagination',
-                                        }}
-                                        className="w-full"
-                                    >
-                                        {slides.map((slide, idx) => (
-                                            <SwiperSlide key={idx}>
-                                                <div className="max-w-[340px] mx-auto flex">
-                                                    <FeatureCard {...slide} />
-                                                </div>
-                                            </SwiperSlide>
-                                        ))}
-                                    </Swiper>
-
-                                    <div className="custom-pagination flex justify-center gap-2"></div>
-                                </div> */}
+                                
                                 <div className="flex flex-col gap-4 xl:hidden overflow-hidden justify-end">
                                     <Swiper
                                         modules={[Pagination]}
@@ -379,13 +357,13 @@ const WaitlistPage: FC = () => {
 
                                     <div className="custom-pagination flex justify-center gap-2"></div>
                                 </div>
-                                <div className="w-full max-w-[400px] mx-auto pr-6">
+                                <div className="w-full max-w-[400px] mx-auto mr-6">
                                     <div className="flex justify-center relative w-full h-full min-h-[506px] md:min-h-[450px] ">
                                         <Image
                                             src={car}
                                             alt="car"
                                             fill
-                                            className="object-cover"
+                                            className="object-contain"
                                             sizes="100%"
                                             priority
                                         />
