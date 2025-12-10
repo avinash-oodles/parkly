@@ -50,22 +50,22 @@ export default function Home() {
         number: "01",
         bgColor: "#173EB6",
         icon: glassHost,
-        title: "List Your Spot",
-        subtitle: "Add your parking space and set availability easily.",
+        title: "List Your Space",
+        subtitle: "Add your driveway or lot with quick details and photos.",
       },
       {
         number: "02",
         bgColor: "#1B62F5",
         icon: bookHost,
-        title: "Accept Bookings",
-        subtitle: "Receive booking requests and confirm instantly.",
+        title: "Set Availability & Price",
+        subtitle: "Control when and how much you rent it for.",
       },
       {
         number: "03",
         bgColor: "#2C7FFF",
         icon: paidHost,
-        title: "Earn Hassle-Free",
-        subtitle: <>Get paid automatically while keeping your spot secure.</>,
+        title: "Go Live & Earn",
+        subtitle: <>Accept bookings and<span className="text-blue-500"> start earning effortlessly.</span></>,
       },
     ],
   };
@@ -138,7 +138,7 @@ export default function Home() {
         <Container>
           <div className="flex flex-col gap-8 md:gap-15 pt-8 pb-5 md:py-[70px] ">
             {/* Header */}
-            <div className="flex justify-between items-end">
+            <div className="flex flex-col justify-between lg:flex-row items-end">
               <div className="flex flex-col gap-1 md:gap-2">
                 <div className="w-max py-1.5 px-3 bg-[#D9EBFF] backdrop-blur-sm rounded-3xl">
                   <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
@@ -151,12 +151,12 @@ export default function Home() {
               </div>
 
               {/* Toggle Buttons */}
-              <div className="flex gap-1 p-2 rounded-lg bg-[#EFEFEF]">
+              <div className="flex gap-1 p-2 rounded-lg bg-[#EFEFEF] w-full md:w-auto">
                 {(["Driver", "Host"] as const).map((role) => (
                   <div
                     key={role}
                     onClick={() => setActiveRole(role)}
-                    className={`py-2 px-4 rounded-lg cursor-pointer ${activeRole === role ? "bg-black" : ""
+                    className={`flex items-center justify-center py-2 w-full px-4 rounded-lg cursor-pointer ${activeRole === role ? "bg-black" : ""
                       }`}
                   >
                     <Typography
@@ -173,7 +173,7 @@ export default function Home() {
             </div>
 
             {/* Effort Cards    */}
-            <div className="flex flex-col lg:flex-row lg:justify-around gap-7 md:gap-0 lg:gap-8 bg-[url('/bg-net.svg')] bg-contain md:bg-cover bg-center bg-no-repeat">
+            <div className="flex flex-col lg:flex-row lg:justify-around gap-7 lg:gap-8 bg-[url('/bg-net.svg')] bg-contain md:bg-cover bg-center bg-no-repeat">
               {data[activeRole].map((card) => (
                 <EffortCard
                   key={card.number}
