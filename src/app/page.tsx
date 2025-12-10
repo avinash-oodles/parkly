@@ -172,7 +172,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Effort Cards */}
+            {/* Effort Cards    */}
             {/* <div className="flex flex-col lg:flex-row lg:justify-around gap-7 md:gap-0 lg:gap-8 bg-[url('/bg-net.svg')] bg-contain md:bg-cover bg-center bg-no-repeat">
               {data[activeRole].map((card) => (
                 <EffortCard
