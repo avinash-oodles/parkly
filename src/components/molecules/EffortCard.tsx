@@ -9,7 +9,7 @@ interface EffortCardProps {
   bgColor: string; // Background color for icon wrapper
   icon: StaticImageData; // Image source for the icon
   title: string;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
 }
 
 const EffortCard: React.FC<EffortCardProps> = ({ number, bgColor, icon, title, subtitle }) => {
@@ -58,7 +58,7 @@ const EffortCard: React.FC<EffortCardProps> = ({ number, bgColor, icon, title, s
         <Typography variant="h3" weight={600} className="text-[#101010] text-center -tracking-[0.05rem] leading-7! md:leading-8!">
           {title}
         </Typography>
-        <Typography variant="h3" weight={500} lineHeight={36} className="text-center text-[#2B2B2B]">
+        <Typography variant="body" weight={500} lineHeight={32} letterSpacing={0} className="text-center text-[#2B2B2B]">
           {subtitle}
         </Typography>
       </div>
