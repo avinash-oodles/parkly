@@ -179,6 +179,22 @@ body {
   background: #000 !important;
 }
 
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  } 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+} */
+
 @media (max-width: 1440px) {}
 
 @media (max-width: 768px) {}

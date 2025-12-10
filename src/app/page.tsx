@@ -173,7 +173,7 @@ export default function Home() {
             </div>
 
             {/* Effort Cards */}
-            <div className="flex flex-col lg:flex-row lg:justify-around gap-7 md:gap-0 lg:gap-8 bg-[url('/bg-net.svg')] bg-contain md:bg-cover bg-center bg-no-repeat">
+            {/* <div className="flex flex-col lg:flex-row lg:justify-around gap-7 md:gap-0 lg:gap-8 bg-[url('/bg-net.svg')] bg-contain md:bg-cover bg-center bg-no-repeat">
               {data[activeRole].map((card) => (
                 <EffortCard
                   key={card.number}
@@ -184,7 +184,20 @@ export default function Home() {
                   subtitle={card.subtitle}
                 />
               ))}
-            </div>
+            </div> */}
+            <div className="flex flex-col lg:flex-row lg:justify-around gap-7 md:gap-0 lg:gap-8 bg-[url('/bg-net.svg')] bg-contain md:bg-cover bg-center bg-no-repeat">
+  {data[activeRole].map((card) => (
+    <EffortCard
+      key={card.number}
+      number={card.number}
+      bgColor={card.bgColor}
+      icon={card.icon}
+      title={card.title}
+      subtitle={card.subtitle}
+      animationKey={`${activeRole}-${card.number}`} // This triggers the animation
+    />
+  ))}
+</div>
           </div>
         </Container>
       </section>

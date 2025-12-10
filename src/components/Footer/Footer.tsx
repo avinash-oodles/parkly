@@ -32,7 +32,7 @@ const Footer: FC = () => {
                                         Find your spot before the chaos.
                                     </Typography>
                                     <Typography variant="para" weight={500} className="text-[#434343]">
-                                        Smart, verified parking from locals hear stadiums and events
+                                        Smart, verified parking from locals near stadiums and events
                                     </Typography>
                                 </div>
                             </div>
