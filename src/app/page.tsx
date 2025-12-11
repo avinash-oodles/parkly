@@ -31,7 +31,7 @@ import car from "@/assets/svgs/feature-car.svg"
 import BackgroundWave from "@/assets/svgs/BackgroundWave";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -141,10 +141,25 @@ export default function Home() {
   ];
   const [showAll, setShowAll] = useState(false);
   const initialCount = 5;
-   // Toggle function
-    const handleToggleFaqs = () => {
-        setShowAll(prev => !prev);
-    };
+  // Toggle function
+  const handleToggleFaqs = () => {
+    setShowAll(prev => !prev);
+  };
+
+  const items = [
+    { id: 1, title: "Card 1" },
+    { id: 2, title: "Card 2" },
+    { id: 3, title: "Card 3" },
+    { id: 4, title: "Card 4" },
+    { id: 5, title: "Card 5" },
+    { id: 6, title: "Card 6" },
+    { id: 7, title: "Card 7" },
+    { id: 8, title: "Card 8" },
+    { id: 9, title: "Card 9" },
+    { id: 10, title: "Card 10" },
+    { id: 11, title: "Card 11" },
+    { id: 12, title: "Card 12" },
+  ];
 
   return (
     <>
@@ -214,7 +229,7 @@ export default function Home() {
         <Container>
           <div className="flex flex-col gap-8 md:gap-15 pt-8 pb-5 md:py-[70px] ">
             {/* Header */}
-            <div className="flex flex-col justify-between lg:flex-row items-end">
+            <div className="flex flex-col justify-between lg:flex-row gap-2 lg:items-end">
               <div className="flex flex-col gap-1 md:gap-2">
                 <div className="w-max py-1.5 px-3 bg-[#D9EBFF] backdrop-blur-sm rounded-3xl">
                   <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
@@ -343,7 +358,7 @@ export default function Home() {
                     loop={true}
                     pagination={{
                       clickable: true,
-                      el: '.custom-pagination',
+                      el: '.features-pagination',
                     }}
                     className="w-full"
                     breakpoints={{
@@ -378,7 +393,7 @@ export default function Home() {
                     ))}
                   </Swiper>
 
-                  <div className="custom-pagination flex justify-center gap-2"></div>
+                  <div className="features-pagination flex justify-center gap-2"></div>
                 </div>
                 <div className="w-full max-w-[400px] mr-6">
                   <div className="flex justify-center relative w-full h-full min-h-[506px] md:min-h-[450px] ">
@@ -432,53 +447,69 @@ export default function Home() {
       </div>
 
       {/* Our Happy Customers */}
-      <section className="bg-[#D9EBFF]" >
+      <section className="bg-[#D9EBFF] overflow-hidden">
         <Container>
           <div className="pt-8 pb-[70px]">
-            <div className="flex flex-col gap-4 overflow-hidden justify-end">
-              <Swiper
-                modules={[Pagination]}
-                spaceBetween={12}
-                slidesPerView={1.1} // This will show 1.1 cards
-                loop={true}
-                pagination={{
-                  clickable: true,
-                  el: '.custom-pagination',
-                }}
-                className="w-full"
-                breakpoints={{
-                  // Mobile - shows 1.1 cards
-                  0: {
-                    slidesPerView: 1.1,
-                    spaceBetween: 12,
-                  },
-                  // Small tablets - shows 1.5 cards
-                  640: {
-                    slidesPerView: 1.5,
-                    spaceBetween: 16,
-                  },
-                  // Medium tablets - shows 2 cards
-                  768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                  },
-                  // Large tablets/laptops - shows 3 cards
-                  1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 24,
-                  },
-                }}
-              >
-                {slides.map((slide, idx) => (
-                  <SwiperSlide key={idx} style={{ listStyle: "none" }}>
-                    <div className="w-full">
-                      <FeatureCard {...slide} />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+            <div className="flex flex-col items-center gap-[50px]">
+              <div className="flex flex-col gap-2 items-center">
+                <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
+                  <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
+                    TESTIMONIALS
+                  </Typography>
+                </div>
+                <Typography variant="h2" weight={600} lineHeight={isMd ? 45 : 36} className="text-[#0A0A0A]">
+                  Our Happy Customers
+                </Typography>
+              </div>
 
-              <div className="custom-pagination flex justify-center gap-2"></div>
+              <div className="w-full">
+                <Swiper
+                  modules={[Pagination, Autoplay]}
+                  slidesPerView={3}
+                  slidesPerGroup={3}
+                  spaceBetween={30}
+                  pagination={{
+                    clickable: true,
+                    el: '.testimonials-pagination',
+                  }}
+                  loop={true}
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  }}
+                  breakpoints={{
+                    // Mobile - shows 1.2 cards
+                    0: {
+                      slidesPerView: 1.2,
+                      slidesPerGroup: 1,
+                      spaceBetween: 12,
+                    },
+                    // Small tablets - shows 2 cards
+                    640: {
+                      slidesPerView: 2,
+                      slidesPerGroup: 2,
+                      spaceBetween: 16,
+                    },
+                    // Medium tablets and up - shows 3 cards
+                    768: {
+                      slidesPerView: 3,
+                      slidesPerGroup: 3,
+                      spaceBetween: 24,
+                    },
+                  }}
+                >
+                  {items.map((item) => (
+                    <SwiperSlide key={item.id} className="min-h-20 border-2">
+                      <div className="card">
+                        <h3>{item.title}</h3>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                <div className="testimonials-pagination flex justify-center gap-2 mt-4"></div>
+              </div>
+
             </div>
           </div>
         </Container>
@@ -558,7 +589,7 @@ export default function Home() {
                 For questions, contact our support team via email. We will respond quickly.
               </Typography>
             </div>
-            <div className="flex gap-5 xl:gap-[90px] items-start h-full w-full ">
+            <div className="flex gap-5 xl:gap-[90px] items-start h-full w-full justify-center ">
               <div className="hidden md:flex flex-col gap-6 w-[80%]">
                 <FaqCar />
                 <div className="">
@@ -593,27 +624,27 @@ export default function Home() {
       </section>
 
       {/* car design */}
-            <section className="overflow-hidden ">
-                <div className="hidden xl:flex">
-                    <Container>
-                        <AnimatedCarSection />
-                    </Container>
-                </div>
-                <div className="flex xl:hidden">
-                    <Container>
-                        <div className="flex relative w-full h-full min-h-[122px] ">
-                            <Image
-                                src={parkedCar}
-                                alt="parkedCar"
-                                fill
-                                className="object-contain"
-                                sizes="100%"
-                                priority
-                            />
-                        </div>
-                    </Container>
-                </div>
-            </section>
+      <section className="overflow-hidden ">
+        <div className="hidden xl:flex">
+          <Container>
+            <AnimatedCarSection />
+          </Container>
+        </div>
+        <div className="flex xl:hidden">
+          <Container>
+            <div className="flex relative w-full h-full min-h-[122px] ">
+              <Image
+                src={parkedCar}
+                alt="parkedCar"
+                fill
+                className="object-contain"
+                sizes="100%"
+                priority
+              />
+            </div>
+          </Container>
+        </div>
+      </section>
     </>
   );
 }
