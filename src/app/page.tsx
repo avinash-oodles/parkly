@@ -45,6 +45,10 @@ import Link from "next/link";
 import FaqCar from "@/assets/svgs/FaqCar";
 import FaqList from "@/components/molecules/Faq/FaqList";
 
+import parkedCar from "@/assets/svgs/parked-car.svg"
+import AnimatedCarSection from "@/components/molecules/AnimatedCarSection";
+
+
 export default function Home() {
   const isMd = useMediaQuery('(min-width: 768px)');
   const [activeRole, setActiveRole] = useState<"Driver" | "Host">("Driver");
@@ -587,6 +591,29 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {/* car design */}
+            <section className="overflow-hidden ">
+                <div className="hidden xl:flex">
+                    <Container>
+                        <AnimatedCarSection />
+                    </Container>
+                </div>
+                <div className="flex xl:hidden">
+                    <Container>
+                        <div className="flex relative w-full h-full min-h-[122px] ">
+                            <Image
+                                src={parkedCar}
+                                alt="parkedCar"
+                                fill
+                                className="object-contain"
+                                sizes="100%"
+                                priority
+                            />
+                        </div>
+                    </Container>
+                </div>
+            </section>
     </>
   );
 }
