@@ -462,46 +462,50 @@ export default function Home() {
                 </Typography>
               </div>
 
-              <div className="w-full">
+              <div className="w-full    ">
                 <Swiper
+                  className="testimonial-swiper py-3"
                   modules={[Pagination, Autoplay]}
                   slidesPerView={3}
-                  slidesPerGroup={3}
+                  slidesPerGroup={1}
+                  centeredSlides={true} // <-- IMPORTANT
                   spaceBetween={30}
                   pagination={{
                     clickable: true,
-                    el: '.testimonials-pagination',
+                    el: ".testimonials-pagination",
                   }}
                   loop={true}
                   autoplay={{
-                    delay: 3000,
+                    delay: 1000,
                     disableOnInteraction: false,
                   }}
                   breakpoints={{
-                    // Mobile - shows 1.2 cards
                     0: {
                       slidesPerView: 1.2,
                       slidesPerGroup: 1,
                       spaceBetween: 12,
+                      centeredSlides: true,
                     },
-                    // Small tablets - shows 2 cards
                     640: {
                       slidesPerView: 2,
-                      slidesPerGroup: 2,
+                      slidesPerGroup: 1,
                       spaceBetween: 16,
+                      centeredSlides: true,
                     },
-                    // Medium tablets and up - shows 3 cards
                     768: {
                       slidesPerView: 3,
-                      slidesPerGroup: 3,
+                      slidesPerGroup: 1,
                       spaceBetween: 24,
+                      centeredSlides: true,
                     },
                   }}
                 >
                   {items.map((item) => (
-                    <SwiperSlide key={item.id} className="min-h-20 border-2">
-                      <div className="card">
-                        <h3>{item.title}</h3>
+                    <SwiperSlide key={item.id} className="">
+                      <div className="slide-inner"> 
+                        <div className="card bg-red-500 rounded-xl shadow p-4">
+                          <h3>{item.title}</h3>
+                        </div>
                       </div>
                     </SwiperSlide>
                   ))}
@@ -509,6 +513,7 @@ export default function Home() {
 
                 <div className="testimonials-pagination flex justify-center gap-2 mt-4"></div>
               </div>
+
 
             </div>
           </div>
