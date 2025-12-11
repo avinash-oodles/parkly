@@ -42,6 +42,8 @@ import AppStore from "@/assets/svgs/AppStore";
 import Up from "@/assets/images/MobileUp.png"
 import Down from "@/assets/images/mobileDown.png"
 import Link from "next/link";
+import FaqCar from "@/assets/svgs/FaqCar";
+import FaqList from "@/components/molecules/Faq/FaqList";
 
 export default function Home() {
   const isMd = useMediaQuery('(min-width: 768px)');
@@ -133,6 +135,12 @@ export default function Home() {
       chipIconBg: true,
     },
   ];
+  const [showAll, setShowAll] = useState(false);
+  const initialCount = 5;
+   // Toggle function
+    const handleToggleFaqs = () => {
+        setShowAll(prev => !prev);
+    };
 
   return (
     <>
@@ -474,7 +482,6 @@ export default function Home() {
 
       {/* get the app */}
       <section className=" bg-[#000C29] overflow-hidden  min-h-[542px] flex">
-
         <Container className="flex items-center">
           <div className="flex md:gap-20">
             <div className="flex flex-col gap-10 justify-center ">
@@ -510,7 +517,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex gap-10">
-              <div className="flex justify-end relative w-full h-full  min-w-[285px] mt-[90px] ">
+              <div className="flex justify-end relative w-full h-full  min-w-[285px] mt-[62px] ">
                 <Image
                   src={Up}
                   alt="Mobile"
@@ -536,6 +543,50 @@ export default function Home() {
         </Container>
       </section>
 
+      <section id="faq-view">
+        <Container>
+          <div className="flex flex-col gap-8 md:gap-[50px] items-center py-8 md:py-[70px] ">
+            <div className="flex flex-col gap-1 md:gap-2 items-center">
+              <Typography variant="h2" weight={600} lineHeight={isMd ? 45 : 36} className="text-black-900">
+                Frequently Asked Questions
+              </Typography>
+              <Typography variant="body" lineHeight={isMd ? 32 : 22} letterSpacing={0.01} weight={400} className="text-black-700 text-center">
+                For questions, contact our support team via email. We will respond quickly.
+              </Typography>
+            </div>
+            <div className="flex gap-5 xl:gap-[90px] items-start h-full w-full ">
+              <div className="hidden md:flex flex-col gap-6 w-[80%]">
+                <FaqCar />
+                <div className="">
+                  <Button
+                    text={showAll ? "View Less" : "View More Questions"}
+                    variant="lg"
+                    bg="#2C7FFF"
+                    color="#FFFFFF"
+                    hoverBg="#101010"
+                    boxShadow="1px 2px 24px 0px #13245733"
+                    onClick={handleToggleFaqs}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col gap-6 max-w-[564px] ">
+                <FaqList showCount={showAll ? undefined : initialCount} />
+                <div className="flex justify-center md:hidden">
+                  <Button
+                    text={showAll ? "View Less" : "View More Questions"}
+                    variant="lg"
+                    bg="#2C7FFF"
+                    color="#FFFFFF"
+                    hoverBg="#101010"
+                    boxShadow="1px 2px 24px 0px #13245733"
+                    onClick={handleToggleFaqs}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }
