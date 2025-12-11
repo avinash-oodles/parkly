@@ -41,6 +41,7 @@ import AppStore from "@/assets/svgs/AppStore";
 // import MobileUp from "@/assets/svgs/MobileUp";
 import Up from "@/assets/images/MobileUp.png"
 import Down from "@/assets/images/mobileDown.png"
+import Link from "next/link";
 
 export default function Home() {
   const isMd = useMediaQuery('(min-width: 768px)');
@@ -419,17 +420,64 @@ export default function Home() {
       </div>
 
       {/* Our Happy Customers */}
-      {/* <section>
+      <section className="bg-[#D9EBFF]" >
         <Container>
-          <div className="pt-8 pb-"></div>
+          <div className="pt-8 pb-[70px]">
+            <div className="flex flex-col gap-4 overflow-hidden justify-end">
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={12}
+                slidesPerView={1.1} // This will show 1.1 cards
+                loop={true}
+                pagination={{
+                  clickable: true,
+                  el: '.custom-pagination',
+                }}
+                className="w-full"
+                breakpoints={{
+                  // Mobile - shows 1.1 cards
+                  0: {
+                    slidesPerView: 1.1,
+                    spaceBetween: 12,
+                  },
+                  // Small tablets - shows 1.5 cards
+                  640: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 16,
+                  },
+                  // Medium tablets - shows 2 cards
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  // Large tablets/laptops - shows 3 cards
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                  },
+                }}
+              >
+                {slides.map((slide, idx) => (
+                  <SwiperSlide key={idx} style={{ listStyle: "none" }}>
+                    <div className="w-full">
+                      <FeatureCard {...slide} />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              <div className="custom-pagination flex justify-center gap-2"></div>
+            </div>
+          </div>
         </Container>
-      </section> */}
+      </section>
 
       {/* get the app */}
-      <section className=" bg-[#000C29]">
-        <Container>
+      <section className=" bg-[#000C29] overflow-hidden  min-h-[542px] flex">
+
+        <Container className="flex items-center">
           <div className="flex md:gap-20">
-            <div className="flex flex-col gap-10 justify-center">
+            <div className="flex flex-col gap-10 justify-center ">
               <div className="flex flex-col gap-4 max-w-[468px] ">
                 <div className="w-max py-1.5 px-3 bg-[#19398F80] backdrop-blur-sm rounded-3xl">
                   <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-[#E7E7E7] ">
@@ -446,15 +494,23 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex gap-10">
-                <QrCode />
+                <Link href="/qr">
+                  <QrCode />
+                </Link>
+
                 <div className="flex flex-col gap-6 justify-center">
-                  <PlayStore />
-                  <AppStore />
+                  <Link href="/playstore">
+                    <PlayStore />
+                  </Link>
+
+                  <Link href="/appstore">
+                    <AppStore />
+                  </Link>
                 </div>
               </div>
             </div>
-            <div className="flex gap-10 ">
-              <div className="flex justify-end relative w-full h-full min-h-[428px] min-w-[285px] mt-[90px]">
+            <div className="flex gap-10">
+              <div className="flex justify-end relative w-full h-full  min-w-[285px] mt-[90px] ">
                 <Image
                   src={Up}
                   alt="Mobile"
@@ -464,7 +520,7 @@ export default function Home() {
                   priority
                 />
               </div>
-              <div className="flex justify-end relative w-full h-full min-h-[428px] min-w-[285px] mb-[90px]">
+              <div className="flex justify-end relative w-full h-full  min-w-[285px] -mt-16 ">
                 <Image
                   src={Down}
                   alt="Mobile"
@@ -475,6 +531,7 @@ export default function Home() {
                 />
               </div>
             </div>
+
           </div>
         </Container>
       </section>
@@ -482,3 +539,5 @@ export default function Home() {
     </>
   );
 }
+
+
