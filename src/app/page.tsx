@@ -27,7 +27,7 @@ import arrow from "@/assets/svgs/arrow.svg"
 import calender from "@/assets/svgs/calender.svg"
 import dots from "@/assets/svgs/dots.svg"
 import star from "@/assets/svgs/star.svg"
-import car from "@/assets/svgs/feature-car.svg"
+import car from "@/assets/svgs/feat-car.svg"
 import BackgroundWave from "@/assets/svgs/BackgroundWave";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -436,7 +436,7 @@ export default function Home() {
 
                   <div className="features-pagination flex justify-center gap-2"></div>
                 </div>
-                <div className="w-full max-w-[400px] mr-6">
+                <div className="w-full max-w-[400px] pr-6">
                   <div className="flex justify-center relative w-full h-full min-h-[506px] md:min-h-[450px] ">
                     <Image
                       src={car}
@@ -453,7 +453,7 @@ export default function Home() {
                 <h4 className="font-semibold text-[20px] leading-8 md:text-[30px] md:leading-[37.5px] tracking-[1%] text-center text-black-900">
                   Find your next parking spot the smarter way.
                 </h4>
-                <div className="flex gap-6">
+                <div className="flex gap-4 md:gap-6 w-full md:w-auto">
                   <div className="d-flex w-full lg:w-auto cursor-pointer">
                     <Button
                       text="Download App"
@@ -489,10 +489,10 @@ export default function Home() {
 
       {/* Our Happy Customers */}
       <section className="bg-[#D9EBFF] overflow-hidden">
-        <Container>
-          <div className="pt-8 pb-[70px] ">
+        <Container pl="pl-6" pr="pr-0">
+          <div className="pt-4 md:pt-8 pb-8 md:pb-[70px] ">
             <div className="flex flex-col  gap-6 overflow-hidden">
-              <div className="flex flex-col gap-2 items-center">
+              <div className="flex flex-col gap-2 items-center mr-6">
                 <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
                   <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
                     TESTIMONIALS
@@ -503,7 +503,7 @@ export default function Home() {
                 </Typography>
               </div>
 
-              <div className="w-full mt-9">
+              <div className="w-full mt-2 md:mt-9">
                 <Swiper
                   className="testimonial-swiper overflow-visible!"
                   modules={[Pagination, Autoplay]}
@@ -541,11 +541,11 @@ export default function Home() {
                 </Swiper>
 
 
-                <div className="testimonials-pagination flex justify-center gap-2 mt-8"></div>
+                <div className="testimonials-pagination flex justify-center gap-2 mt-3 md:mt-8"></div>
               </div>
 
-              <div className="flex gap-8">
-                <div className="flex items-center w-full">
+              <div className="flex gap-8 mr-6 justify-center">
+                <div className="hidden lg:flex items-center w-full">
                   <div className="border-2 border-solid border-[#8EC7FF] w-full h-px">
                   </div>
                 </div>
@@ -579,7 +579,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center w-full">
+                <div className="hidden lg:flex items-center w-full">
                   <div className="border-2 border-solid border-[#8EC7FF] w-full h-px">
                   </div>
                 </div>

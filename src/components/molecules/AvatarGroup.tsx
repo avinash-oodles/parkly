@@ -6,8 +6,8 @@ export default function AvatarGroup({ images }: { images: string[] }) {
       {images.map((src, index) => (
         <div
           key={index}
-          className={`relative w-14 h-14 rounded-full border-3 border-[#EEF6FF] overflow-hidden ${
-            index !== 0 ? "-ml-6" : ""
+          className={`relative w-10 md:w-14 h-10 md:h-14 rounded-full border-3 border-[#EEF6FF] overflow-hidden ${
+            index !== 0 ? "-ml-5" : ""
           }`}
         >
           <Image
