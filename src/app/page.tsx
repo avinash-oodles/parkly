@@ -696,7 +696,7 @@ export default function Home() {
               </Typography>
             </div>
             <div className="flex gap-5 xl:gap-[90px] items-start h-full w-full justify-center ">
-              <div className="hidden md:flex flex-col gap-6 w-[80%]">
+              <div className="hidden md:flex flex-col gap-6 w-[80%] sticky top-20 max-h-[calc(100vh-5rem)]">
                 <FaqCar />
                 <div className="">
                   <Button
