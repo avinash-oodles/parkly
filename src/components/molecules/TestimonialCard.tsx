@@ -23,7 +23,7 @@ export default function TestimonialCard({
   const isMd = useMediaQuery('(min-width: 768px)');
 
   return (
-    <div className="py-[30px] px-6 flex flex-col gap-5 rounded-2xl bg-white max-w-[364px] min-h-80 ">
+    <div className="py-[30px] px-6 flex flex-col gap-5 rounded-2xl bg-white max-w-[364px] min-h-80 shadow-[0px_2px_16px_0px_#1B62F51F]">
       
       {/* Top Row */}
       <div className="flex justify-between">

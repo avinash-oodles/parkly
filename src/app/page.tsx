@@ -49,6 +49,8 @@ import parkedCar from "@/assets/svgs/parked-car.svg"
 import AnimatedCarSection from "@/components/molecules/AnimatedCarSection";
 
 import TestimonialCard from "@/components/molecules/TestimonialCard";
+import AvatarGroup from "@/components/molecules/AvatarGroup";
+import RatingStars from "@/assets/svgs/RatingStars";
 
 export default function Home() {
   const isMd = useMediaQuery('(min-width: 768px)');
@@ -141,55 +143,55 @@ export default function Home() {
     },
   ];
   const items = [
-  {
-    id: 1,
-    stars: 5,
-    title: "“Guaranteed Parking, Stress-Free Commute.”",
-    comment:
-      "Finding parking downtown was a headache. Parkly changed that. I pre-book a spot near my office every morning, saving time and stress. It's a game-changer for my commute.",
-    author: "– Sarah M., Daily Commuter",
-  },
-  {
-    id: 2,
-    stars: 4,
-    title: "“Hassle-Free Event Access, Secure & Close Parking.”",
-    comment:
-      "Concerts used to mean parking far away. With Parkly, I found a space two blocks from the venue. I pre-booked it, and arrival was seamless with the digital pass. It took the hassle out of event day, letting us enjoy the show, knowing our car was secure.",
-    author: "– Mark K., Festival Attendee",
-  },
-  {
-    id: 3,
-    stars: 5,
-    title: "“Effortless Earnings, Secure Hosting.”",
-    comment:
-      "The app shows real-time availability, and the digital pass makes entry super quick. Parking has never been easier.",
-    author: "– Daniel P., Tech Conference Attendee",
-  },
-  {
-    id: 4,
-    stars: 5,
-    title: "Quick and Easy Parking for Festivals.",
-    comment:
-      "Be was hassle-free. Highly recommended for festival-goers.",
-    author: "– Emily R., Music Festival Attendee",
-  },
-  {
-    id: 5,
-    stars: 4,
-    title: "Convenient Parking Near the Venue.",
-    comment:
-      "I always use",
-    author: "– James L., Concert Goer",
-  },
-  {
-    id: 6,
-    stars: 5,
-    title: "Stress-Free Event Days!",
-    comment:
-      "Parkly takes all the stress out of parking. I can focus on enjoying the event knowing my car is safe and close by.The app shows real-time availability, and the digital pass makes entry super quick. Parking has never been easier.",
-    author: "– Olivia T., Attendee",
-  },
-];
+    {
+      id: 1,
+      stars: 5,
+      title: "“Guaranteed Parking, Stress-Free Commute.”",
+      comment:
+        "Finding parking downtown was a headache. Parkly changed that. I pre-book a spot near my office every morning, saving time and stress. It's a game-changer for my commute.",
+      author: "– Sarah M., Daily Commuter",
+    },
+    {
+      id: 2,
+      stars: 4,
+      title: "“Hassle-Free Event Access, Secure & Close Parking.”",
+      comment:
+        "Concerts used to mean parking far away. With Parkly, I found a space two blocks from the venue. I pre-booked it, and arrival was seamless with the digital pass. It took the hassle out of event day, letting us enjoy the show, knowing our car was secure.",
+      author: "– Mark K., Festival Attendee",
+    },
+    {
+      id: 3,
+      stars: 5,
+      title: "“Effortless Earnings, Secure Hosting.”",
+      comment:
+        "The app shows real-time availability, and the digital pass makes entry super quick. Parking has never been easier.",
+      author: "– Daniel P., Tech Conference Attendee",
+    },
+    {
+      id: 4,
+      stars: 5,
+      title: "Quick and Easy Parking for Festivals.",
+      comment:
+        "Be was hassle-free. Highly recommended for festival-goers.",
+      author: "– Emily R., Music Festival Attendee",
+    },
+    {
+      id: 5,
+      stars: 4,
+      title: "Convenient Parking Near the Venue.",
+      comment:
+        "I always use",
+      author: "– James L., Concert Goer",
+    },
+    {
+      id: 6,
+      stars: 5,
+      title: "Stress-Free Event Days!",
+      comment:
+        "Parkly takes all the stress out of parking. I can focus on enjoying the event knowing my car is safe and close by.The app shows real-time availability, and the digital pass makes entry super quick. Parking has never been easier.",
+      author: "– Olivia T., Attendee",
+    },
+  ];
 
 
   const [showAll, setShowAll] = useState(false);
@@ -489,7 +491,7 @@ export default function Home() {
       <section className="bg-[#D9EBFF] overflow-hidden">
         <Container>
           <div className="pt-8 pb-[70px] ">
-            <div className="flex flex-col items-center gap-[50px] overflow-hidden">
+            <div className="flex flex-col  gap-6 overflow-hidden">
               <div className="flex flex-col gap-2 items-center">
                 <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
                   <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
@@ -501,7 +503,7 @@ export default function Home() {
                 </Typography>
               </div>
 
-              <div className="w-full ">
+              <div className="w-full mt-9">
                 <Swiper
                   className="testimonial-swiper overflow-visible!"
                   modules={[Pagination, Autoplay]}
@@ -542,6 +544,46 @@ export default function Home() {
                 <div className="testimonials-pagination flex justify-center gap-2 mt-8"></div>
               </div>
 
+              <div className="flex gap-8">
+                <div className="flex items-center w-full">
+                  <div className="border-2 border-solid border-[#8EC7FF] w-full h-px">
+                  </div>
+                </div>
+                <div className="flex gap-3 items-center">
+                  <div className="">
+                    <AvatarGroup
+                      images={[
+                        "/e.png",
+                        "/d.png",
+                        "/c.png",
+                        "/b.png",
+                        "/a.png",
+                      ]}
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <div className="flex gap-2 items-center">
+                      <div className="">
+                        <RatingStars />
+                      </div>
+                      <div className="">
+                        <Typography variant="para" weight={600} lineHeight={isMd ? 24 : 20} className="text-[#132457]">
+                          4.9 / 5
+                        </Typography>
+                      </div>
+                    </div>
+                    <div className="">
+                      <Typography variant="body" weight={400} lineHeight={isMd ? 24 : 20} className="text-black-900 whitespace-nowrap">
+                        Based on 2,169 reviews
+                      </Typography>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center w-full">
+                  <div className="border-2 border-solid border-[#8EC7FF] w-full h-px">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Container>

@@ -214,6 +214,7 @@ body {
 .testimonial-swiper .swiper-slide-active .slide-inner {
   transform: scaleY(1.10); 
   z-index: 10;
+  overflow: visible !important;
 }
 
 .testimonials-pagination .swiper-pagination-bullet{
