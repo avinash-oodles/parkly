@@ -217,7 +217,7 @@ export default function Home() {
                   Parkly connects <b> Drivers, Hosts, and Event-Goers </b> with verified, private parking spaces nearby. Stop circling. Save time and money.
                 </Typography>
               </div>
-              <div className="flex gap-6 flex-wrap">
+              <div className="flex gap-2.5 justify-center md:justify-start md:gap-6 flex-wrap">
                 <div className="flex gap-2 items-center bg-[#EEF6FF] py-1.5 px-4 rounded-3xl ">
                   <Verified />
                   <Typography variant="chip" weight={600} lineHeight={20} className="text-blue-800">
@@ -238,10 +238,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex gap-6 items-center justify-center">
-              <div className="">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-center">
+              <div className="w-full md:w-auto">
                 <Button
-                  text="Join the Waitlist"
+                  text="Register as Host & Earn"
                   variant="lg"
                   bg="#2C7FFF"
                   color="#FFFFFF"
@@ -250,11 +250,11 @@ export default function Home() {
                   className="w-full md:w-auto"
                 />
               </div>
-              <div className="">
+              <div className="w-full md:w-auto">
                 <Button
                   text="Find Parking"
                   variant="lg"
-                  bg="#2C7FFF1A"
+                  bg="#CEE0EF"
                   color="#1B62F5"
                   hoverBg="#101010"
                   className="w-full md:w-auto"
