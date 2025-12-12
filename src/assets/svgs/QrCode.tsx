@@ -2,7 +2,12 @@
 
 const QrCode = () => {
     return (
-        <svg width="164" height="164" viewBox="0 0 164 164" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+            className="w-[148px] h-[148px] xl:w-[164px] xl:h-[164px]"
+            viewBox="0 0 164 164"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
             <rect width="164" height="164" rx="7.6875" fill="white" />
             <path d="M14.5985 10.25H10.25V14.5985H14.5985V10.25Z" fill="#132457" />
             <path d="M18.947 10.25H14.5985V14.5985H18.947V10.25Z" fill="#132457" />

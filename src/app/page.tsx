@@ -41,6 +41,7 @@ import AppStore from "@/assets/svgs/AppStore";
 // import MobileUp from "@/assets/svgs/MobileUp";
 import Up from "@/assets/images/MobileUp.png"
 import Down from "@/assets/images/mobileDown.png"
+import Mob from "@/assets/images/mob.svg"
 import Link from "next/link";
 import FaqCar from "@/assets/svgs/FaqCar";
 import FaqList from "@/components/molecules/Faq/FaqList";
@@ -590,26 +591,26 @@ export default function Home() {
       </section>
 
       {/* get the app */}
-      <section className=" bg-[#000C29] overflow-hidden  min-h-[542px] flex">
+      <section className=" bg-[#000C29] overflow-hidden h-auto  xl:min-h-[542px] flex">
         <Container className="flex items-center">
-          <div className="flex md:gap-20">
-            <div className="flex flex-col gap-10 justify-center ">
-              <div className="flex flex-col gap-4 max-w-[468px] ">
+          <div className="flex flex-col xl:flex-row gap-8 xl:gap-20 pt-8 xl:pt-0">
+            <div className="flex flex-col gap-6 xl:gap-10 justify-center ">
+              <div className="flex flex-col gap-1 xl:gap-4 w-full xl:max-w-[468px] ">
                 <div className="w-max py-1.5 px-3 bg-[#19398F80] backdrop-blur-sm rounded-3xl">
                   <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-[#E7E7E7] ">
                     Download
                   </Typography>
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2 md:gap-4">
                   <Typography variant="h2" weight={700} lineHeight={isMd ? 45 : 36} className="text-[#FFFFFF] ">
                     Get the App. Park Smarter.
                   </Typography>
-                  <Typography variant="h4" weight={400} lineHeight={28} className="text-[#FFFFFF]">
+                  <Typography variant="body" weight={400} lineHeight={isMd ? 28 : 22} className="text-[#FFFFFF]">
                     Experience Parkly with Saved Places and mobile payments. Download the top app for verified parking.
                   </Typography>
                 </div>
               </div>
-              <div className="flex gap-10">
+              <div className="flex gap-6 xl:gap-10">
                 <Link href="/qr">
                   <QrCode />
                 </Link>
@@ -625,7 +626,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex gap-10">
+            <div className="xl:flex gap-10 hidden">
               <div className="flex justify-end relative w-full h-full  min-w-[285px] mt-[62px] ">
                 <Image
                   src={Up}
@@ -647,7 +648,18 @@ export default function Home() {
                 />
               </div>
             </div>
-
+            {/* <div className=""> */}
+              <div className="flex justify-center relative w-full h-full  min-h-[270px]  ">
+                <Image
+                  src={Mob}
+                  alt="Mobile"
+                  fill
+                  className="object-contain"
+                  sizes="100%"
+                  priority
+                />
+              </div>
+            {/* </div> */}
           </div>
         </Container>
       </section>
@@ -660,7 +672,7 @@ export default function Home() {
                 Frequently Asked Questions
               </Typography>
               <Typography variant="body" lineHeight={isMd ? 32 : 22} letterSpacing={0.01} weight={400} className="text-black-700 text-center">
-                For questions, contact our support team via email. We will respond quickly.
+                For any unanswered questions, reach out to our support team via email. We&apos;ll respond as soon as possible to assist you.
               </Typography>
             </div>
             <div className="flex gap-5 xl:gap-[90px] items-start h-full w-full justify-center ">
