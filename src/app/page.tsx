@@ -28,7 +28,7 @@ import calender from "@/assets/svgs/calender.svg"
 import dots from "@/assets/svgs/dots.svg"
 import star from "@/assets/svgs/star.svg"
 import Rotatedcar from "@/assets/svgs/feat-car.svg"
-import Car from "@/assets/svgs/feature-car.svg"
+import Car from "@/assets/svgs/waitlist-car.svg"
 import BackgroundWave from "@/assets/svgs/BackgroundWave";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -113,7 +113,7 @@ export default function Home() {
       mainIcon: realtime,
       mainIconAlt: "realtime map",
       title: "Real-Time Smart Map",
-      subtitle: "Reserve spots instantly with our live, dynamic map interface.",
+      subtitle: "Discover and reserve available spots instantly with our live, map-based interface that updates dynamically.",
       chipText: "Live Updates",
       chipIcon: undefined,
       chipIconBg: true,
@@ -122,7 +122,7 @@ export default function Home() {
       mainIcon: arrow,
       mainIconAlt: "arrow",
       title: "Effortless Booking & Management",
-      subtitle: "Book, manage, or cancel easily — everything happens in a few taps.",
+      subtitle: "Book, manage, or cancel with ease — from search to confirmation, everything happens in just a few taps.",
       chipText: "3 Simple Steps",
       chipIcon: dots,
       chipIconBg: false,
@@ -140,7 +140,7 @@ export default function Home() {
       mainIcon: calender,
       mainIconAlt: "calendar",
       title: "Event-Ready Parking Discovery",
-      subtitle: "Find parking near events — compare distances, reviews, and prices.",
+      subtitle: "Find parking near concerts, stadiums, or festivals — compare distances, reviews, and prices before you go.",
       chipText: "Event Optimized",
       chipIcon: star,
       chipIconBg: true,
@@ -263,7 +263,7 @@ export default function Home() {
                 <Button
                   text="Find Parking"
                   variant="lg"
-                  bg="#CEE0EF"
+                  bg="#2C7FFF1A"
                   color="#1B62F5"
                   hoverBg="#101010"
                   className="w-full md:w-auto"
@@ -292,12 +292,12 @@ export default function Home() {
               </div>
 
               {/* Toggle Buttons */}
-              <div className="flex gap-1 p-2 rounded-lg bg-[#EFEFEF] w-full md:w-auto">
+              <div className="flex gap-1 py-1.5 px-2 md:px-2 md:py-2 rounded-lg bg-[#EFEFEF] w-full md:w-auto">
                 {(["Driver", "Host"] as const).map((role) => (
                   <div
                     key={role}
                     onClick={() => setActiveRole(role)}
-                    className={`flex items-center justify-center py-2 w-full px-4 rounded-lg cursor-pointer ${activeRole === role ? "bg-black" : ""
+                    className={`flex items-center justify-center py-1.5 md:py-2 w-full px-4 rounded-lg cursor-pointer ${activeRole === role ? "bg-black" : ""
                       }`}
                   >
                     <Typography
@@ -314,7 +314,7 @@ export default function Home() {
             </div>
 
             {/* Effort Cards    */}
-            <div className="flex flex-col lg:flex-row lg:justify-around gap-[42px] lg:gap-8 bg-[url('/bg-net.svg')] bg-contain md:bg-cover bg-center bg-no-repeat">
+            <div className="flex flex-col lg:flex-row lg:justify-around gap-[42px] lg:gap-8 md:bg-[url('/bg-net.svg')] bg-none bg-contain md:bg-cover bg-center bg-no-repeat">
               {data[activeRole].map((card) => (
                 <EffortCard
                   key={card.number}
@@ -358,7 +358,7 @@ export default function Home() {
                       mainIcon={realtime}
                       mainIconAlt="realtime map"
                       title="Real-Time Smart Map"
-                      subtitle="Reserve spots instantly with our live, dynamic map interface."
+                      subtitle="Discover and reserve available spots instantly with our live, map-based interface that updates dynamically."
                       chipText="Live Updates"
                       chipIcon={undefined}
                       chipIconBg={true}
@@ -367,7 +367,7 @@ export default function Home() {
                       mainIcon={arrow}
                       mainIconAlt="arrow"
                       title="Effortless Booking & Management"
-                      subtitle="Book, manage, or cancel easily — everything happens in a few taps."
+                      subtitle="Book, manage, or cancel with ease — from search to confirmation, everything happens in just a few taps."
                       chipText="3 Simple Steps"
                       chipIcon={dots}
                       chipIconAlt="dots"
@@ -379,7 +379,7 @@ export default function Home() {
                       mainIcon={verified}
                       mainIconAlt="verified"
                       title="Verified & Secure Parking"
-                      subtitle="All listings are verified, ensuring your car is safely parked with trusted hosts."
+                      subtitle="Every listing is verified — giving you peace of mind that your car is parked safely with trusted hosts."
                       chipText="100% Verified Hosts"
                       chipIcon={tick}
                       chipIconAlt="tick"
@@ -390,7 +390,7 @@ export default function Home() {
                       mainIcon={calender}
                       mainIconAlt="calendar"
                       title="Event-Ready Parking Discovery"
-                      subtitle="Find parking near events — compare distances, reviews, and prices."
+                      subtitle="Find parking near concerts, stadiums, or festivals — compare distances, reviews, and prices before you go."
                       chipText="Event Optimized"
                       chipIcon={star}
                       chipIconAlt="star"
@@ -445,7 +445,7 @@ export default function Home() {
 
                   <div className="features-pagination flex justify-center gap-2"></div>
                 </div>
-                <div className="hidden xl:flex w-full max-w-[400px] pr-6">
+                <div className="hidden xl:flex w-full max-w-[400px] ">
                   <div className="flex justify-center relative w-full h-full min-h-[506px] md:min-h-[450px] ">
                     <Image
                       src={Car}
@@ -615,7 +615,7 @@ export default function Home() {
         <Container className="flex items-center">
           <div className="flex flex-col xl:flex-row gap-8 xl:gap-20 pt-8 xl:pt-0">
             <div className="flex flex-col gap-6 xl:gap-10 justify-center ">
-              <div className="flex flex-col gap-1 xl:gap-4 w-full xl:max-w-[468px] ">
+              <div className="flex flex-col gap-1 xl:gap-4 w-full xl:min-w-[468px]">
                 <div className="w-max py-1.5 px-3 bg-[#19398F80] backdrop-blur-sm rounded-3xl">
                   <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-[#E7E7E7] ">
                     Download

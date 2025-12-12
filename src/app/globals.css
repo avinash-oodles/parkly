@@ -192,12 +192,12 @@ body {
 /* Neighbor slides */
 .testimonial-swiper .swiper-slide-next .slide-inner,
 .testimonial-swiper .swiper-slide-prev .slide-inner {
-  transform: scaleY(0.92);
+  transform: scaleY(0.95);
 }
 
 /* Center (active) slide */
 .testimonial-swiper .swiper-slide-active .slide-inner {
-  transform: scaleY(1.10);
+  transform: scaleY(1.03);
   z-index: 10;
   overflow: visible !important;
 }
@@ -214,15 +214,12 @@ body {
 @media (max-width: 768px) {
   .testimonial-swiper .swiper-slide-active .slide-inner {
     transform: scaleY(1);
-    /* Reset scaling */
     z-index: 1;
-    /* Reset z-index if needed */
   }
 
   .testimonial-swiper .swiper-slide-next .slide-inner,
   .testimonial-swiper .swiper-slide-prev .slide-inner {
     transform: scaleY(1);
-    /* Reset neighbor slide scaling */
   }
 
   .testimonials-pagination .swiper-pagination-bullet {
