@@ -27,7 +27,8 @@ import arrow from "@/assets/svgs/arrow.svg"
 import calender from "@/assets/svgs/calender.svg"
 import dots from "@/assets/svgs/dots.svg"
 import star from "@/assets/svgs/star.svg"
-import car from "@/assets/svgs/feat-car.svg"
+import Rotatedcar from "@/assets/svgs/feat-car.svg"
+import Car from "@/assets/svgs/feature-car.svg"
 import BackgroundWave from "@/assets/svgs/BackgroundWave";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -444,10 +445,22 @@ export default function Home() {
 
                   <div className="features-pagination flex justify-center gap-2"></div>
                 </div>
-                <div className="w-full max-w-[400px] pr-6">
+                <div className="hidden xl:flex w-full max-w-[400px] pr-6">
                   <div className="flex justify-center relative w-full h-full min-h-[506px] md:min-h-[450px] ">
                     <Image
-                      src={car}
+                      src={Car}
+                      alt="car"
+                      fill
+                      className="object-contain"
+                      sizes="100%"
+                      priority
+                    />
+                  </div>
+                </div>
+                <div className="flex xl:hidden w-full max-w-[400px] pr-6">
+                  <div className="flex justify-center relative w-full h-full min-h-[506px] md:min-h-[450px] ">
+                    <Image
+                      src={Rotatedcar}
                       alt="car"
                       fill
                       className="object-contain"
