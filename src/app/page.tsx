@@ -48,6 +48,7 @@ import FaqList from "@/components/molecules/Faq/FaqList";
 import parkedCar from "@/assets/svgs/parked-car.svg"
 import AnimatedCarSection from "@/components/molecules/AnimatedCarSection";
 
+import TestimonialCard from "@/components/molecules/TestimonialCard";
 
 export default function Home() {
   const isMd = useMediaQuery('(min-width: 768px)');
@@ -139,6 +140,58 @@ export default function Home() {
       chipIconBg: true,
     },
   ];
+  const items = [
+  {
+    id: 1,
+    stars: 5,
+    title: "“Guaranteed Parking, Stress-Free Commute.”",
+    comment:
+      "Finding parking downtown was a headache. Parkly changed that. I pre-book a spot near my office every morning, saving time and stress. It's a game-changer for my commute.",
+    author: "– Sarah M., Daily Commuter",
+  },
+  {
+    id: 2,
+    stars: 4,
+    title: "“Hassle-Free Event Access, Secure & Close Parking.”",
+    comment:
+      "Concerts used to mean parking far away. With Parkly, I found a space two blocks from the venue. I pre-booked it, and arrival was seamless with the digital pass. It took the hassle out of event day, letting us enjoy the show, knowing our car was secure.",
+    author: "– Mark K., Festival Attendee",
+  },
+  {
+    id: 3,
+    stars: 5,
+    title: "“Effortless Earnings, Secure Hosting.”",
+    comment:
+      "The app shows real-time availability, and the digital pass makes entry super quick. Parking has never been easier.",
+    author: "– Daniel P., Tech Conference Attendee",
+  },
+  {
+    id: 4,
+    stars: 5,
+    title: "Quick and Easy Parking for Festivals.",
+    comment:
+      "Be was hassle-free. Highly recommended for festival-goers.",
+    author: "– Emily R., Music Festival Attendee",
+  },
+  {
+    id: 5,
+    stars: 4,
+    title: "Convenient Parking Near the Venue.",
+    comment:
+      "I always use",
+    author: "– James L., Concert Goer",
+  },
+  {
+    id: 6,
+    stars: 5,
+    title: "Stress-Free Event Days!",
+    comment:
+      "Parkly takes all the stress out of parking. I can focus on enjoying the event knowing my car is safe and close by.The app shows real-time availability, and the digital pass makes entry super quick. Parking has never been easier.",
+    author: "– Olivia T., Attendee",
+  },
+];
+
+
   const [showAll, setShowAll] = useState(false);
   const initialCount = 5;
   // Toggle function
@@ -146,20 +199,6 @@ export default function Home() {
     setShowAll(prev => !prev);
   };
 
-  const items = [
-    { id: 1, title: "Card 1" },
-    { id: 2, title: "Card 2" },
-    { id: 3, title: "Card 3" },
-    { id: 4, title: "Card 4" },
-    { id: 5, title: "Card 5" },
-    { id: 6, title: "Card 6" },
-    { id: 7, title: "Card 7" },
-    { id: 8, title: "Card 8" },
-    { id: 9, title: "Card 9" },
-    { id: 10, title: "Card 10" },
-    { id: 11, title: "Card 11" },
-    { id: 12, title: "Card 12" },
-  ];
 
   return (
     <>
@@ -449,8 +488,8 @@ export default function Home() {
       {/* Our Happy Customers */}
       <section className="bg-[#D9EBFF] overflow-hidden">
         <Container>
-          <div className="pt-8 pb-[70px]">
-            <div className="flex flex-col items-center gap-[50px]">
+          <div className="pt-8 pb-[70px] ">
+            <div className="flex flex-col items-center gap-[50px] overflow-hidden">
               <div className="flex flex-col gap-2 items-center">
                 <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
                   <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
@@ -462,58 +501,46 @@ export default function Home() {
                 </Typography>
               </div>
 
-              <div className="w-full    ">
+              <div className="w-full ">
                 <Swiper
-                  className="testimonial-swiper py-3"
+                  className="testimonial-swiper overflow-visible!"
                   modules={[Pagination, Autoplay]}
                   slidesPerView={3}
                   slidesPerGroup={1}
-                  centeredSlides={true} // <-- IMPORTANT
+                  centeredSlides={true}
                   spaceBetween={30}
+                  loop={true}
+                  autoplay={{
+                    delay: 3000,          // 3 seconds per slide
+                    disableOnInteraction: false,
+                  }}
                   pagination={{
                     clickable: true,
                     el: ".testimonials-pagination",
                   }}
-                  loop={true}
-                  autoplay={{
-                    delay: 1000,
-                    disableOnInteraction: false,
-                  }}
                   breakpoints={{
-                    0: {
-                      slidesPerView: 1.2,
-                      slidesPerGroup: 1,
-                      spaceBetween: 12,
-                      centeredSlides: true,
-                    },
-                    640: {
-                      slidesPerView: 2,
-                      slidesPerGroup: 1,
-                      spaceBetween: 16,
-                      centeredSlides: true,
-                    },
-                    768: {
-                      slidesPerView: 3,
-                      slidesPerGroup: 1,
-                      spaceBetween: 24,
-                      centeredSlides: true,
-                    },
+                    0: { slidesPerView: 1.2, slidesPerGroup: 1, spaceBetween: 12, centeredSlides: false },
+                    640: { slidesPerView: 2, slidesPerGroup: 1, spaceBetween: 16, centeredSlides: true },
+                    768: { slidesPerView: 3, slidesPerGroup: 1, spaceBetween: 24, centeredSlides: true },
                   }}
                 >
                   {items.map((item) => (
-                    <SwiperSlide key={item.id} className="">
-                      <div className="slide-inner"> 
-                        <div className="card bg-red-500 rounded-xl shadow p-4">
-                          <h3>{item.title}</h3>
-                        </div>
+                    <SwiperSlide key={item.id}>
+                      <div className="slide-inner flex justify-center">
+                        <TestimonialCard
+                          stars={item.stars}
+                          title={item.title}
+                          comment={item.comment}
+                          author={item.author}
+                        />
                       </div>
                     </SwiperSlide>
                   ))}
                 </Swiper>
 
-                <div className="testimonials-pagination flex justify-center gap-2 mt-4"></div>
-              </div>
 
+                <div className="testimonials-pagination flex justify-center gap-2 mt-8"></div>
+              </div>
 
             </div>
           </div>

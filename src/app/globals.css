@@ -201,24 +201,25 @@ body {
 .testimonial-swiper .slide-inner {
   transition: all 0.35s ease-in-out;
   transform: scaleY(0.85);
-  opacity: 0.5;
-  transform-origin: center; /* Prevents upward movement */
+  transform-origin: center; 
 }
 
 /* Neighbor slides */
 .testimonial-swiper .swiper-slide-next .slide-inner,
 .testimonial-swiper .swiper-slide-prev .slide-inner {
-  transform: scaleY(0.92);  /* Height grows slightly */
-  opacity: 0.75;
+  transform: scaleY(0.92);  
 }
 
 /* Center (active) slide */
 .testimonial-swiper .swiper-slide-active .slide-inner {
-  transform: scaleY(1.10);  /* Only height increases */
-  opacity: 1;
+  transform: scaleY(1.10); 
   z-index: 10;
 }
 
+.testimonials-pagination .swiper-pagination-bullet{
+  height: 16px;
+  width: 16px;
+}
 
 
 
