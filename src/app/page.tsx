@@ -268,7 +268,7 @@ export default function Home() {
       {/* Parkly Makes Parking Effortless */}
       <section id="how-it-works">
         <Container>
-          <div className="flex flex-col gap-8 md:gap-15 pt-8 pb-5 md:py-[70px] ">
+          <div className="flex flex-col gap-[52px] md:gap-15 pt-8 pb-11 md:py-[70px] ">
             {/* Header */}
             <div className="flex flex-col justify-between lg:flex-row gap-2 lg:items-end">
               <div className="flex flex-col gap-1 md:gap-2">
@@ -305,7 +305,7 @@ export default function Home() {
             </div>
 
             {/* Effort Cards    */}
-            <div className="flex flex-col lg:flex-row lg:justify-around gap-7 lg:gap-8 bg-[url('/bg-net.svg')] bg-contain md:bg-cover bg-center bg-no-repeat">
+            <div className="flex flex-col lg:flex-row lg:justify-around gap-[42px] lg:gap-8 bg-[url('/bg-net.svg')] bg-contain md:bg-cover bg-center bg-no-repeat">
               {data[activeRole].map((card) => (
                 <EffortCard
                   key={card.number}

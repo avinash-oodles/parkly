@@ -84,7 +84,7 @@ const EffortCard: React.FC<EffortCardProps> = ({
           <Typography variant="h3" weight={600} className="text-[#101010] text-center -tracking-[0.05rem] leading-7! md:leading-8!">
             {title}
           </Typography>
-          <Typography variant="body" weight={500} lineHeight={32} letterSpacing={0} className="text-center text-[#2B2B2B]">
+          <Typography variant="body" weight={500} letterSpacing={0} className="text-center text-[#2B2B2B] leading-6 md:leading-8!">
             {subtitle}
           </Typography>
         </div>
