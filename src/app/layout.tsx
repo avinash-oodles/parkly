@@ -38,7 +38,6 @@
 // }
 
 
-
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
@@ -59,10 +58,57 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Parkly",
-  description: "Parkly app",
+  title: {
+    default: "Parkly - Find Smart, Secure Parking | Verified Spaces & Hosting",
+    template: "%s | Parkly",
+  },
+  description: "Find verified parking spaces or list your spot to earn. Smart, secure parking with real-time availability and instant booking.",
+  keywords: [
+    "parking app",
+    "find parking near me",
+    "private parking",
+    "parking spaces",
+    "driveway rental",
+    "secure parking",
+    "smart parking",
+    "verified parking",
+    "parking platform",
+    "event parking",
+    "host parking space",
+    "earn from parking",
+  ],
+  authors: [{ name: "Parkly Team" }],
+  creator: "Parkly",
+  metadataBase: new URL("https://yourwebsite.com"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Parkly",
+    title: "Parkly - Find Smart, Secure Parking",
+    description: "Connect with verified parking spaces. Stop circling. Save time and money.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Parkly - Smart Parking Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@parkly",
+    title: "Parkly - Find Smart, Secure Parking",
+    description: "Connect with verified parking spaces nearby.",
+    images: ["/og-image.jpg"],
+  },
   icons: {
-    icon: "/favicon.svg", 
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -103,7 +149,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <Header />
-        <div className=" h-[72px] lg:h-22 w-full"></div>
+        <div className="h-[72px] lg:h-22 w-full"></div>
         {children}
         <Footer />
       </body>
