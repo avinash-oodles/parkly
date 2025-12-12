@@ -38,6 +38,7 @@ import toast from 'react-hot-toast';
 import { useRouter } from "next/navigation";
 
 import { contactSchema, ContactFormValues } from "@/schemas/contactSchema";
+import Head from 'next/head';
 
 const WaitlistPage: FC = () => {
     const isMd = useMediaQuery('(min-width: 768px)');
@@ -94,33 +95,33 @@ const WaitlistPage: FC = () => {
     });
 
     const onSubmit = async (data: ContactFormValues) => {
-    const loadingToast = toast.loading("Submitting...");
+        const loadingToast = toast.loading("Submitting...");
 
-    try {
-        const res = await fetch("/api/send-mail", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-        });
+        try {
+            const res = await fetch("/api/send-mail", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
 
-        const result = await res.json();
+            const result = await res.json();
 
-        if (result.success) {
-            toast.dismiss(loadingToast);
-            reset();                   
-            router.push("/thankyou");   
-        } else {
-            toast.error(result.error || "Failed to submit form", {
+            if (result.success) {
+                toast.dismiss(loadingToast);
+                reset();
+                router.push("/thankyou");
+            } else {
+                toast.error(result.error || "Failed to submit form", {
+                    id: loadingToast,
+                });
+            }
+        } catch (err) {
+            toast.error("An error occurred. Please try again.", {
                 id: loadingToast,
             });
+            console.error(err);
         }
-    } catch (err) {
-        toast.error("An error occurred. Please try again.", {
-            id: loadingToast,
-        });
-        console.error(err);
-    }
-};
+    };
     const initialCount = 5;
 
     // Toggle function
@@ -130,6 +131,15 @@ const WaitlistPage: FC = () => {
 
     return (
         <>
+
+            <Head>
+                <title>Parkly Waitlist - Join Early Access | Smart Parking Platform</title>
+                <meta name="description" content="Join Parkly's waitlist for early access. Be among the first to find verified parking spots or earn from your space when we launch across the U.S." />
+                <meta name="keywords" content="parkly waitlist, early access parking app, parking platform launch, join waitlist, parking app pre-registration" />
+                <meta property="og:title" content="Join Parkly Waitlist - Early Access" />
+                <meta property="og:description" content="Be first to experience smart parking when we launch across the U.S." />
+            </Head>
+
             {/* herosection */}
             <section className="relative bg-[url('/find-bg.svg')] md:bg-[url('/find-bg-desk.svg')]  bg-cover bg-center bg-no-repeat">
                 <Container>

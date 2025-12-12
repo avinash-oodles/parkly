@@ -53,6 +53,8 @@ import TestimonialCard from "@/components/molecules/TestimonialCard";
 import AvatarGroup from "@/components/molecules/AvatarGroup";
 import RatingStars from "@/assets/svgs/RatingStars";
 
+import Head from 'next/head';
+
 export default function Home() {
   const isMd = useMediaQuery('(min-width: 768px)');
   const [activeRole, setActiveRole] = useState<"Driver" | "Host">("Driver");
@@ -205,6 +207,11 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Parkly - Find Smart, Secure Parking | Anytime, Anywhere</title>
+        <meta name="description" content="Parkly connects drivers with verified private parking spaces. Find parking spots or earn as a host. Book instantly with real-time maps." />
+        <meta name="keywords" content="parking app, find parking near me, private parking, parking spaces, driveway rental, secure parking" />
+      </Head>
       {/* herosection */}
       <section className="relative bg-[url('/find-bg.svg')] md:bg-[url('/landing-bg.svg')]  bg-cover bg-center bg-no-repeat">
         <Container>
@@ -649,16 +656,16 @@ export default function Home() {
               </div>
             </div>
             {/* <div className=""> */}
-              <div className="flex justify-center relative w-full h-full  min-h-[270px]  ">
-                <Image
-                  src={Mob}
-                  alt="Mobile"
-                  fill
-                  className="object-contain"
-                  sizes="100%"
-                  priority
-                />
-              </div>
+            <div className="flex justify-center relative w-full h-full  min-h-[270px]  ">
+              <Image
+                src={Mob}
+                alt="Mobile"
+                fill
+                className="object-contain"
+                sizes="100%"
+                priority
+              />
+            </div>
             {/* </div> */}
           </div>
         </Container>
