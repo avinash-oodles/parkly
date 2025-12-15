@@ -48,7 +48,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email } = await req.json();
+    const { name, email, phone } = await req.json();
 
     if (!name || !email) {
       return NextResponse.json(
@@ -100,6 +100,7 @@ export async function POST(req: NextRequest) {
         <h3>New Waitlist Entry</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
+        ${phone ? `<p>Phone: ${phone}</p>` : ""}
         <p><strong>Previous URL:</strong> ${previousURL}</p>
         <p><strong>IP:</strong> ${ip}</p>
         <p><strong>Location:</strong> ${location}</p>

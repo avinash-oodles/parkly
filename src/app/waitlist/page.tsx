@@ -29,6 +29,7 @@ import FeatureCard from "@/components/molecules/FeatureCards"
 import FaqList from "@/components/molecules/Faq/FaqList";
 import InputGroup from "@/components/InputGroup/InputGroup";
 import EmailIcon from "@/assets/svgs/EmailIcon";
+import PhoneIcon from "@/assets/svgs/PhoneIcon";
 import AnimatedCarSection from "@/components/molecules/AnimatedCarSection";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useForm } from "react-hook-form";
@@ -38,7 +39,6 @@ import toast from 'react-hot-toast';
 import { useRouter } from "next/navigation";
 
 import { contactSchema, ContactFormValues } from "@/schemas/contactSchema";
-import Head from 'next/head';
 
 const WaitlistPage: FC = () => {
     const isMd = useMediaQuery('(min-width: 768px)');
@@ -131,14 +131,6 @@ const WaitlistPage: FC = () => {
 
     return (
         <>
-
-            <Head>
-                <title>Parkly Waitlist - Join Early Access | Smart Parking Platform</title>
-                <meta name="description" content="Join Parkly's waitlist for early access. Be among the first to find verified parking spots or earn from your space when we launch across the U.S." />
-                <meta name="keywords" content="parkly waitlist, early access parking app, parking platform launch, join waitlist, parking app pre-registration" />
-                <meta property="og:title" content="Join Parkly Waitlist - Early Access" />
-                <meta property="og:description" content="Be first to experience smart parking when we launch across the U.S." />
-            </Head>
 
             {/* herosection */}
             <section className="relative bg-[url('/find-bg.svg')] md:bg-[url('/find-bg-desk.svg')]  bg-cover bg-center bg-no-repeat">
@@ -391,7 +383,7 @@ const WaitlistPage: FC = () => {
                             </Typography>
                         </div>
                         <div className="flex gap-5 xl:gap-[90px] items-start h-full w-full ">
-                            <div className="hidden md:flex flex-col gap-6 w-[80%]">
+                            <div className="hidden md:flex flex-col gap-6 w-[80%] sticky top-20 max-h-[calc(100vh-5rem)] overflow-y-auto">
                                 <FaqCar />
                                 <div className="">
                                     <Button
@@ -462,6 +454,12 @@ const WaitlistPage: FC = () => {
                                             Icon={EmailIcon}
                                             error={errors.email?.message}
                                             register={register("email")}
+                                        />
+                                        <InputGroup
+                                            placeholder="Your phone number (optional)"
+                                            type="tel"
+                                            Icon={PhoneIcon}
+                                            register={register("phone")}
                                         />
                                     </div>
                                     <div className="max-w-[180px]">
