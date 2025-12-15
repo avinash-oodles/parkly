@@ -508,3 +508,8 @@
 // };
 
 // export default WaitlistPage;
+
+
+export default function WaitlistPage() {
+  return null;
+}
