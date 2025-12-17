@@ -34,7 +34,7 @@ export const ThankYouPage: FC = () => {
 
                         </div>
                         <div className="">
-                            <Link href="/waitlist">
+                            <Link href="/">
                                 <Button
                                     text="Back"
                                     variant="lg"

@@ -39,7 +39,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Parkly Team" }],
   creator: "Parkly",
-  metadataBase: new URL("https://yourwebsite.com"),
+  metadataBase: new URL("https://parklyco.com"),
+  alternates: {
+    canonical: "https://parklyco.com/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
