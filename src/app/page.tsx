@@ -1,7 +1,7 @@
 "use client";
 import Container from "@/components/Container/Container";
 import Typography from "@/components/Typography/Typograpghy";
-import { FC, useState,useEffect } from "react";
+import { FC, useState, Suspense } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -36,23 +36,16 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import useScrollTo from "@/hooks/useScrollTo";
 import toast from 'react-hot-toast';
-import { useRouter,useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { contactSchema, ContactFormValues } from "@/schemas/contactSchema";
+import ScrollHandler from "@/components/molecules/ScrollHandle";
 
 const WaitlistPage: FC = () => {
     const isMd = useMediaQuery('(min-width: 768px)');
     const scrollTo = useScrollTo();
-    const searchParams = useSearchParams();
     const [showAll, setShowAll] = useState(false);
 
-    useEffect(() => {
-  const section = searchParams.get("scroll");
-  if (section) {
-    // Delay slightly to ensure the page content has loaded
-    setTimeout(() => scrollTo(section), 200);
-  }
-}, [scrollTo, searchParams]);
 
     const slides = [
         {
@@ -140,6 +133,9 @@ const WaitlistPage: FC = () => {
 
     return (
         <>
+            <Suspense fallback={null}>
+                <ScrollHandler />
+            </Suspense>
 
             {/* herosection */}
             <section className="relative bg-[url('/find-bg.svg')] md:bg-[url('/find-bg-desk.svg')]  bg-cover bg-center bg-no-repeat">
