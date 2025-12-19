@@ -146,7 +146,7 @@ const WaitlistPage: FC = () => {
                                 </Typography>
                             </div>
                             <div className="flex flex-col gap-3">
-                                <div className="d-flex w-full cursor-pointer" onClick={() => scrollTo("waitlist-form", 130)}>
+                                <div className="d-flex w-full cursor-pointer" onClick={() => scrollTo("waitlist-form")}>
                                     <Button
                                         text="Join the Waitlist"
                                         variant="lg"
@@ -179,7 +179,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* Parkly Makes Parking Effortless */}
-            <section id="how-it-works" className="">
+            <section id="how-it-works" className="scroll-mt-[100px]">
                 <Container>
                     <div className="flex flex-col gap-8 md:gap-15 pt-8 pb-5 md:py-[70px] ">
                         <div className="flex flex-col  gap-1 md:gap-2">
@@ -218,7 +218,7 @@ const WaitlistPage: FC = () => {
             </section>
 
             {/* KEY FEATURES */}
-            <section id="features-view" className="bg-[#D9EBFF]">
+            <section id="features-view" className="bg-[#D9EBFF] scroll-mt-[100px]">
                 <Container pl="pl-6" pr="pr-0">
                     <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-8 md:gap-15 ">
                         <div className="flex flex-col gap-2 lg:gap-3 items-center pr-6 md:pr-0">
@@ -348,7 +348,7 @@ const WaitlistPage: FC = () => {
                                 <h4 className="font-semibold text-[20px] leading-8 md:text-[30px] md:leading-[37.5px] tracking-[1%] text-center text-black-900">
                                     Find your next parking spot the smarter way.
                                 </h4>
-                                <div onClick={() => scrollTo("waitlist-form", 130)} className="d-flex w-full lg:w-auto cursor-pointer">
+                                <div onClick={() => scrollTo("waitlist-form")} className="d-flex w-full lg:w-auto cursor-pointer">
                                     <Button
                                         text="Join the Waitlist"
                                         variant="lg"
@@ -371,7 +371,7 @@ const WaitlistPage: FC = () => {
             </div>
 
             {/* Frequently Asked Questions */}
-            <section id="faq-view" className="">
+            <section id="faq-view" className="scroll-mt-[100px]">
                 <Container>
                     <div className="flex flex-col gap-8 md:gap-[50px] items-center py-8 md:py-[70px] ">
                         <div className="flex flex-col gap-1 md:gap-2 items-center">
@@ -418,7 +418,7 @@ const WaitlistPage: FC = () => {
 
 
             {/* form section */}
-            <section id="waitlist-form" className="">
+            <section id="waitlist-form" className="scroll-mt-[100px] md:scroll-mt-[130px]">
                 <Container>
                     <div className="pb-8 md:pb-[70px]">
                         <div className="form-content rounded-3xl border-2 border-[#2C7FFF] py-8 px-6 md:px-[50px] lg:py-[70px] lg:px-[100px] relative bg-[url('/form-bg.svg')] bg-cover bg-center bg-no-repeat flex flex-col gap-8 md:flex-row md:gap-[50px] ">

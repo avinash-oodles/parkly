@@ -269,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* Parkly Makes Parking Effortless */}
-      <section id="how-it-works">
+      <section id="how-it-works" className="scroll-mt-[100px]">
         <Container>
           <div className="flex flex-col gap-[52px] md:gap-15 pt-8 pb-11 md:py-[70px] ">
             {/* Header */}
@@ -326,7 +326,7 @@ export default function Home() {
       </section>
 
       {/* KEY FEATURES */}
-      <section id="features-view" className="bg-[#F9F9F9]">
+      <section id="features-view" className="bg-[#F9F9F9] scroll-mt-[100px]">
         <Container pl="pl-6" pr="pr-0">
           <div className="feature-content pt-8 md:pt-[70px] flex flex-col gap-8 md:gap-15 ">
             <div className="flex flex-col gap-2 lg:gap-3 items-center pr-6 md:pr-0">
@@ -678,7 +678,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section id="faq-view">
+      <section id="faq-view" className="scroll-mt-[100px]">
         <Container>
           <div className="flex flex-col gap-8 md:gap-[50px] items-center py-8 md:py-[70px] ">
             <div className="flex flex-col gap-1 md:gap-2 items-center">

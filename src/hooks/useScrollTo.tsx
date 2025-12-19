@@ -2,15 +2,13 @@ import { useCallback } from "react";
 
 
 const useScrollTo = () => {
-  const scrollTo = useCallback((id: string, offset: number = 0) => {
+  const scrollTo = useCallback((id: string) => {
     const element = document.getElementById(id);
     if (!element) return;
 
-    const y = element.getBoundingClientRect().top + window.scrollY - offset;
-
-    window.scrollTo({
-      top: y,
+    element.scrollIntoView({
       behavior: "smooth",
+      block: "start", // this respects scroll-margin-top
     });
   }, []);
 

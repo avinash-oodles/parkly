@@ -37,13 +37,13 @@
 //                                     </Typography>
 //                                 </div>
 
-//                                 <div className="px-2.5 py-4" onClick={() => scrollTo("features-view", 80)}>
+//                                 <div className="px-2.5 py-4" onClick={() => scrollTo("features-view")}>
 //                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
 //                                         Features
 //                                     </Typography>
 //                                 </div>
 
-//                                 <div className="px-2.5 py-4" onClick={() => scrollTo("faq-view", 80)}>
+//                                 <div className="px-2.5 py-4" onClick={() => scrollTo("faq-view")}>
 //                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
 //                                         FAQ
 //                                     </Typography>
@@ -115,12 +115,12 @@
 //                                         How it Works
 //                                     </Typography>
 //                                 </div>
-//                                 <div onClick={() => { scrollTo("features-view", 80); setIsOpen(false); }}>
+//                                 <div onClick={() => { scrollTo("features-view"); setIsOpen(false); }}>
 //                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5">
 //                                         Features
 //                                     </Typography>
 //                                 </div>
-//                                 <div onClick={() => { scrollTo("faq-view", 80); setIsOpen(false); }}>
+//                                 <div onClick={() => { scrollTo("faq-view"); setIsOpen(false); }}>
 //                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5">
 //                                         FAQ
 //                                     </Typography>
@@ -200,19 +200,19 @@ const Header: FC = () => {
 
                         <div className="flex gap-10">
                             <div className="flex gap-3 items-center">
-                                <div className="px-2.5 py-4" onClick={() => scrollTo("how-it-works", 80)}>
+                                <div className="px-2.5 py-4" onClick={() => scrollTo("how-it-works")}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
                                         How it Works
                                     </Typography>
                                 </div>
 
-                                <div className="px-2.5 py-4" onClick={() => scrollTo("features-view", 80)}>
+                                <div className="px-2.5 py-4" onClick={() => scrollTo("features-view")}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
                                         Features
                                     </Typography>
                                 </div>
 
-                                <div className="px-2.5 py-4" onClick={() => scrollTo("faq-view", 80)}>
+                                <div className="px-2.5 py-4" onClick={() => scrollTo("faq-view")}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500">
                                         FAQ
                                     </Typography>
@@ -237,7 +237,7 @@ const Header: FC = () => {
                                     bg="#2C7FFF33"
                                     color="#101010"
                                     variant="sm"
-                                    onClick={() => scrollTo("waitlist-form", 130)}
+                                    onClick={() => scrollTo("waitlist-form")}
                                 />
                             </div>
                         </div>
@@ -277,17 +277,17 @@ const Header: FC = () => {
 
                         <nav className="flex flex-col gap-4 mt-8 px-6 bg-white">
                             <div className="flex flex-col gap-3">
-                                <div onClick={() => { scrollTo("how-it-works", 80); setIsOpen(false); }}>
+                                <div onClick={() => { scrollTo("how-it-works"); setIsOpen(false); }}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5">
                                         How it Works
                                     </Typography>
                                 </div>
-                                <div onClick={() => { scrollTo("features-view", 80); setIsOpen(false); }}>
+                                <div onClick={() => { scrollTo("features-view"); setIsOpen(false); }}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5">
                                         Features
                                     </Typography>
                                 </div>
-                                <div onClick={() => { scrollTo("faq-view", 80); setIsOpen(false); }}>
+                                <div onClick={() => { scrollTo("faq-view"); setIsOpen(false); }}>
                                     <Typography variant="para" className="text-black-700 custom-underline hover:text-blue-500 pt-1 pb-2 px-2.5">
                                         FAQ
                                     </Typography>
@@ -312,7 +312,7 @@ const Header: FC = () => {
                                     variant="sm"
                                     className="w-full"
                                     onClick={() => {
-                                        scrollTo("waitlist-form", 130);
+                                        scrollTo("waitlist-form");
                                         setIsOpen(false);
                                     }}
                                 />

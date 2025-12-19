@@ -48,12 +48,12 @@ const Footer: FC = () => {
                                         </Typography>
                                     </div>
                                     <div className="flex flex-col gap-3">
-                                        <div onClick={() => scrollTo("how-it-works", 70)}>
+                                        <div onClick={() => scrollTo("how-it-works")}>
                                             <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
                                                 How it Works
                                             </Typography>
                                         </div>
-                                        <div onClick={() => scrollTo("features-view", 70)}>
+                                        <div onClick={() => scrollTo("features-view")}>
                                             <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
                                                 Features
                                             </Typography>
