@@ -7,8 +7,8 @@ const useScrollTo = () => {
     if (!element) return;
 
     element.scrollIntoView({
-      behavior: "smooth",
-      block: "start", // this respects scroll-margin-top
+      behavior: "smooth", //behaiour in the scroll 
+      block: "start", 
     });
   }, []);
 

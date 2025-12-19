@@ -34,7 +34,7 @@ const InputGroup: React.FC<InputGroupProps> = ({ placeholder = "Your name", type
           {...register} // RHF registration
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          className="placeholder:text-[#727272] outline-none text-blue-900 flex-1"
+          className="placeholder:text-[#727272] placeholder:text-[16px] [@media(max-width:390px)]:placeholder:text-[12px] outline-none text-blue-900 flex-1"
         />
       </div>
 
