@@ -151,16 +151,28 @@ const WaitlistPage: FC = () => {
                                 </Typography>
                             </div>
                             <div className="flex flex-col gap-3">
-                                <div className="d-flex w-full cursor-pointer" onClick={() => scrollTo("waitlist-form")}>
-                                    <Button
-                                        text="Join the Waitlist"
-                                        variant="lg"
-                                        bg="#2C7FFF"
-                                        color="#FFFFFF"
-                                        hoverBg="#101010"
-                                        boxShadow="1px 2px 24px 0px #13245733"
-                                        className="w-full md:w-auto"
-                                    />
+                                <div className="flex flex-col md:flex-row gap-3 md:gap-6 items-center ">
+                                    <div className="w-full md:w-auto">
+                                        <Button
+                                            text="Join as a Host"
+                                            variant="lg"
+                                            bg="#2C7FFF"
+                                            color="#FFFFFF"
+                                            hoverBg="#101010"
+                                            boxShadow="1px 2px 24px 0px #13245733"
+                                            className="w-full md:w-auto"
+                                        />
+                                    </div>
+                                    <div className="w-full md:w-auto">
+                                        <Button
+                                            text="Join as a Driver"
+                                            variant="lg"
+                                            bg="#2C7FFF1A"
+                                            color="#1B62F5"
+                                            hoverBg="#2C7FFF1A"
+                                            className="w-full md:w-auto"
+                                        />
+                                    </div>
                                 </div>
                                 <Typography variant="para" weight={500} lineHeight={isMd ? 24 : 20} className="text-black-900 italic">
                                     Launching across the U.S. soon
@@ -466,6 +478,45 @@ const WaitlistPage: FC = () => {
                                             Icon={PhoneIcon}
                                             register={register("phone")}
                                         />
+                                        <div className="flex flex-col gap-0.5">
+                                            <Typography variant="chip" weight={500} lineHeight={isMd ? 20 : 16} className="text-black-900">
+                                                User Type
+                                            </Typography>
+                                            <div className="flex gap-3">
+                                                <label className="flex items-center gap-2 py-3.5 px-4 bg-[#F9F9F9] hover:bg-[#ECF5FF] border border-[#F9F9F9] hover:border-[#8EC7FF] w-full rounded-lg cursor-pointer group">
+                                                    <input
+                                                        type="radio"
+                                                        name="role"
+                                                        className="w-4 h-4 p-1 appearance-none rounded-full border border-[#D0D0D0] bg-clip-content 
+                   checked:bg-[#2C7FFF] checked:border-[#2C7FFF] 
+                   group-hover:border-[#59A6FF] group-hover:bg-[#59A6FF] 
+                   relative before:content-[''] before:absolute before:rounded-full before:w-2 before:h-2 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 
+                   before:bg-[#8EC7FF] before:opacity-0 
+                   checked:before:bg-[#2C7FFF] checked:before:opacity-100 
+                   group-hover:before:opacity-100"
+                                                    />
+                                                    <span className="font-poppins font-medium text-[14px] leading-5 tracking-normal text-black-800">
+                                                        Driver
+                                                    </span>
+                                                </label>
+                                                <label className="flex items-center gap-2 py-3.5 px-4 bg-[#F9F9F9] hover:bg-[#ECF5FF] border border-[#F9F9F9] hover:border-[#8EC7FF] w-full rounded-lg cursor-pointer group">
+                                                    <input
+                                                        type="radio"
+                                                        name="role"
+                                                        className="w-4 h-4 p-1 appearance-none rounded-full border border-[#D0D0D0] bg-clip-content 
+                   checked:bg-[#2C7FFF] checked:border-[#2C7FFF] 
+                   group-hover:border-[#59A6FF] group-hover:bg-[#59A6FF] 
+                   relative before:content-[''] before:absolute before:rounded-full before:w-2 before:h-2 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 
+                   before:bg-[#8EC7FF] before:opacity-0 
+                   checked:before:bg-[#2C7FFF] checked:before:opacity-100 
+                   group-hover:before:opacity-100"
+                                                    />
+                                                    <span className="font-poppins font-medium text-[14px] leading-5 tracking-normal text-black-800">
+                                                        Host
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className="max-w-[180px]">
                                         <Button

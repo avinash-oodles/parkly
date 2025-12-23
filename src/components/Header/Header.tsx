@@ -220,7 +220,7 @@ const Header: FC = () => {
                             </div>
 
                             <div className="flex gap-3 items-center">
-                                <Link href="" className="px-[19px] py-[9px] border border-[#2C7FFF33] rounded-lg">
+                                <div className="px-[19px] py-[9px] border border-[#2C7FFF33] rounded-lg">
                                     <div className="flex gap-2 items-center">
                                         <div className="relative w-4 h-4">
                                             <Image src={world} alt="world" fill className="object-contain" sizes="100%" priority />
@@ -229,7 +229,7 @@ const Header: FC = () => {
                                             EN
                                         </Typography>
                                     </div>
-                                </Link>
+                                </div>
 
                                 {/* Static Desktop Button */}
                                 <Button
