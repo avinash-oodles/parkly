@@ -46,6 +46,16 @@ const WaitlistPage: FC = () => {
     const scrollTo = useScrollTo();
     const [showAll, setShowAll] = useState(false);
 
+    const handleScrollAndSelect = (role: "driver" | "host") => {
+        // Scroll to form
+        scrollTo("waitlist-form");
+
+        // Select the corresponding radio
+        const radio = document.querySelector<HTMLInputElement>(
+            `#waitlist-form input[name="role"][value="${role}"]`
+        );
+        if (radio) radio.checked = true;
+    };
 
     const slides = [
         {
@@ -155,6 +165,7 @@ const WaitlistPage: FC = () => {
                                     <div className="w-full md:w-auto">
                                         <Button
                                             text="Join as a Host"
+                                            onClick={() => handleScrollAndSelect("host")}
                                             variant="lg"
                                             bg="#2C7FFF"
                                             color="#FFFFFF"
@@ -166,6 +177,7 @@ const WaitlistPage: FC = () => {
                                     <div className="w-full md:w-auto">
                                         <Button
                                             text="Join as a Driver"
+                                            onClick={() => handleScrollAndSelect("driver")}
                                             variant="lg"
                                             bg="#2C7FFF1A"
                                             color="#1B62F5"
@@ -483,33 +495,35 @@ const WaitlistPage: FC = () => {
                                                 User Type
                                             </Typography>
                                             <div className="flex gap-3">
-                                                <label className="flex items-center gap-2 py-3.5 px-4 bg-[#F9F9F9] hover:bg-[#ECF5FF] border border-[#F9F9F9] hover:border-[#8EC7FF] w-full rounded-lg cursor-pointer group">
+                                                <label className="flex items-center gap-2 py-3.5 px-4 bg-[#F9F9F9] hover:bg-[#ECF5FF] border border-[#F9F9F9] hover:border-[#8EC7FF] has-[:checked]:bg-[#ECF5FF] has-[:checked]:border-[#2C7FFF] w-full rounded-lg cursor-pointer group">
                                                     <input
                                                         type="radio"
                                                         name="role"
+                                                        value="driver"
                                                         className="w-4 h-4 p-1 appearance-none rounded-full border border-[#D0D0D0] bg-clip-content 
-                   checked:bg-[#2C7FFF] checked:border-[#2C7FFF] 
-                   group-hover:border-[#59A6FF] group-hover:bg-[#59A6FF] 
-                   relative before:content-[''] before:absolute before:rounded-full before:w-2 before:h-2 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 
-                   before:bg-[#8EC7FF] before:opacity-0 
-                   checked:before:bg-[#2C7FFF] checked:before:opacity-100 
-                   group-hover:before:opacity-100"
+            checked:bg-[#2C7FFF] checked:border-[#2C7FFF] 
+            group-hover:border-[#59A6FF] group-hover:bg-[#59A6FF] 
+            relative before:content-[''] before:absolute before:rounded-full before:w-2 before:h-2 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 
+            before:bg-[#8EC7FF] before:opacity-0 
+            checked:before:bg-[#2C7FFF] checked:before:opacity-100 
+            group-hover:before:opacity-100"
                                                     />
                                                     <span className="font-poppins font-medium text-[14px] leading-5 tracking-normal text-black-800">
                                                         Driver
                                                     </span>
                                                 </label>
-                                                <label className="flex items-center gap-2 py-3.5 px-4 bg-[#F9F9F9] hover:bg-[#ECF5FF] border border-[#F9F9F9] hover:border-[#8EC7FF] w-full rounded-lg cursor-pointer group">
+                                                <label className="flex items-center gap-2 py-3.5 px-4 bg-[#F9F9F9] hover:bg-[#ECF5FF] border border-[#F9F9F9] hover:border-[#8EC7FF] has-[:checked]:bg-[#ECF5FF] has-[:checked]:border-[#2C7FFF] w-full rounded-lg cursor-pointer group">
                                                     <input
                                                         type="radio"
                                                         name="role"
+                                                        value="host"
                                                         className="w-4 h-4 p-1 appearance-none rounded-full border border-[#D0D0D0] bg-clip-content 
-                   checked:bg-[#2C7FFF] checked:border-[#2C7FFF] 
-                   group-hover:border-[#59A6FF] group-hover:bg-[#59A6FF] 
-                   relative before:content-[''] before:absolute before:rounded-full before:w-2 before:h-2 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 
-                   before:bg-[#8EC7FF] before:opacity-0 
-                   checked:before:bg-[#2C7FFF] checked:before:opacity-100 
-                   group-hover:before:opacity-100"
+            checked:bg-[#2C7FFF] checked:border-[#2C7FFF] 
+            group-hover:border-[#59A6FF] group-hover:bg-[#59A6FF] 
+            relative before:content-[''] before:absolute before:rounded-full before:w-2 before:h-2 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 
+            before:bg-[#8EC7FF] before:opacity-0 
+            checked:before:bg-[#2C7FFF] checked:before:opacity-100 
+            group-hover:before:opacity-100"
                                                     />
                                                     <span className="font-poppins font-medium text-[14px] leading-5 tracking-normal text-black-800">
                                                         Host
