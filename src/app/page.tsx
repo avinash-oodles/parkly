@@ -47,14 +47,15 @@ const WaitlistPage: FC = () => {
     const [showAll, setShowAll] = useState(false);
 
     const handleScrollAndSelect = (role: "driver" | "host") => {
-        // Scroll to form
-        scrollTo("waitlist-form");
+        // Update form state first
+        setValue("role", role, {
+            shouldValidate: true,  // This will clear any validation errors
+            shouldDirty: true,     // Mark field as modified
+            shouldTouch: true      // Mark field as touched
+        });
 
-        // Select the corresponding radio
-        const radio = document.querySelector<HTMLInputElement>(
-            `#waitlist-form input[name="role"][value="${role}"]`
-        );
-        if (radio) radio.checked = true;
+        // Then scroll to form
+        scrollTo("waitlist-form");
     };
 
     const slides = [
@@ -102,6 +103,7 @@ const WaitlistPage: FC = () => {
         handleSubmit,
         formState: { errors },
         reset,
+        setValue
     } = useForm<ContactFormValues>({
         resolver: zodResolver(contactSchema),
     });
@@ -450,7 +452,7 @@ const WaitlistPage: FC = () => {
             <section id="waitlist-form" className="scroll-mt-[100px] md:scroll-mt-[130px]">
                 <Container>
                     <div className="pb-8 md:pb-[70px]">
-                        <div className="form-content rounded-3xl border-2 border-[#2C7FFF] py-8 px-6 md:px-[50px] lg:py-[70px] lg:px-[100px] relative bg-[url('/form-bg.svg')] bg-cover bg-center bg-no-repeat flex flex-col gap-8 md:flex-row md:gap-[50px] ">
+                        <div className="form-content rounded-3xl border-2 border-[#2C7FFF] py-8 px-6 md:px-[50px] lg:py-[70px] lg:px-[100px] relative bg-[url('/form-bg.svg')] bg-contain bg-center bg-no-repeat flex flex-col gap-8 md:flex-row md:gap-[50px] ">
                             <div className="flex flex-col gap-1 md:gap-2 w-full max-w-[426px] ">
                                 <div className="w-max py-1.5 px-3 bg-[#C5E3FF] backdrop-blur-sm rounded-3xl">
                                     <Typography variant="chip" weight={600} lineHeight={isMd ? 20 : 16} className="text-blue-500">
@@ -498,7 +500,7 @@ const WaitlistPage: FC = () => {
                                                 <label className="flex items-center gap-2 py-3.5 px-4 bg-[#F9F9F9] hover:bg-[#ECF5FF] border border-[#F9F9F9] hover:border-[#8EC7FF] has-[:checked]:bg-[#ECF5FF] has-[:checked]:border-[#2C7FFF] w-full rounded-lg cursor-pointer group">
                                                     <input
                                                         type="radio"
-                                                        name="role"
+                                                        {...register("role")}
                                                         value="driver"
                                                         className="w-4 h-4 p-1 appearance-none rounded-full border border-[#D0D0D0] bg-clip-content 
             checked:bg-[#2C7FFF] checked:border-[#2C7FFF] 
@@ -515,7 +517,7 @@ const WaitlistPage: FC = () => {
                                                 <label className="flex items-center gap-2 py-3.5 px-4 bg-[#F9F9F9] hover:bg-[#ECF5FF] border border-[#F9F9F9] hover:border-[#8EC7FF] has-[:checked]:bg-[#ECF5FF] has-[:checked]:border-[#2C7FFF] w-full rounded-lg cursor-pointer group">
                                                     <input
                                                         type="radio"
-                                                        name="role"
+                                                        {...register("role")}
                                                         value="host"
                                                         className="w-4 h-4 p-1 appearance-none rounded-full border border-[#D0D0D0] bg-clip-content 
             checked:bg-[#2C7FFF] checked:border-[#2C7FFF] 
@@ -530,6 +532,11 @@ const WaitlistPage: FC = () => {
                                                     </span>
                                                 </label>
                                             </div>
+                                            {errors.role?.message && (
+                                                <Typography variant="chip" weight={400} className="text-red-500">
+                                                    {errors.role.message}
+                                                </Typography>
+                                            )}
                                         </div>
                                     </div>
                                     <div className="max-w-[180px]">

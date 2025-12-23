@@ -1,30 +1,25 @@
-
-
 import nodemailer from "nodemailer";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, phone } = await req.json();
+    const { name, email, phone, role } = await req.json();
 
-    if (!name || !email) {
+    if (!name || !email || !role) {
       return NextResponse.json(
-        { success: false, error: "Name and email are required" },
+        { success: false, error: "Name, email, and user type are required" },
         { status: 400 }
       );
     }
 
     // ---------- GET USER DATA ----------
-
-    // Previous URL (referrer)
     const previousURL = req.headers.get("referer") || "Not available";
-
-    // IP Address
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "Unknown";
-
-    // User Agent → Browser + OS
     const userAgent = req.headers.get("user-agent") || "";
     const browserInfo = parseUserAgent(userAgent);
+
+    // Format role for display
+    const roleLabel = role === "driver" ? "Driver" : "Host";
 
     // ---------- SEND EMAIL ----------
     const transporter = nodemailer.createTransport({
@@ -33,16 +28,17 @@ export async function POST(req: NextRequest) {
       secure: false,
       auth: {
         user: process.env.SMTP_EMAIL,
-        pass: process.env.SMTP_PASSWORD, 
+        pass: process.env.SMTP_PASSWORD,
       },
     });
 
     const mailOptions = {
       from: `"Waitlist Form" <${process.env.SMTP_EMAIL}>`,
       to: process.env.SMTP_EMAIL,
-      subject: "New Waitlist Submission",
+      subject: `New Waitlist Submission as ${roleLabel}`,
       html: `
-        <h3>New Waitlist Entry</h3>
+        <h3>New Waitlist Entry - ${roleLabel}</h3>
+        <p><strong>User Type:</strong> ${roleLabel}</p>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
