@@ -1,6 +1,5 @@
 // src/app/api/submit-waitlist/route.ts
 
-
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -9,17 +8,21 @@ export async function POST(req: NextRequest) {
     
     console.log("Submitting to Google Sheets:", body);
 
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbwaL9Z_QQmoNjxSmR5LmqGFm6DrDUDTVW0CVATyTYMP7FtyVHisCSVk4QlpISwmTz0a/exec",
-      {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-        redirect: 'follow'
-      }
-    );
+    // Use environment variable for the URL
+    const appsScriptUrl = process.env.GOOGLE_APPS_SCRIPT_URL;
+
+    if (!appsScriptUrl) {
+      throw new Error("GOOGLE_APPS_SCRIPT_URL environment variable is not set");
+    }
+
+    const response = await fetch(appsScriptUrl, {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+      redirect: 'follow'
+    });
 
     console.log("Response status:", response.status);
 
