@@ -172,25 +172,40 @@ const WaitlistPage: FC = () => {
         const loadingToast = toast.loading("Submitting...");
 
         try {
-            const res = await fetch("/api/submit-waitlist", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    ...data,
-                    previousURL: window.location.pathname, // Just the path: /waitlist or /
-                    ip: "Unknown",
-                    browserInfo: navigator.userAgent,
-                }),
-            });
+            const submissionData = {
+                ...data,
+                previousURL: window.location.pathname,
+                ip: "Unknown",
+                browserInfo: navigator.userAgent,
+            };
 
-            const result = await res.json();
+            // Run both API calls in parallel
+            const [sheetResult, emailResult] = await Promise.allSettled([
+                fetch("/api/submit-waitlist", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(submissionData),
+                }).then(res => res.json()),
 
-            if (result.success) {
+                fetch("/api/send-mail", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(submissionData),
+                }).then(res => res.json())
+            ]);
+
+            // Check if at least the Google Sheets submission succeeded
+            const sheetSuccess = sheetResult.status === "fulfilled" && sheetResult.value.success;
+
+            if (sheetSuccess) {
                 toast.dismiss(loadingToast);
                 reset();
                 router.push("/thankyou");
             } else {
-                toast.error(result.error || "Failed to submit form", { id: loadingToast });
+                const errorMsg = sheetResult.status === "rejected"
+                    ? sheetResult.reason
+                    : sheetResult.value.error || "Failed to submit form";
+                toast.error(errorMsg, { id: loadingToast });
             }
         } catch (err) {
             toast.error("An error occurred. Please try again.", { id: loadingToast });
