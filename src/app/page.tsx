@@ -49,9 +49,9 @@ const WaitlistPage: FC = () => {
     const handleScrollAndSelect = (role: "driver" | "host") => {
         // Update form state first
         setValue("role", role, {
-            shouldValidate: true,  // This will clear any validation errors
-            shouldDirty: true,     // Mark field as modified
-            shouldTouch: true      // Mark field as touched
+            shouldValidate: false,  // Don't validate immediately
+            shouldDirty: true,
+            shouldTouch: true
         });
 
         // Then scroll to form
