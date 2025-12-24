@@ -108,14 +108,79 @@ const WaitlistPage: FC = () => {
         resolver: zodResolver(contactSchema),
     });
 
+    // const onSubmit = async (data: ContactFormValues) => {
+    //     const loadingToast = toast.loading("Submitting...");
+
+    //     try {
+    //         const res = await fetch("/api/send-mail", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify(data),
+    //         });
+
+    //         const result = await res.json();
+
+    //         if (result.success) {
+    //             toast.dismiss(loadingToast);
+    //             reset();
+    //             router.push("/thankyou");
+    //         } else {
+    //             toast.error(result.error || "Failed to submit form", {
+    //                 id: loadingToast,
+    //             });
+    //         }
+    //     } catch (err) {
+    //         toast.error("An error occurred. Please try again.", {
+    //             id: loadingToast,
+    //         });
+    //         console.error(err);
+    //     }
+    // };
+    // const onSubmit = async (data: ContactFormValues) => {
+    //     const loadingToast = toast.loading("Submitting...");
+
+    //     try {
+    //         const res = await fetch("/api/submit-waitlist", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify({
+    //                 ...data,
+    //                 previousURL: document.referrer,
+    //                 ip: "Unknown",
+    //                 browserInfo: navigator.userAgent,
+    //             }),
+    //         });
+
+
+    //         const result = await res.json();
+
+    //         if (result.success) {
+    //             toast.dismiss(loadingToast);
+    //             reset();
+    //             router.push("/thankyou");
+    //         } else {
+    //             toast.error(result.error || "Failed to submit form", { id: loadingToast });
+    //         }
+    //     } catch (err) {
+    //         toast.error("An error occurred. Please try again.", { id: loadingToast });
+    //         console.error(err);
+    //     }
+    // };
+
+
     const onSubmit = async (data: ContactFormValues) => {
         const loadingToast = toast.loading("Submitting...");
 
         try {
-            const res = await fetch("/api/send-mail", {
+            const res = await fetch("/api/submit-waitlist", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
+                body: JSON.stringify({
+                    ...data,
+                    previousURL: window.location.pathname, // Just the path: /waitlist or /
+                    ip: "Unknown",
+                    browserInfo: navigator.userAgent,
+                }),
             });
 
             const result = await res.json();
@@ -125,14 +190,10 @@ const WaitlistPage: FC = () => {
                 reset();
                 router.push("/thankyou");
             } else {
-                toast.error(result.error || "Failed to submit form", {
-                    id: loadingToast,
-                });
+                toast.error(result.error || "Failed to submit form", { id: loadingToast });
             }
         } catch (err) {
-            toast.error("An error occurred. Please try again.", {
-                id: loadingToast,
-            });
+            toast.error("An error occurred. Please try again.", { id: loadingToast });
             console.error(err);
         }
     };
