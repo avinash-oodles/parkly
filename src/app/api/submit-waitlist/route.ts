@@ -1,4 +1,4 @@
-// src/app/api/submit-waitlist/route.ts
+// src/app/api/submit-waitlist/route.ts  
 
 import { NextRequest, NextResponse } from "next/server";
 
