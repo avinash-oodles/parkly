@@ -577,6 +577,7 @@ const WaitlistPage: FC = () => {
                                             placeholder="Your phone number (optional)"
                                             type="tel"
                                             Icon={PhoneIcon}
+                                            error={errors.phone?.message}
                                             register={register("phone")}
                                         />
                                         <div className="flex flex-col gap-0.5">
