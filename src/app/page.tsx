@@ -194,6 +194,10 @@ const WaitlistPage: FC = () => {
                 }).then(res => res.json())
             ]);
 
+            // Log detailed results for debugging
+            console.log("Sheet Result:", sheetResult);
+            console.log("Email Result:", emailResult);
+
             // Check if at least the Google Sheets submission succeeded
             const sheetSuccess = sheetResult.status === "fulfilled" && sheetResult.value.success;
 
@@ -202,14 +206,21 @@ const WaitlistPage: FC = () => {
                 reset();
                 router.push("/thankyou");
             } else {
+                // Log the full error for debugging
+                if (sheetResult.status === "rejected") {
+                    console.error("Sheet submission rejected:", sheetResult.reason);
+                } else {
+                    console.error("Sheet submission failed:", sheetResult.value);
+                }
+
                 const errorMsg = sheetResult.status === "rejected"
-                    ? sheetResult.reason
-                    : sheetResult.value.error || "Failed to submit form";
+                    ? sheetResult.reason?.toString()
+                    : sheetResult.value?.error || "Failed to submit form";
                 toast.error(errorMsg, { id: loadingToast });
             }
         } catch (err) {
             toast.error("An error occurred. Please try again.", { id: loadingToast });
-            console.error(err);
+            console.error("Submit error:", err);
         }
     };
     const initialCount = 5;
