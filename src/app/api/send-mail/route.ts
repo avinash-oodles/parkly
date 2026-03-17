@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, phone, role } = await req.json();
+    const { name, email, phone, role, address, parkingSpots } = await req.json();
 
     if (!name || !email || !role) {
       return NextResponse.json(
@@ -43,6 +43,8 @@ export async function POST(req: NextRequest) {
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
+        ${role === "host" ? `<p><strong>Address:</strong> ${address || "N/A"}</p>` : ""}
+        ${role === "host" ? `<p><strong>Parking Spots:</strong> ${parkingSpots || "N/A"}</p>` : ""}
         <p><strong>Previous URL:</strong> ${previousURL}</p>
         <p><strong>IP:</strong> ${ip}</p>
         <p><strong>Browser:</strong> ${browserInfo}</p>

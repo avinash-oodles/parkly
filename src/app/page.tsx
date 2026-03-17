@@ -40,6 +40,8 @@ import { useRouter } from "next/navigation";
 
 import { contactSchema, ContactFormValues } from "@/schemas/contactSchema";
 import ScrollHandler from "@/components/molecules/ScrollHandle";
+import AddressIcon from "@/assets/svgs/AddressIcon";
+import SpotIcon from "@/assets/svgs/SpotIcon";
 
 const WaitlistPage: FC = () => {
     const isMd = useMediaQuery('(min-width: 768px)');
@@ -101,71 +103,14 @@ const WaitlistPage: FC = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+     watch, formState: { errors },
         reset,
         setValue
     } = useForm<ContactFormValues>({
         resolver: zodResolver(contactSchema),
     });
 
-    // const onSubmit = async (data: ContactFormValues) => {
-    //     const loadingToast = toast.loading("Submitting...");
-
-    //     try {
-    //         const res = await fetch("/api/send-mail", {
-    //             method: "POST",
-    //             headers: { "Content-Type": "application/json" },
-    //             body: JSON.stringify(data),
-    //         });
-
-    //         const result = await res.json();
-
-    //         if (result.success) {
-    //             toast.dismiss(loadingToast);
-    //             reset();
-    //             router.push("/thankyou");
-    //         } else {
-    //             toast.error(result.error || "Failed to submit form", {
-    //                 id: loadingToast,
-    //             });
-    //         }
-    //     } catch (err) {
-    //         toast.error("An error occurred. Please try again.", {
-    //             id: loadingToast,
-    //         });
-    //         console.error(err);
-    //     }
-    // };
-    // const onSubmit = async (data: ContactFormValues) => {
-    //     const loadingToast = toast.loading("Submitting...");
-
-    //     try {
-    //         const res = await fetch("/api/submit-waitlist", {
-    //             method: "POST",
-    //             headers: { "Content-Type": "application/json" },
-    //             body: JSON.stringify({
-    //                 ...data,
-    //                 previousURL: document.referrer,
-    //                 ip: "Unknown",
-    //                 browserInfo: navigator.userAgent,
-    //             }),
-    //         });
-
-
-    //         const result = await res.json();
-
-    //         if (result.success) {
-    //             toast.dismiss(loadingToast);
-    //             reset();
-    //             router.push("/thankyou");
-    //         } else {
-    //             toast.error(result.error || "Failed to submit form", { id: loadingToast });
-    //         }
-    //     } catch (err) {
-    //         toast.error("An error occurred. Please try again.", { id: loadingToast });
-    //         console.error(err);
-    //     }
-    // };
+    const watchRole = watch("role");
 
 
     const onSubmit = async (data: ContactFormValues) => {
@@ -558,31 +503,46 @@ const WaitlistPage: FC = () => {
                             <div className="w-full">
                                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 md:gap-5">
                                     <div className="flex flex-col gap-4">
-                                        <InputGroup
-                                            placeholder="Your name"
-                                            type="text"
-                                            Icon={ProfileIcon}
-                                            error={errors.name?.message}
-                                            register={register("name")}
-                                        />
+                                        <div className="flex flex-col gap-1">
+                                            <Typography variant="chip" weight={500} className="text-black-900">
+                                                Name<sup className="text-red-500">*</sup>
+                                            </Typography>
+                                            <InputGroup
+                                                placeholder="Your name"
+                                                type="text"
+                                                Icon={ProfileIcon}
+                                                error={errors.name?.message}
+                                                register={register("name")}
+                                            />
+                                        </div>
 
-                                        <InputGroup
+                                        <div className="flex flex-col gap-1">
+                                            <Typography variant="chip" weight={500} className="text-black-900">
+                                                Email<sup className="text-red-500">*</sup>
+                                            </Typography>
+                                            <InputGroup
                                             placeholder="Your email"
                                             type="email"
                                             Icon={EmailIcon}
                                             error={errors.email?.message}
                                             register={register("email")}
                                         />
-                                        <InputGroup
-                                            placeholder="Your phone number (optional)"
+                                        </div>
+                                        <div className="flex flex-col gap-1">
+                                            <Typography variant="chip" weight={500} className="text-black-900">
+                                                Phone number
+                                            </Typography>
+                                            <InputGroup
+                                            placeholder="Phone number"
                                             type="tel"
                                             Icon={PhoneIcon}
                                             error={errors.phone?.message}
                                             register={register("phone")}
                                         />
+                                        </div>
                                         <div className="flex flex-col gap-0.5">
                                             <Typography variant="chip" weight={500} lineHeight={isMd ? 20 : 16} className="text-black-900">
-                                                User Type
+                                                User Type<sup className="text-red-500">*</sup>
                                             </Typography>
                                             <div className="flex gap-3">
                                                 <label className="flex items-center gap-2 py-3.5 px-4 bg-[#F9F9F9] hover:bg-[#ECF5FF] border border-[#F9F9F9] hover:border-[#8EC7FF] has-[:checked]:bg-[#ECF5FF] has-[:checked]:border-[#2C7FFF] w-full rounded-lg cursor-pointer group">
@@ -627,6 +587,38 @@ const WaitlistPage: FC = () => {
                                             )}
                                         </div>
                                     </div>
+                                    {watchRole === "host" && (
+                                        <>
+                                            {/* Address textarea */}
+                                            <div className="flex flex-col gap-1">
+                                                <Typography variant="chip" weight={500} className="text-black-900">
+                                                    Address 
+                                                </Typography>
+                                                <InputGroup
+                                                    multiline
+                                                    rows={2}
+                                                    placeholder="Enter your parking location"
+                                                    Icon={AddressIcon}
+                                                    register={register("address")}
+                                                    error={errors.address?.message}
+                                                />
+                                            </div>
+
+                                            {/* Number of parking spots */}
+                                            <div className="flex flex-col gap-1">
+                                                <Typography variant="chip" weight={500} className="text-black-900">
+                                                    Number of parking spots
+                                                </Typography>
+                                                <InputGroup
+                                                    placeholder="No. of spots"
+                                                    type="number"
+                                                    Icon={SpotIcon}
+                                                    error={errors.parkingSpots?.message}
+                                                    register={register("parkingSpots")}
+                                                />
+                                            </div>
+                                        </>
+                                    )}
                                     <div className="max-w-[180px]">
                                         <Button
                                             text="Submit"

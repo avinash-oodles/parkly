@@ -6,7 +6,10 @@ export const contactSchema = z.object({
   phone: z.string().max(10, "Phone number should not be more than 10 digits").optional(),
   role: z.string().nullable().refine((val) => val !== null && val.length > 0, {
     message: "Please select a user type"
-  })
+  }),
+  // New optional fields for host
+  address: z.string().optional(),
+  parkingSpots: z.string().optional(), // keep as string; parse to number if needed in API
 });
 
 export type ContactFormValues = z.infer<typeof contactSchema>;
