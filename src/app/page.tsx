@@ -602,6 +602,9 @@ const WaitlistPage: FC = () => {
                                                     register={register("address")}
                                                     error={errors.address?.message}
                                                 />
+                                                <Typography variant="chip" weight={400} className="text-[#2C7FFF] text-[14px]">
+                                                   <sup className="text-red-500">*</sup>Note - You can add your address later
+                                                </Typography>
                                             </div>
 
                                             {/* Number of parking spots */}
