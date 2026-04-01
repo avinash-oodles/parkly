@@ -221,7 +221,7 @@ const WaitlistPage: FC = () => {
                                     </div>
                                 </div>
                                 <Typography variant="para" weight={500} lineHeight={isMd ? 24 : 20} className="text-black-900 italic">
-                                    Launching across the U.S. soon
+                                    Find parking around SoFi Stadium
                                 </Typography>
                             </div>
                         </div>
