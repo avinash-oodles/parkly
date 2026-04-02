@@ -107,7 +107,7 @@ const Footer: FC = () => {
                                     </Typography>
                                 </Link>
 
-                                <Link href="">
+                                <Link href="/terms-of-services">
                                     <Typography variant="para" weight={500} className="text-[#2B2B2B] cursor-pointer">
                                         Terms & Conditions
                                     </Typography>

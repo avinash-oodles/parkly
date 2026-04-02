@@ -1,16 +1,29 @@
+"use client";
 import { useCallback } from "react";
-
+import { usePathname, useRouter } from "next/navigation";
 
 const useScrollTo = () => {
-  const scrollTo = useCallback((id: string) => {
-    const element = document.getElementById(id);
-    if (!element) return;
+  const pathname = usePathname();
+  const router = useRouter();
 
-    element.scrollIntoView({
-      behavior: "smooth", //behaiour in the scroll 
-      block: "start", 
-    });
-  }, []);
+  const scrollTo = useCallback(
+    (id: string) => {
+      if (pathname === "/") {
+        // On home page — scroll directly
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      } else {
+        // On any other page — redirect to home with hash
+        router.push(`/#${id}`);
+      }
+    },
+    [pathname, router]
+  );
 
   return scrollTo;
 };
